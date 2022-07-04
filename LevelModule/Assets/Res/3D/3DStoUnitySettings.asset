@@ -15,11 +15,11 @@ MonoBehaviour:
   chosenFormat: 0
   modelExport: 0
   scaleFactor: 0.01
-  spawnModelsIntoScene: 1
+  spawnModelsIntoScene: 0
   spawnAtRandomPosition: 1
   ImporterSettings:
-    StartIndex: 0
-    EndIndex: 2
+    StartIndex: 2
+    EndIndex: 3
     ImportModel: 1
     ImportTextures: 1
     ImportMaterials: 1
@@ -162,6 +162,16 @@ MonoBehaviour:
     - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00052.bin"
     - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00053.bin"
     - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00054.bin"
+  - PokemonMergedBinary:
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01846.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01847.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01848.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01849.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01850.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01851.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01852.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01853.bin"
+    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01854.bin"
   - PokemonMergedBinary:
     - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00091.bin"
     - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00092.bin"
