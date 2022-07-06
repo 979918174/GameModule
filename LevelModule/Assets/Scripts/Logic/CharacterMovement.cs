@@ -19,19 +19,21 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            animator.SetBool("isRun", true);
-        }
-        else
-        {
-            animator.SetBool("isRun", false);
-        }
+        // if (Input.GetKey(KeyCode.W))
+        // {
+        //     animator.SetBool("isRun", true);
+        // }
+        // else
+        // {
+        //     animator.SetBool("isRun", false);
+        // }
         if (Input.GetKey(KeyCode.Space))
         {
             animator.SetTrigger("T_isAttack");
         }
+        
         MoveTypeA();
+        SwitchAnimation();
     }
     private void MoveTypeA()
     {
@@ -42,5 +44,10 @@ public class CharacterMovement : MonoBehaviour
         character.Move(move);
 
         transform.Rotate(Vector3.up, horizontal * RotateSpeed);
+    }
+
+    private void SwitchAnimation()
+    {
+        animator.SetFloat("Speed",Input.GetAxis("Vertical"));
     }
 }

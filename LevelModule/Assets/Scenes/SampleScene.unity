@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -264,6 +264,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &431007289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5646424019432744043, guid: 62e69c9ed47b54443bcd5a92a60f5607, type: 3}
+  m_PrefabInstance: {fileID: 801777043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &431007292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431007289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599f9c7f13c9ebe45a99891e9c594a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.4
+  RotateSpeed: 0.2
+--- !u!143 &431007293
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431007289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.8
+  m_Radius: 0.38
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.39, z: 0}
 --- !u!1 &465652088
 GameObject:
   m_ObjectHideFlags: 3
@@ -396,7 +433,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1876193877}
   m_Follow: {fileID: 1876193877}
   m_Lens:
-    FieldOfView: 65
+    FieldOfView: 66.5
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -435,6 +472,10 @@ PrefabInstance:
     - target: {fileID: 5646424019432744043, guid: 62e69c9ed47b54443bcd5a92a60f5607, type: 3}
       propertyPath: m_Name
       value: "\u5C0F\u706B\u9F99"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5646424019432744043, guid: 62e69c9ed47b54443bcd5a92a60f5607, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6933364395802537478, guid: 62e69c9ed47b54443bcd5a92a60f5607, type: 3}
       propertyPath: m_RootOrder
@@ -1041,6 +1082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u5999\u86D9\u79CD\u5B50"
       objectReference: {fileID: 0}
+    - target: {fileID: 8619359164285142086, guid: fdd61548586bc944480fbedcf64da652, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8903162023249792093, guid: fdd61548586bc944480fbedcf64da652, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.00003878625
@@ -1108,7 +1153,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 65
+  field of view: 66.5
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1243,7 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.4
-  RotateSpeed: 0.2
+  RotateSpeed: 0.1
 --- !u!4 &1876193877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7694581508877806545, guid: fdd61548586bc944480fbedcf64da652, type: 3}
