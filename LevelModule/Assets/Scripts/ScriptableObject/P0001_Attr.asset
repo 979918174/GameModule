@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262e0657b5bb7ba48b294fdcb43bbefa, type: 3}
-  m_Name: P0001
+  m_Script: {fileID: 11500000, guid: 3dfdf878a5b9bfd41b72204fd43ee82e, type: 3}
+  m_Name: P0001_Attr
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,6 +21,5 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  RoleModel: {fileID: 11400000, guid: 4780514e611cc1746acc9047c67e6ff8, type: 2}
-  NormalSkill: {fileID: 11400000, guid: 5d3aebec6c2bd2a4789c39273db8cd67, type: 2}
-  PokemonAttr: {fileID: 11400000, guid: fc2edad85fa32d242a98720cb5c2c306, type: 2}
+  ATK: 45
+  HP: 100

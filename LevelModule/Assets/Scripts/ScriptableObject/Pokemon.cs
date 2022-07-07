@@ -7,4 +7,5 @@ public class Pokemon : SerializedScriptableObject
 {
   public RoleModel RoleModel;
   public SkillConfig NormalSkill;
+  public PokemonAttr PokemonAttr;
 }
