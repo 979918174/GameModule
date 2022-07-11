@@ -5,14 +5,15 @@ using UnityEngine;
 namespace GameDemo.Character
 {
     /// <summary>
-    /// ç©å®¶çŠ¶æ€ç±»
+    /// Íæ¼Ò×´Ì¬Àà
     /// </summary>
-    public class PlayerStatus : CharacterStatus
+    public class EnemyStatus : CharacterStatus
     {
         public CharacterAnimationParameter CharacterAnimationParameters;
         public override void Death()
         {
             base.Death();
+            Destroy(gameObject, 10);
         }
     }
 }

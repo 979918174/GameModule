@@ -9,6 +9,7 @@ namespace GameDemo.Character
     /// <summary>
     /// 角色输入控制器。配合InputSystem
     /// </summary>
+    [RequireComponent(typeof(CharacterMotor),typeof(PlayerStatus))]
     public class CharacterInputController : MonoBehaviour
     {
         private InputAction_1 inputActions;
