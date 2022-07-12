@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace Common
@@ -15,13 +16,13 @@ namespace Common
         static ResourceManager()
         {
             //加载文件
-            string fileContent = GetConfigFile();
+            string fileContent = GetConfigFile("ConfigMap");
             //解析文件（string ----> Dictionary<string,stirng>）
             BuildMap(fileContent);
         }
-        public static string GetConfigFile()
+        public static string GetConfigFile(string fileName)
         {
-            string url = "file://" + Application.streamingAssetsPath + "/ConfigMap.txt";
+            string url = "file://" + Application.dataPath + "/StreamingAssets/" + fileName;
             WWW www = new WWW(url);
             while (true)
             {
@@ -33,7 +34,17 @@ namespace Common
         public static void BuildMap(string fileContent)
         {
             configMap = new Dictionary<string, string>();
-        
+            //字符串读取器，逐行读取字符串功能
+            using (StringReader reader = new StringReader(fileContent)) 
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    //解析
+                    string[] keyValue = line.Split('=');
+                    configMap.Add(keyValue[0], keyValue[1]);
+                }            
+            }//当程序退出using代码块，将自动调用reader.Dispose()方法
         }
 
         public static T Load<T>(string prefabName) where T : Object
