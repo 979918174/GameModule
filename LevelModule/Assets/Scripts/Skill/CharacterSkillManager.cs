@@ -45,9 +45,11 @@ namespace GameDemo.Skill
         public void GenerateSkill(SkillData data)
         {
             //创建技能
-            GameObject skillGo = Instantiate(data.skillprefab, transform.position, transform.rotation);
+            GameObject skillGo = GameObjectPool.Instance.CreateObject("Skill", data.skillprefab, transform.position, transform.rotation);
+            //GameObject skillGo = Instantiate(data.skillprefab, transform.position, transform.rotation);
             //销毁技能
-            Destroy(skillGo,10);
+            GameObjectPool.Instance.CollectObject(skillGo);
+            //Destroy(skillGo,10);
             //开启技能冷却
             StartCoroutine(CoolTimeDown(data));
         }
