@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Common
 {
+    /// <summary>
+    /// 脚本单例类 场景中唯一
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
    public class MonoSingleton<T> : MonoBehaviour where T: MonoSingleton<T>
     {
         //T 表示子类类型，约束为这类或者子类
@@ -28,7 +32,7 @@ namespace Common
                         instance.Init();
                     }
                 } 
-                return instance;
+                return instance; 
             }
         }
 
