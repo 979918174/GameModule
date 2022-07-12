@@ -1,3 +1,4 @@
+using Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,7 +6,7 @@ using UnityEngine;
 namespace GameDemo.Skill
 {
     /// <summary>
-    /// 技能管理器
+    /// 技能管理器:技能释放之前的事情
     /// </summary>
     public class CharacterSkillManager : MonoBehaviour
     {
@@ -21,10 +22,13 @@ namespace GameDemo.Skill
         public SkillData[] skillDatas;
         
         //初始化
+        /// <summary>
+        /// 资源映射表（代码生成）
+        /// 资源名称         资源完整路径
+        /// </summary>
         private void InitSkill(SkillData data)
         {
-            data.skillConfig = Resources.Load<SkillConfig>("Skill" + data.skillConfig);
-            data.skillScript = data.skillConfig.skillScript;
+            data.skillprefab = ResourceManager.Load<GameObject>(data.prefabName);
             data.owner = gameObject;
         }
 
@@ -41,7 +45,7 @@ namespace GameDemo.Skill
         public void GenerateSkill(SkillData data)
         {
             //创建技能
-            GameObject skillGo = Instantiate(data.skillScript, transform.position, transform.rotation);
+            GameObject skillGo = Instantiate(data.skillprefab, transform.position, transform.rotation);
             //销毁技能
             Destroy(skillGo,10);
             //开启技能冷却

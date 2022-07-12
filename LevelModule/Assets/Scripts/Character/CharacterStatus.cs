@@ -15,6 +15,13 @@ namespace GameDemo.Character
         public float MAXHP;
         [Tooltip("攻击力")]
         public float ATK;
+        [Tooltip("当前护盾值")]
+        public int GP;
+        [Tooltip("最大护盾值")]
+        public float MAXGP;
+        [Tooltip("属性")]
+        public Logic.Type type;
+
         public CharacterAnimationParameter CharacterAnimationParameters;
         public void Damage() 
         {
@@ -24,7 +31,7 @@ namespace GameDemo.Character
         //调用父类，执行子类
         public virtual void Death() 
         {
-            GetComponent<Animator>().SetBool(CharacterAnimationParameters.run, true);
+        
         }
     }
 }

@@ -9,7 +9,6 @@ namespace GameDemo.Character
     /// </summary>
     public class PlayerStatus : CharacterStatus
     {
-        public CharacterAnimationParameter CharacterAnimationParameters;
         public override void Death()
         {
             base.Death();

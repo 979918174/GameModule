@@ -19,14 +19,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKey(KeyCode.W))
-        // {
-        //     animator.SetBool("isRun", true);
-        // }
-        // else
-        // {
-        //     animator.SetBool("isRun", false);
-        // }
+      
         if (Input.GetKey(KeyCode.Space))
         {
             animator.SetTrigger("T_isAttack");
