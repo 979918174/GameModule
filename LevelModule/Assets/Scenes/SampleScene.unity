@@ -417,7 +417,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595218483}
-  m_LocalRotation: {x: 0.38747805, y: 0.000000027474135, z: -0.000000011547747, w: 0.92187893}
+  m_LocalRotation: {x: 0.38747802, y: -1.4988151e-15, z: 4.884201e-16, w: 0.92187893}
   m_LocalPosition: {x: 0, y: 11.57, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052200449}
-  m_LocalRotation: {x: 0.38747805, y: 0.000000027474135, z: -0.000000011547747, w: 0.92187893}
+  m_LocalRotation: {x: 0.38747802, y: -1.4988151e-15, z: 4.884201e-16, w: 0.92187893}
   m_LocalPosition: {x: 0, y: 11.57, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 1749028863}
   - component: {fileID: 1749028865}
   - component: {fileID: 1749028862}
+  - component: {fileID: 1749028866}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -730,8 +731,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208985c294f9d16499aecef1433c32d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
+  MAXHP: 0
+  ATK: 0
+  SP: 0
+  GP: 0
+  MAXGP: 0
+  type: 2
   CharacterAnimationParameters:
     run: run
+--- !u!114 &1749028866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749028860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf98f50dc809134ea93b68437a2aa9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDatas:
+  - skillID: 1002
+    skillConfig: {fileID: 0}
+    skillName: 
+    skillDesc: 
+    skillCoolDown: 0
+    coolDownRemain: 0
+    attackDistance: 0
+    attackAngle: 0
+    attackTargetTags:
+    - Enemy
+    attackTargets: []
+    costSP: 0
+    durationTime: 0
+    atkRatio: 0
+    atkInterval: 0
+    owner: {fileID: 0}
+    skillprefab: {fileID: 0}
+    prefabName: "\u5999\u86D9\u79CD\u5B50"
+    selectorType: 0
+    impactType:
+    - Damage
+    hitFXName: 
+    attackType: 0
+  - skillID: 1003
+    skillConfig: {fileID: 0}
+    skillName: 
+    skillDesc: 
+    skillCoolDown: 0
+    coolDownRemain: 0
+    attackDistance: 0
+    attackAngle: 0
+    attackTargetTags:
+    - Enemy
+    attackTargets: []
+    costSP: 0
+    durationTime: 0
+    atkRatio: 0
+    atkInterval: 0
+    owner: {fileID: 0}
+    skillprefab: {fileID: 0}
+    prefabName: "\u5999\u86D9\u79CD\u5B50"
+    selectorType: 0
+    impactType:
+    - Damage
+    hitFXName: 
+    attackType: 0
+  - skillID: 1004
+    skillConfig: {fileID: 0}
+    skillName: 
+    skillDesc: 
+    skillCoolDown: 0
+    coolDownRemain: 0
+    attackDistance: 0
+    attackAngle: 0
+    attackTargetTags:
+    - Enemy
+    attackTargets: []
+    costSP: 0
+    durationTime: 0
+    atkRatio: 0
+    atkInterval: 0
+    owner: {fileID: 0}
+    skillprefab: {fileID: 0}
+    prefabName: "\u5999\u86D9\u79CD\u5B50"
+    selectorType: 0
+    impactType:
+    - Damage
+    hitFXName: 
+    attackType: 0
 --- !u!1 &2102496277
 GameObject:
   m_ObjectHideFlags: 0

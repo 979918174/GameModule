@@ -2,6 +2,7 @@ using Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDemo.Character;
 using UnityEngine;
 namespace GameDemo.Skill
 {
@@ -17,9 +18,8 @@ namespace GameDemo.Skill
                 InitSkill(skillDatas[i]);
             }
         }
-        [SerializeReference]
         //技能列表
-        public SkillData[] skillDatas;
+        public SkillData[] skillDatas = new SkillData[3];
         
         //初始化
         /// <summary>
@@ -36,9 +36,18 @@ namespace GameDemo.Skill
         public SkillData PrePareSkill(int id)
         {
             //根据id查找技能
+            SkillData data = ArrayHelper.Find(skillDatas, s => s.skillID == id);
             //判断条件(不为空&&冷却)
+            int sp = GetComponent<CharacterStatus>().SP;
             //返回技能数据
-            return null;
+            if (data!=null&&data.coolDownRemain<=0&&data.costSP<=sp)
+            {
+                return data;
+            }
+            else
+            {
+                return null; 
+            }
         }
 
         //生成技能

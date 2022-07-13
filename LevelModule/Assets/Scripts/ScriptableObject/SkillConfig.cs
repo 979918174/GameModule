@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Logic;
+using Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 /// <summary>

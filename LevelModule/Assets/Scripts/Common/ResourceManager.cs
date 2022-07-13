@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Common
 {
@@ -16,7 +17,7 @@ namespace Common
         static ResourceManager()
         {
             //加载文件
-            string fileContent = GetConfigFile("ConfigMap");
+            string fileContent = GetTextFromStreamingAssets("ConfigMap.txt");
             //解析文件（string ----> Dictionary<string,stirng>）
             BuildMap(fileContent);
         }
@@ -42,6 +43,7 @@ namespace Common
                 {
                     //解析
                     string[] keyValue = line.Split('=');
+                    Debug.Log(keyValue[0]);
                     configMap.Add(keyValue[0], keyValue[1]);
                 }            
             }//当程序退出using代码块，将自动调用reader.Dispose()方法
@@ -51,6 +53,38 @@ namespace Common
         {
             string prefabPath = configMap[prefabName];
             return Resources.Load<T>(prefabPath);
+        }
+        
+        /// <summary>
+        ///读取StreamingAssets中的文件
+        /// </summary>
+        /// <param name="path">StreamingAssets下的文件路径</param>
+        /// <returns>读取到的字符串</returns>
+        public static string GetTextFromStreamingAssets(string path)
+        {
+            string localPath = "";
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                localPath = Application.streamingAssetsPath + "/" + path;
+            }
+            else
+            {
+                localPath = "file:///" + Application.streamingAssetsPath + "/" + path;
+            }
+            UnityWebRequest requrest = UnityWebRequest.Get(localPath);
+            var operation = requrest.SendWebRequest();
+            while (!operation.isDone)
+            { }
+            if (requrest.isNetworkError || requrest.isHttpError)
+            {
+                Debug.Log(requrest.error);
+                return "";
+            }
+            else
+            {
+                return requrest.downloadHandler.text;
+            }
+
         }
     }
 }

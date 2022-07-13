@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Common;
 using UnityEngine;
+using Type = System.Type;
+
 namespace GameDemo.Skill
 {
     /// <summary>
-    /// 技能释放器
+    /// 鎶�鑳介噴鏀惧櫒
     /// </summary>
     public class SkillDeployer : MonoBehaviour
     {
@@ -20,18 +24,18 @@ namespace GameDemo.Skill
                 skillData = value;
             }
         }
+        private IAttackSelector _selector;
+        private IImpactEffect[] _impactEffects;
 
-        //选区算法对象
+        //閫夊尯绠楁硶瀵硅薄
         //private IAttackSelector selector;
-        //效果算法对象
+        //鏁堟灉绠楁硶瀵硅薄
         //private IImpactEffect[] impactArray;
-        //创建算法对象
-        private void InitDeplopyer() 
-        { 
-
-            //选取
-          
-            //影响
+        //鍒涘缓绠楁硶瀵硅薄
+        private void InitDeplopyer()
+        {
+            DeployerConfigFactory.CreateAttackSelector(skillData);
+            DeployerConfigFactory.CreateImpactEffect(skillData);
         }
         public void CalculateTargets() 
         { 
@@ -39,8 +43,8 @@ namespace GameDemo.Skill
         public void ImpactTargets() 
         { 
         }
-        //执行算法对象
+        //鎵ц绠楁硶瀵硅薄
 
-        //释放方式
+        //閲婃斁鏂瑰紡
     }
 }

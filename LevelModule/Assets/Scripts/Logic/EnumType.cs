@@ -1,4 +1,4 @@
-﻿namespace Logic
+﻿namespace Common
 {
     public enum EnumType
     {
@@ -25,5 +25,15 @@
         Fire,
         Water,
         Grass
+    }
+    
+    public enum SelectorType
+    {
+        Sector,
+    }
+    
+    public enum SkillAttackType
+    {
+        Single,
     }
 }
