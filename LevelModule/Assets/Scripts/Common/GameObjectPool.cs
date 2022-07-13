@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Common
 {
+    public interface IResetable 
+    {
+        void onReset();
+    }
     /// <summary>
     /// 对象池
     /// </summary>
@@ -41,6 +45,11 @@ namespace Common
             go.transform.position = pos;
             go.transform.rotation = rotate;
             go.SetActive(true);
+            //遍历执行物体中所有需要重置的逻辑
+            foreach (var item in go.GetComponents<IResetable>())
+            {
+                item.onReset();
+            }
         }
 
         //添加对象

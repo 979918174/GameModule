@@ -36,7 +36,7 @@ namespace GameDemo.Skill
         /// <summary>技能预制对象</summary>
         public GameObject skillprefab;
 
-        /// <summary>技能预制对象</summary>
+        /// <summary>技能预制对象名字</summary>
         public string prefabName;
 
     }

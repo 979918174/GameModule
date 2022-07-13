@@ -17,7 +17,7 @@ namespace GameDemo.Skill
                 InitSkill(skillDatas[i]);
             }
         }
-
+        [SerializeReference]
         //技能列表
         public SkillData[] skillDatas;
         
@@ -45,8 +45,11 @@ namespace GameDemo.Skill
         public void GenerateSkill(SkillData data)
         {
             //创建技能
-            GameObject skillGo = GameObjectPool.Instance.CreateObject("Skill", data.skillprefab, transform.position, transform.rotation);
-            //GameObject skillGo = Instantiate(data.skillprefab, transform.position, transform.rotation);
+            GameObject skillGo = GameObjectPool.Instance.CreateObject(data.prefabName, data.skillprefab, transform.position, transform.rotation);
+            SkillDeployer skillDeployer = skillGo.GetComponent<SkillDeployer>();
+            //传递技能数据
+            skillDeployer.SkillData = data;//内部创建算法对象
+                //内部执行算法对象  
             //销毁技能
             GameObjectPool.Instance.CollectObject(skillGo);
             //Destroy(skillGo,10);
