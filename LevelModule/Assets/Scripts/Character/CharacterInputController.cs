@@ -40,7 +40,6 @@ namespace GameDemo.Character
         private void MovementOnstarted(InputAction.CallbackContext obj)
         {
             //播放动画
-            Debug.Log("2222");
             
             _animator.SetBool(_playerStatus.CharacterAnimationParameters.run,true);
         }
@@ -53,12 +52,13 @@ namespace GameDemo.Character
 
         private void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
+
             CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
             //调用攻击功能,技能管理器
             SkillData skillData = SkillManager.PrePareSkill(1002);
             if (skillData != null) //生成技能
                 SkillManager.GenerateSkill(skillData);
-            
+
         }
 
         private void MovementOncanceled(InputAction.CallbackContext obj)

@@ -12,7 +12,6 @@ namespace GameDemo.Skill
         public override void DeployerSkill()
         {
             CalculateTargets();
-
         }
     }
 }

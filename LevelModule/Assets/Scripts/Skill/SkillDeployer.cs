@@ -35,12 +35,16 @@ namespace GameDemo.Skill
         private void InitDeplopyer()
         {
             DeployerConfigFactory.CreateAttackSelector(skillData);
-            DeployerConfigFactory.CreateImpactEffect(skillData);
+            //DeployerConfigFactory.CreateImpactEffect(skillData);
         }
         //执行选区
         public void CalculateTargets() 
         {
             skillData.attackTargets = _selector.SelectTarget(skillData, transform);
+            foreach (var item in skillData.attackTargets)
+            {
+                print(item);
+            }
         }
         public void ImpactTargets() 
         { 

@@ -264,6 +264,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &400082663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400082665}
+  - component: {fileID: 400082664}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &400082664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400082663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197538b03904b3a49898e1d38823d9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  MAXHP: 0
+  ATK: 0
+  SP: 0
+  GP: 0
+  MAXGP: 0
+  type: 0
+  CharacterAnimationParameters:
+    run: run
+--- !u!4 &400082665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400082663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75195104, z: 4.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &465652088
 GameObject:
   m_ObjectHideFlags: 3
@@ -731,10 +783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208985c294f9d16499aecef1433c32d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 100
   MAXHP: 0
   ATK: 0
-  SP: 0
+  SP: 100
   GP: 0
   MAXGP: 0
   type: 2
@@ -757,16 +809,16 @@ MonoBehaviour:
     skillConfig: {fileID: 0}
     skillName: 
     skillDesc: 
-    skillCoolDown: 0
+    skillCoolDown: 1
     coolDownRemain: 0
-    attackDistance: 0
-    attackAngle: 0
+    attackDistance: 3
+    attackAngle: 360
     attackTargetTags:
     - Enemy
     attackTargets: []
     costSP: 0
-    durationTime: 0
-    atkRatio: 0
+    durationTime: 2
+    atkRatio: 1
     atkInterval: 0
     owner: {fileID: 0}
     skillprefab: {fileID: 0}
@@ -775,15 +827,15 @@ MonoBehaviour:
     impactType:
     - Damage
     hitFXName: 
-    attackType: 0
+    attackType: 1
   - skillID: 1003
     skillConfig: {fileID: 0}
     skillName: 
     skillDesc: 
     skillCoolDown: 0
     coolDownRemain: 0
-    attackDistance: 0
-    attackAngle: 0
+    attackDistance: 4.83
+    attackAngle: 2.02
     attackTargetTags:
     - Enemy
     attackTargets: []

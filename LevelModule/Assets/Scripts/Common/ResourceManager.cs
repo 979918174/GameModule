@@ -21,16 +21,6 @@ namespace Common
             //½âÎöÎÄ¼þ£¨string ----> Dictionary<string,stirng>£©
             BuildMap(fileContent);
         }
-        public static string GetConfigFile(string fileName)
-        {
-            string url = "file://" + Application.dataPath + "/StreamingAssets/" + fileName;
-            WWW www = new WWW(url);
-            while (true)
-            {
-                if (www.isDone)
-                    return www.text;
-            }
-        }
 
         public static void BuildMap(string fileContent)
         {
@@ -77,7 +67,6 @@ namespace Common
             { }
             if (requrest.isNetworkError || requrest.isHttpError)
             {
-                Debug.Log(requrest.error);
                 return "";
             }
             else

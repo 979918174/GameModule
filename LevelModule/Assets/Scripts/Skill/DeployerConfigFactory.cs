@@ -14,6 +14,7 @@ namespace GameDemo.Skill
         {
             string className = string.Format("GameDemo.Skill.{0}AttackSelector", data.selectorType);
             //ѡȡ
+            Debug.Log(className);
             return CreateObject<IAttackSelector>(className);
 
         }
