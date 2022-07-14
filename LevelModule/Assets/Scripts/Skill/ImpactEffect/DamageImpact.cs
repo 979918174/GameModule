@@ -9,13 +9,21 @@ namespace GameDemo.Skill
     /// </summary>
     public class DamageImpact : IImpactEffect
     {
+        private SkillData data;
         public void Execute(SkillDeployer deployer)
         {
-            foreach (var Target in deployer.SkillData.attackTargets)
+            data = deployer.SkillData;
+            deployer.StartCoroutine(RepeatDamage());
+        }
+        private IEnumerator RepeatDamage(SkillDeployer deployer)
+        {
+            float atkTime = 0;
+            do
             {
-                Target.GetComponent<CharacterStatus>().HP
-            }
+                yield return new WaitForSeconds(data.atkInterval);
+                atkTime += data.atkInterval;
+                deployer.CalculateTargets();//重新计算模板
+             } while (atkTime < data.durationTime);
         }
     }
-
 }
