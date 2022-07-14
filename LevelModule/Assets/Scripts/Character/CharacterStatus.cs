@@ -34,7 +34,7 @@ namespace GameDemo.Character
         //调用父类，执行子类
         public virtual void Death() 
         {
-        
+            GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.run,true);
         }
     }
 }

@@ -33,7 +33,6 @@ namespace Common
                 {
                     //解析
                     string[] keyValue = line.Split('=');
-                    Debug.Log(keyValue[0]);
                     configMap.Add(keyValue[0], keyValue[1]);
                 }            
             }//当程序退出using代码块，将自动调用reader.Dispose()方法

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
-  MAXHP: 0
+  MAXHP: 100
   ATK: 0
   SP: 0
   GP: 0
@@ -302,6 +302,12 @@ MonoBehaviour:
   type: 0
   CharacterAnimationParameters:
     run: run
+    dead: dead
+    walk: walk
+    attack01: T_attack01
+    attack02: T_attack02
+    attack03: T_attack03
+    attacked: attacked
 --- !u!4 &400082665
 Transform:
   m_ObjectHideFlags: 0
@@ -310,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400082663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75195104, z: 4.93}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -784,14 +790,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
-  MAXHP: 0
-  ATK: 0
+  MAXHP: 100
+  ATK: 5
   SP: 5
-  GP: 0
-  MAXGP: 0
+  GP: 5
+  MAXGP: 5
   type: 2
   CharacterAnimationParameters:
     run: run
+    dead: dead
+    walk: walk
+    attack01: T_attack01
+    attack02: T_attack02
+    attack03: T_attack03
+    attacked: attacked
 --- !u!114 &1749028866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,14 +830,15 @@ MonoBehaviour:
     attackTargets: []
     costSP: 1
     durationTime: 2
-    atkRatio: 1
-    atkInterval: 0
+    atkRatio: 2
+    atkInterval: 99
     owner: {fileID: 0}
     skillprefab: {fileID: 0}
     prefabName: SkillNormal_P001_Prefab
     selectorType: 0
     impactType:
     - CostSP
+    - Damage
     hitFXName: 
     attackType: 1
   - skillID: 1003
@@ -834,7 +847,7 @@ MonoBehaviour:
     skillDesc: 
     skillCoolDown: 0
     coolDownRemain: 0
-    attackDistance: 4.83
+    attackDistance: 10
     attackAngle: 2.02
     attackTargetTags:
     - Enemy
