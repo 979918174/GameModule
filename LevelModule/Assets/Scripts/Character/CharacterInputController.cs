@@ -17,6 +17,7 @@ namespace GameDemo.Character
         private CharacterMotor _characterMotor;
         private Animator _animator;
         private PlayerStatus _playerStatus;
+        private CharacterSkillSystem _skillSystem;
         public void Awake()
         {
             //查找组件InputSystem
@@ -24,6 +25,7 @@ namespace GameDemo.Character
             _characterMotor = GetComponent<CharacterMotor>();
             _animator = GetComponentInChildren<Animator>();
             _playerStatus = GetComponent<PlayerStatus>();
+            _skillSystem = GetComponent<CharacterSkillSystem>();
         }
 
         public void OnEnable()
@@ -52,13 +54,12 @@ namespace GameDemo.Character
 
         private void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
-
-            CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
+            _skillSystem.AttackUseSkill(1002);
+            /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
             //调用攻击功能,技能管理器
             SkillData skillData = SkillManager.PrePareSkill(1002);
             if (skillData != null) //生成技能
-                SkillManager.GenerateSkill(skillData);
-
+                SkillManager.GenerateSkill(skillData);*/
         }
 
         private void MovementOncanceled(InputAction.CallbackContext obj)

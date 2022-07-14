@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Common;
+using Type = Common.Type;
 
 namespace GameDemo.Character
 {
@@ -34,7 +35,15 @@ namespace GameDemo.Character
         //调用父类，执行子类
         public virtual void Death() 
         {
-            GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.run,true);
+            GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.dead,true);
+        }
+
+        protected void Update()
+        {
+            if (HP<=0)
+            {
+                Death();
+            }
         }
     }
 }

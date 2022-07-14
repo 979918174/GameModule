@@ -21,6 +21,7 @@ namespace GameDemo.Skill
             float atkTime = 0;
             do
             {
+                
                 OnceDamage();
                 yield return new WaitForSeconds(data.atkInterval);
                 atkTime += data.atkInterval;

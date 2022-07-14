@@ -15,16 +15,29 @@ namespace GameDemo.Skill
     {
 
         private CharacterSkillManager _characterSkillManager;
+        private Animator anim; 
         private void Start()
         {
             _characterSkillManager = GetComponent<CharacterSkillManager>();
+            anim = GetComponentInChildren<Animator>();
+            GetComponentInChildren<AnimatorEventBehaviour>().attackHandler += DeploySkill;
         }
 
-        //准备技能
-        //播放动画
-        //生成技能
+        private void DeploySkill()
+        {
+            _characterSkillManager.GenerateSkill(skill);
+        }
+
+        private SkillData skill;
+
         public void AttackUseSkill(int skillID)
         {
+            //准备技能
+            skill = _characterSkillManager.PrePareSkill(skillID);
+            //播放动画
+            if (skill == null) return;
+            anim.SetBool(skill.animationName,true);
+            //生成技能
         }
 
         public void UseRandomSkill()

@@ -12,7 +12,7 @@ namespace GameDemo.Character
         public override void Death()
         {
             base.Death();
-            Destroy(gameObject, 10);
+            Destroy(gameObject, 1.8f);
         }
     }
 }

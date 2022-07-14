@@ -77,6 +77,9 @@ namespace GameDemo.Skill
         
         /// <summary>攻击类型（单攻、群攻）</summary>
         public SkillAttackType attackType;
+        
+        ////// <summary>技能动画</summary>
+        public string animationName;
 
     }
 }
