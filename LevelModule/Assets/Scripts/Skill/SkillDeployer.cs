@@ -22,6 +22,7 @@ namespace GameDemo.Skill
             set 
             {
                 skillData = value;
+                InitDeplopyer();
             }
         }
         private IAttackSelector _selector;
@@ -40,7 +41,7 @@ namespace GameDemo.Skill
         //执行选区
         public void CalculateTargets() 
         {
-            InitDeplopyer();
+            
             skillData.attackTargets = _selector.SelectTarget(skillData, transform);
             foreach (var item in skillData.attackTargets)
             {
