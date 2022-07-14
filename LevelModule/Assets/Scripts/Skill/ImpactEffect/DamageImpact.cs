@@ -35,7 +35,10 @@ namespace GameDemo.Skill
             float damage = data.atkRatio * data.owner.GetComponent<CharacterStatus>().ATK;
             for (int i = 0; i < data.attackTargets.Length; i++)
             {
+                
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
+                Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
+                anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                 status.HP -= damage;
             }
         }

@@ -18,6 +18,7 @@ namespace GameDemo.Character
         private Animator _animator;
         private PlayerStatus _playerStatus;
         private CharacterSkillSystem _skillSystem;
+        private Vector3 moveDis = Vector3.zero;
         public void Awake()
         {
             //查找组件InputSystem
@@ -42,18 +43,21 @@ namespace GameDemo.Character
         private void MovementOnstarted(InputAction.CallbackContext obj)
         {
             //播放动画
-            
+            Debug.Log("22");
             _animator.SetBool(_playerStatus.CharacterAnimationParameters.run,true);
         }
 
         private void MovementOnperformed(InputAction.CallbackContext obj)
         {
+            Debug.Log("23");
             //调用马达移动功能
-            _characterMotor.Movement(new Vector3(obj.ReadValue<Vector2>().x,0,obj.ReadValue<Vector2>().y));
+            //_characterMotor.Movement(new Vector3(obj.ReadValue<Vector2>().x,0,obj.ReadValue<Vector2>().y));
+            moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
 
         private void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
+            moveDis = Vector3.zero;
             _skillSystem.AttackUseSkill(1002);
             /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
             //调用攻击功能,技能管理器
@@ -65,6 +69,8 @@ namespace GameDemo.Character
         private void MovementOncanceled(InputAction.CallbackContext obj)
         {
             //结束动画
+            Debug.Log("24");
+            moveDis = Vector3.zero;
             _animator.SetBool(_playerStatus.CharacterAnimationParameters.run,false);
         }
 
@@ -76,6 +82,11 @@ namespace GameDemo.Character
             inputActions.Player.Movement.performed -= MovementOnperformed;
             inputActions.Player.Movement.canceled -= MovementOncanceled;
             inputActions.Disable();
+        }
+
+        private void FixedUpdate()
+        {
+            _characterMotor.Movement(moveDis);
         }
     }
 }

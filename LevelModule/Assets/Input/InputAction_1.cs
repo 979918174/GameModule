@@ -38,12 +38,12 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""25e4566c-a732-417b-bf4c-21610876e192"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""initialStateCheck"": false
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -51,7 +51,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""f6937de2-5cf1-41ad-a97e-77804f459e42"",
                     ""path"": ""<Keyboard>/z"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack_01"",
@@ -62,7 +62,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""2210111d-410d-4633-92c0-c581018a928e"",
                     ""path"": ""<XInputController>/buttonWest"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack_01"",
