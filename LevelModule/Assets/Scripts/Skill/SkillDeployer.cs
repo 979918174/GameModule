@@ -25,31 +25,28 @@ namespace GameDemo.Skill
                 InitDeplopyer();
             }
         }
-        private IAttackSelector _selector;
-        private IImpactEffect[] _impactEffects;
-
         //选区算法对象
-        //private IAttackSelector selector;
+        private IAttackSelector _selector;
         //效果算法对象
-        //private IImpactEffect[] impactArray;
+        private IImpactEffect[] _impactEffects;
         //创建算法对象
         private void InitDeplopyer()
         {
             _selector = DeployerConfigFactory.CreateAttackSelector(skillData);
-            //DeployerConfigFactory.CreateImpactEffect(skillData);
+            _impactEffects = DeployerConfigFactory.CreateImpactEffect(skillData);
         }
         //执行选区
         public void CalculateTargets() 
         {
-            
             skillData.attackTargets = _selector.SelectTarget(skillData, transform);
-            foreach (var item in skillData.attackTargets)
-            {
-                print(item);
-            }
         }
+        //影响目标
         public void ImpactTargets() 
-        { 
+        {
+            for (int i = 0; i < _impactEffects.Length; i++)
+            {
+                _impactEffects[i].Execute(this);
+            }
         }
         //执行算法对象
 

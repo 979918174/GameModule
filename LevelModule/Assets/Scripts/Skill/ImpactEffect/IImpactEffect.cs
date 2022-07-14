@@ -9,6 +9,7 @@ namespace GameDemo.Skill
     /// </summary>
     public interface IImpactEffect
     {
-    
+        //ÉËº¦ÉúÃü
+        void Execute(SkillDeployer deployer);
     }
 }

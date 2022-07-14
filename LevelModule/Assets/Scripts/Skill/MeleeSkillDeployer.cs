@@ -11,7 +11,9 @@ namespace GameDemo.Skill
     {
         public override void DeployerSkill()
         {
+            transform.SetParent(SkillData.owner.transform);
             CalculateTargets();
+            ImpactTargets();
         }
     }
 }

@@ -786,7 +786,7 @@ MonoBehaviour:
   HP: 100
   MAXHP: 0
   ATK: 0
-  SP: 100
+  SP: 5
   GP: 0
   MAXGP: 0
   type: 2
@@ -811,12 +811,12 @@ MonoBehaviour:
     skillDesc: 
     skillCoolDown: 1
     coolDownRemain: 0
-    attackDistance: 3
+    attackDistance: 10
     attackAngle: 360
     attackTargetTags:
     - Enemy
     attackTargets: []
-    costSP: 0
+    costSP: 1
     durationTime: 2
     atkRatio: 1
     atkInterval: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
     prefabName: SkillNormal_P001_Prefab
     selectorType: 0
     impactType:
-    - Damage
+    - CostSP
     hitFXName: 
     attackType: 1
   - skillID: 1003
