@@ -34,12 +34,13 @@ namespace GameDemo.Skill
         //创建算法对象
         private void InitDeplopyer()
         {
-            DeployerConfigFactory.CreateAttackSelector(skillData);
+            _selector = DeployerConfigFactory.CreateAttackSelector(skillData);
             //DeployerConfigFactory.CreateImpactEffect(skillData);
         }
         //执行选区
         public void CalculateTargets() 
         {
+            InitDeplopyer();
             skillData.attackTargets = _selector.SelectTarget(skillData, transform);
             foreach (var item in skillData.attackTargets)
             {
