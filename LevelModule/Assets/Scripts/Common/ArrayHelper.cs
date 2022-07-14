@@ -45,6 +45,20 @@ namespace Common
                 return list.ToArray();
         }
 
+        public static T[] FindAll_L<T>(List<T> list, Func<T, bool> condition)
+        {
+
+            List<T> listTemp = new List<T>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (condition(list[i]))
+                {
+                    listTemp.Add(list[i]);
+                }
+            }
+            return listTemp.ToArray();
+        }
+
         /// <summary>
         /// 最大值
         /// </summary>

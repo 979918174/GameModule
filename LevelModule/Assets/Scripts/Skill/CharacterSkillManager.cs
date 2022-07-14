@@ -57,8 +57,9 @@ namespace GameDemo.Skill
             GameObject skillGo = GameObjectPool.Instance.CreateObject(data.prefabName, data.skillprefab, transform.position, transform.rotation);
             SkillDeployer skillDeployer = skillGo.GetComponent<SkillDeployer>();
             //传递技能数据
-            skillDeployer.SkillData = data;//内部创建算法对象
-                //内部执行算法对象  
+            skillDeployer.SkillData = data;
+            //内部创建算法对象
+            //内部执行算法对象  
             //销毁技能
             GameObjectPool.Instance.CollectObject(skillGo);
             //Destroy(skillGo,10);

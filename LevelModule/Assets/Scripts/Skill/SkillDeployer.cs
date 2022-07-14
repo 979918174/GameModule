@@ -39,6 +39,7 @@ namespace GameDemo.Skill
         }
         public void CalculateTargets() 
         { 
+
         }
         public void ImpactTargets() 
         { 
