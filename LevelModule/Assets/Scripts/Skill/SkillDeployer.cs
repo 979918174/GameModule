@@ -10,7 +10,7 @@ namespace GameDemo.Skill
     /// <summary>
     /// 技能释放器
     /// </summary>
-    public class SkillDeployer : MonoBehaviour
+    public abstract class SkillDeployer : MonoBehaviour
     {
         private SkillData skillData;
         public SkillData SkillData 
@@ -37,9 +37,10 @@ namespace GameDemo.Skill
             DeployerConfigFactory.CreateAttackSelector(skillData);
             DeployerConfigFactory.CreateImpactEffect(skillData);
         }
+        //执行选区
         public void CalculateTargets() 
-        { 
-
+        {
+            skillData.attackTargets = _selector.SelectTarget(skillData, transform);
         }
         public void ImpactTargets() 
         { 
@@ -47,5 +48,6 @@ namespace GameDemo.Skill
         //执行算法对象
 
         //释放方式
+        public abstract void DeployerSkill();
     }
 }

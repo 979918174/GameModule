@@ -35,5 +35,6 @@
     public enum SkillAttackType
     {
         Single,
+        Group
     }
 }

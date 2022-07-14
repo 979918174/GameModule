@@ -2,3 +2,4 @@
 小火龙=3D/Pokemon/小火龙/小火龙
 急冻鸟=3D/Pokemon/急冻鸟/急冻鸟
 杰尼龟=3D/Pokemon/杰尼龟/杰尼龟
+SkillNormal_P001_Prefab=Prefab/SkillPrefab/SkillNormal_P001_Prefab

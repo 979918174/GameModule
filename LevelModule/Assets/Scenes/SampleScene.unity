@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -417,7 +417,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595218483}
-  m_LocalRotation: {x: 0.38747802, y: -1.4988151e-15, z: 4.884201e-16, w: 0.92187893}
+  m_LocalRotation: {x: 0.38747805, y: 0.000000027474135, z: -0.000000011547747, w: 0.92187893}
   m_LocalPosition: {x: 0, y: 11.57, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052200449}
-  m_LocalRotation: {x: 0.38747802, y: -1.4988151e-15, z: 4.884201e-16, w: 0.92187893}
+  m_LocalRotation: {x: 0.38747805, y: 0.000000027474135, z: -0.000000011547747, w: 0.92187893}
   m_LocalPosition: {x: 0, y: 11.57, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -770,7 +770,7 @@ MonoBehaviour:
     atkInterval: 0
     owner: {fileID: 0}
     skillprefab: {fileID: 0}
-    prefabName: "\u5999\u86D9\u79CD\u5B50"
+    prefabName: SkillNormal_P001_Prefab
     selectorType: 0
     impactType:
     - Damage
@@ -793,7 +793,7 @@ MonoBehaviour:
     atkInterval: 0
     owner: {fileID: 0}
     skillprefab: {fileID: 0}
-    prefabName: "\u5999\u86D9\u79CD\u5B50"
+    prefabName: SkillNormal_P001_Prefab
     selectorType: 0
     impactType:
     - Damage
@@ -816,7 +816,7 @@ MonoBehaviour:
     atkInterval: 0
     owner: {fileID: 0}
     skillprefab: {fileID: 0}
-    prefabName: "\u5999\u86D9\u79CD\u5B50"
+    prefabName: SkillNormal_P001_Prefab
     selectorType: 0
     impactType:
     - Damage

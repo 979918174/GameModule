@@ -45,7 +45,7 @@ namespace Common
                 return list.ToArray();
         }
 
-        public static T[] FindAll_L<T>(List<T> list, Func<T, bool> condition)
+        public static List<T> FindAll_L<T>(List<T> list, Func<T, bool> condition)
         {
 
             List<T> listTemp = new List<T>();
@@ -56,7 +56,7 @@ namespace Common
                     listTemp.Add(list[i]);
                 }
             }
-            return listTemp.ToArray();
+            return listTemp;
         }
 
         /// <summary>
