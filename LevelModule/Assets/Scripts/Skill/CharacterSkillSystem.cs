@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Common;
 using Random = System.Random;
+using GameDemo.Character;
 
 namespace GameDemo.Skill
 {
@@ -38,8 +39,25 @@ namespace GameDemo.Skill
             if (skill == null) return;
             anim.SetBool(skill.animationName,true);
             //生成技能
+            //单攻
+            if (skill.attackType != SkillAttackType.Single) return;
+            //查找目标
+            Transform targetTF = SelectTarget();
+            //转向目标
+            transform.LookAt(targetTF);
+            //选中目标(特效)
+            var selected = targetTF.GetComponent<CharacterSelected>();
+            if (selected) selected.SetSelectedActive(true);
         }
-
+        private Transform SelectTarget() 
+        {
+            Transform[] target = new SectorAttackSelector().SelectTarget(skill, transform);
+            return target.Length != 0 ? target[0]:null;
+        }
+        private void SetSelectedActiveFx(bool state) 
+        { 
+        
+        }
         public void UseRandomSkill()
         {
             
