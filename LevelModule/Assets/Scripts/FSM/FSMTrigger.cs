@@ -20,6 +20,6 @@ namespace GameDemo.FSM
         public abstract void Init();
 
         //Âß¼­´¦Àí
-        public abstract bool HandleTrigger();
+        public abstract bool HandleTrigger(FSMBase fsm);
     }
 }

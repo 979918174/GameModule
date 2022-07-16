@@ -44,10 +44,25 @@ namespace GameDemo.FSM
             Triggers.Add(trigger);
         }
 
-        public virtual void EnterState() { }
+        public virtual void EnterState(FSMBase fsm) { }
 
-        public virtual void ActionState() { }
+        public virtual void ActionState(FSMBase fsm) { }
 
-        public virtual void ExitState() { }
+        public virtual void ExitState(FSMBase fsm) { }
+
+        //检测当前状态的条件是否满足
+        public void Reason(FSMBase fsm)
+        {
+            for (int i = 0; i < Triggers.Count; i++)
+            {
+                if (Triggers[i].HandleTrigger(fsm))
+                {
+                    //切换状态
+                    FSMStateID stateId = map[Triggers[i].TriggerID];
+                    fsm.ChangeActiveState(stateId);
+                    return;
+                }
+            }
+        }
     }
 }

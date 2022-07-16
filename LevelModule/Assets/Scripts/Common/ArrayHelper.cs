@@ -32,6 +32,18 @@ namespace Common
             }
             return default(T);
         }
+        public static T Find_L<T>(List<T> list,Func<T,bool> condition)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                //满足条件，调用者指定相应的条件
+                if (condition(list[i]))
+                {
+                    return list[i];
+                }
+            }
+            return default(T);
+        }
         
         public static T[] FindAll<T>(T[] array,Func<T,bool> condition) {
             List<T> list = new List<T>();
