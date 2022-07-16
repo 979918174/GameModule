@@ -9,7 +9,7 @@ namespace GameDemo.Character
     /// </summary>
     public class CharacterSelected : MonoBehaviour
     {
-        public GameObject selectedGO = new GameObject;
+        public GameObject selectedGO;
         [Tooltip("选择器游戏物体名称")]
         public string selectedName = "selected";
         [Tooltip("显示时间")]
@@ -17,6 +17,7 @@ namespace GameDemo.Character
         private void Start()
         {
             selectedGO = transform.Find(selectedName).gameObject;
+            Debug.Log(selectedGO);
         }
         private float hideTime;
         public void SetSelectedActive(bool state) 

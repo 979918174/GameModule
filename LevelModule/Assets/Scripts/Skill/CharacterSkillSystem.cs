@@ -46,17 +46,26 @@ namespace GameDemo.Skill
             //转向目标
             transform.LookAt(targetTF);
             //选中目标(特效)
-            var selected = targetTF.GetComponent<CharacterSelected>();
-            if (selected) selected.SetSelectedActive(true);
+            //先取消上次选中的物体
+            SetSelectedActiveFx(false);
+            selectedTarget = targetTF;
+            //选中A，在自动取消前，又选中B目标，则手动将A取消
+            SetSelectedActiveFx(true);
         }
+        //选中的目标
+        public Transform selectedTarget;
+
+        private void SetSelectedActiveFx(bool state)
+        {
+            if (selectedTarget == null) return;
+            var selected = selectedTarget.GetComponent<CharacterSelected>();
+            if (selected) selected.SetSelectedActive(state);
+        }
+
         private Transform SelectTarget() 
         {
             Transform[] target = new SectorAttackSelector().SelectTarget(skill, transform);
             return target.Length != 0 ? target[0]:null;
-        }
-        private void SetSelectedActiveFx(bool state) 
-        { 
-        
         }
         public void UseRandomSkill()
         {

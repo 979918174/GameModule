@@ -8,8 +8,15 @@ namespace GameDemo.Skill
     /// <summary>
     ///  Õ∑≈∆˜≈‰÷√π§≥ß
     /// </summary>
-    public class DeployerConfigFactory 
+    public class DeployerConfigFactory
     {
+        private static Dictionary<string, object> cache;
+
+        static DeployerConfigFactory()
+        {
+            cache = new Dictionary<string, object>();
+        }
+
         public static IAttackSelector CreateAttackSelector(SkillData data)
         {
             string className = string.Format("GameDemo.Skill.{0}AttackSelector", data.selectorType);
@@ -31,9 +38,14 @@ namespace GameDemo.Skill
         }
         private static T CreateObject<T>(string className) where T:class
         {
-            Type type = Type.GetType(className);
-            return Activator.CreateInstance(type) as T;
-        }
+           // if (!cache.ContainsKey(className))
+            //{
+                Type type = Type.GetType(className);
+                return Activator.CreateInstance(type) as T;
+                //cache.Add(className,instance);
+            //}
 
+            //return cache[className] as T;
+        }
     }
 }
