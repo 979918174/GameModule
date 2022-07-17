@@ -24,7 +24,7 @@ namespace Common
         private void Start()
         {
             anim = GetComponent<Animator>();
-            inputActions = GetComponentInParent<CharacterInputController>().inputActions;
+            //inputActions = GetComponentInParent<CharacterInputController>().inputActions;
             _characterInputController = GetComponentInParent<CharacterInputController>();
         }
     
@@ -42,9 +42,9 @@ namespace Common
             anim.SetBool(animParam,false);
             if (animParam == "attack01")
             {
-                inputActions.Player.Movement.started += _characterInputController.MovementOnstarted;
-                inputActions.Player.Movement.performed += _characterInputController.MovementOnperformed;
-                inputActions.Player.Movement.canceled += _characterInputController.MovementOncanceled;
+                GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.started += _characterInputController.MovementOnstarted;
+                GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.performed += _characterInputController.MovementOnperformed;
+                GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.canceled += _characterInputController.MovementOncanceled;
             }
         }
     }
