@@ -13,7 +13,7 @@ namespace GameDemo.Character
     [RequireComponent(typeof(CharacterMotor),typeof(PlayerStatus))]
     public class CharacterInputController : MonoBehaviour
     {
-        private InputAction_1 inputActions;
+        public InputAction_1 inputActions;
         private CharacterMotor _characterMotor;
         private Animator _animator;
         private PlayerStatus _playerStatus;
@@ -40,21 +40,23 @@ namespace GameDemo.Character
         }
 
         
-        private void MovementOnstarted(InputAction.CallbackContext obj)
+        public void MovementOnstarted(InputAction.CallbackContext obj)
         {
             //播放动画
             _animator.SetBool(_playerStatus.CharacterAnimationParameters.run,true);
         }
 
-        private void MovementOnperformed(InputAction.CallbackContext obj)
+        public void MovementOnperformed(InputAction.CallbackContext obj)
         {
             //调用马达移动功能
+            _animator.SetBool(_playerStatus.CharacterAnimationParameters.run,true);
             //_characterMotor.Movement(new Vector3(obj.ReadValue<Vector2>().x,0,obj.ReadValue<Vector2>().y));
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
 
-        private void Attack_01Onperformed(InputAction.CallbackContext obj)
+        public void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
+            //todo
             moveDis = Vector3.zero;
             _skillSystem.AttackUseSkill(1002);
             /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
@@ -64,7 +66,7 @@ namespace GameDemo.Character
                 SkillManager.GenerateSkill(skillData);*/
         }
 
-        private void MovementOncanceled(InputAction.CallbackContext obj)
+        public void MovementOncanceled(InputAction.CallbackContext obj)
         {
             //结束动画
             moveDis = Vector3.zero;
@@ -81,7 +83,7 @@ namespace GameDemo.Character
             inputActions.Disable();
         }
 
-        private void FixedUpdate()
+        public void FixedUpdate()
         {
             _characterMotor.Movement(moveDis);
         }

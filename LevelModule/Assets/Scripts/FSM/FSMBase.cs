@@ -47,7 +47,19 @@ namespace GameDemo.FSM
         {
             _states = new List<FSMState>();
             //创建状态对象
-            //Type Type = typeof()
+            /*for (int i = 0; i < UPPER; i++)
+            {
+                Type type = Type.GetType("GameDemo.FSM." + sId + "Trigger");
+                FSMState state = Activator.CreateInstance(type) as FSMState;
+                _states.Add(state);
+            }*/
+            IdleState idle = new IdleState();
+            idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
+            _states.Add(idle);
+            
+            DeadState dead = new DeadState();
+            _states.Add(dead);
+            
             //设置状态
         }
 

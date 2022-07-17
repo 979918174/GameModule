@@ -16,12 +16,16 @@ namespace GameDemo.Skill
     {
 
         private CharacterSkillManager _characterSkillManager;
-        private Animator anim; 
+        private Animator anim;
+        private InputAction_1 inputActions;
+        private CharacterStatus _characterStatus;
         private void Start()
         {
             _characterSkillManager = GetComponent<CharacterSkillManager>();
             anim = GetComponentInChildren<Animator>();
             GetComponentInChildren<AnimatorEventBehaviour>().attackHandler += DeploySkill;
+            inputActions = GetComponent<CharacterInputController>().inputActions;
+            _characterStatus = GetComponent<CharacterStatus>();
         }
 
         private void DeploySkill()
@@ -33,12 +37,18 @@ namespace GameDemo.Skill
 
         public void AttackUseSkill(int skillID)
         {
+            //todo 注销移动事件,关掉移动动画
+            inputActions.Player.Movement.started -= GetComponent<CharacterInputController>().MovementOnstarted;
+            inputActions.Player.Movement.performed -= GetComponent<CharacterInputController>().MovementOnperformed;
+            inputActions.Player.Movement.canceled -= GetComponent<CharacterInputController>().MovementOncanceled;
+            anim.SetBool(_characterStatus.CharacterAnimationParameters.run,false);
             //准备技能
             skill = _characterSkillManager.PrePareSkill(skillID);
             //播放动画
             if (skill == null) return;
             anim.SetBool(skill.animationName,true);
             //生成技能
+            
             //单攻
             if (skill.attackType != SkillAttackType.Single) return;
             //查找目标

@@ -17,12 +17,15 @@ namespace Common
         //程序
         //在脚本中播放动画，动画中需要执行逻辑，注册
         public event Action attackHandler;
-
         private Animator anim;
+        private InputAction_1 inputActions;
+        private CharacterInputController _characterInputController;
 
         private void Start()
         {
             anim = GetComponent<Animator>();
+            inputActions = GetComponentInParent<CharacterInputController>().inputActions;
+            _characterInputController = GetComponentInParent<CharacterInputController>();
         }
     
         //声明事件
@@ -37,6 +40,12 @@ namespace Common
         void OnCancelAnim(string animParam)
         {
             anim.SetBool(animParam,false);
+            if (animParam == "attack01")
+            {
+                inputActions.Player.Movement.started += _characterInputController.MovementOnstarted;
+                inputActions.Player.Movement.performed += _characterInputController.MovementOnperformed;
+                inputActions.Player.Movement.canceled += _characterInputController.MovementOncanceled;
+            }
         }
     }
 }
