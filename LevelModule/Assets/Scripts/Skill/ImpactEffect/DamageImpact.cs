@@ -53,14 +53,27 @@ namespace GameDemo.Skill
                     var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
                     textmp.text = (2*damage).ToString();
                 }
-                if (status.type == data.sesistanceType)
+                else
                 {
-                    Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
-                    anim.SetBool(status.CharacterAnimationParameters.attacked,true);
-                    status.HP -= damage/2;
-                    var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
-                    textmp.text = (damage/2).ToString();
+                    if (status.type == data.sesistanceType)
+                    {
+                        Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
+                        anim.SetBool(status.CharacterAnimationParameters.attacked,true);
+                        status.HP -= damage/2;
+                        var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
+                        textmp.text = (damage/2).ToString();
+                    }
+                    else
+                    {
+                        Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
+                        anim.SetBool(status.CharacterAnimationParameters.attacked,true);
+                        status.HP -= damage;
+                        var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
+                        textmp.text = (damage).ToString();
+                    }
                 }
+                
+                
                 
                 
                 //GameObject floatPoint = data.attackTargets[i].Find("floatPoint").gameObject;

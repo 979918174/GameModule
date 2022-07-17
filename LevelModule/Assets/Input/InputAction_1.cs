@@ -44,6 +44,24 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ChangeUP"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8185b59-b069-4015-82f4-c169358ec341"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""47e7f5ac-5fab-4747-902c-8bee0b9be59c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +152,50 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f50f2be7-2380-4a41-b077-2f4d3ffbf78f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUP"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9bda2d3-b787-4c56-a6ff-217e9f9e01af"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUP"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e4ba33b-643c-465e-8c13-59141ab32bf0"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6253947-fcf6-4214-a235-dc024d193044"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -144,6 +206,8 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Attack_01 = m_Player.FindAction("Attack_01", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_ChangeUP = m_Player.FindAction("ChangeUP", throwIfNotFound: true);
+        m_Player_ChangeDown = m_Player.FindAction("ChangeDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,12 +269,16 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Attack_01;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_ChangeUP;
+    private readonly InputAction m_Player_ChangeDown;
     public struct PlayerActions
     {
         private @InputAction_1 m_Wrapper;
         public PlayerActions(@InputAction_1 wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack_01 => m_Wrapper.m_Player_Attack_01;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @ChangeUP => m_Wrapper.m_Player_ChangeUP;
+        public InputAction @ChangeDown => m_Wrapper.m_Player_ChangeDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -226,6 +294,12 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @ChangeUP.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeUP;
+                @ChangeUP.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeUP;
+                @ChangeUP.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeUP;
+                @ChangeDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeDown;
+                @ChangeDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeDown;
+                @ChangeDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -236,6 +310,12 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @ChangeUP.started += instance.OnChangeUP;
+                @ChangeUP.performed += instance.OnChangeUP;
+                @ChangeUP.canceled += instance.OnChangeUP;
+                @ChangeDown.started += instance.OnChangeDown;
+                @ChangeDown.performed += instance.OnChangeDown;
+                @ChangeDown.canceled += instance.OnChangeDown;
             }
         }
     }
@@ -244,5 +324,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
     {
         void OnAttack_01(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnChangeUP(InputAction.CallbackContext context);
+        void OnChangeDown(InputAction.CallbackContext context);
     }
 }

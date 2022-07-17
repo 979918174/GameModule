@@ -46,9 +46,11 @@ namespace GameDemo.Character
             GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.breakdown,true);
         }
         
-        public virtual void CoverDP() 
+        public virtual void CoverDP()
         {
+            DP += 1;
             hideTime = Time.time + 1;
+            
         }
         
         public virtual void Cover() 
@@ -71,7 +73,7 @@ namespace GameDemo.Character
                 Break();
             }
 
-            if (!GetComponentInChildren<Animator>().GetBool(CharacterAnimationParameters.breakdown))
+            if (GetComponentInChildren<Animator>().GetBool(CharacterAnimationParameters.breakdown))
             {
                 if (hideTime <= Time.time)
                             {

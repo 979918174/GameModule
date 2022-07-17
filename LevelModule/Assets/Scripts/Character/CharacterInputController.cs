@@ -19,6 +19,7 @@ namespace GameDemo.Character
         private PlayerStatus _playerStatus;
         private CharacterSkillSystem _skillSystem;
         private Vector3 moveDis = Vector3.zero;
+        public PlayerManager playerManager;
         public void Awake()
         {
             //查找组件InputSystem
@@ -37,9 +38,22 @@ namespace GameDemo.Character
             inputActions.Player.Attack_01.performed += Attack_01Onperformed;
             inputActions.Player.Movement.performed += MovementOnperformed;
             inputActions.Player.Movement.canceled += MovementOncanceled;
+            inputActions.Player.ChangeUP.performed += ChangeUPOnperformed;
+            inputActions.Player.ChangeDown.performed += ChangeDownOnperformed;
         }
 
-        
+        private void ChangeDownOnperformed(InputAction.CallbackContext obj)
+        {
+            playerManager.GetComponent<PlayerManager>().ChangeCharacterDown();
+        }
+
+        private void ChangeUPOnperformed(InputAction.CallbackContext obj)
+        {
+            
+            playerManager.GetComponent<PlayerManager>().ChangeCharacterUp();
+        }
+
+
         public void MovementOnstarted(InputAction.CallbackContext obj)
         {
             //播放动画
@@ -80,6 +94,8 @@ namespace GameDemo.Character
             inputActions.Player.Attack_01.performed -= Attack_01Onperformed;
             inputActions.Player.Movement.performed -= MovementOnperformed;
             inputActions.Player.Movement.canceled -= MovementOncanceled;
+            inputActions.Player.ChangeUP.performed -= ChangeUPOnperformed;
+            inputActions.Player.ChangeDown.performed -= ChangeDownOnperformed;
             inputActions.Disable();
         }
 
