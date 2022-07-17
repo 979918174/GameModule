@@ -80,6 +80,15 @@ namespace GameDemo.Skill
         
         ////// <summary>技能动画</summary>
         public string animationName;
+        
+        ////// <summary>技能属性</summary>
+        public TypeID skillType;
+        
+        ////// <summary>克制属性</summary>
+        public TypeID weakType;
+        
+        ////// <summary>抵抗属性</summary>
+        public TypeID  sesistanceType;
 
     }
 }

@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDemo.Skill;
 using UnityEngine;
-using Type = Common.Type;
 
 namespace GameDemo.Character
 {
@@ -20,15 +20,18 @@ namespace GameDemo.Character
         [Tooltip("能量")]
         public int SP;
         [Tooltip("当前护盾值")]
-        public int GP;
+        public int DP;
         [Tooltip("最大护盾值")]
-        public float MAXGP;
+        public float MAXDP;
         [Tooltip("属性")]
-        public Type type;
+        public TypeID type;
 
         public CharacterAnimationParameter CharacterAnimationParameters;
+
+        private float hideTime;
         public void Damage() 
         {
+            
         
         }
 
@@ -37,6 +40,24 @@ namespace GameDemo.Character
         {
             GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.dead,true);
         }
+        
+        public virtual void Break() 
+        {
+            GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.breakdown,true);
+        }
+        
+        public virtual void CoverDP() 
+        {
+            hideTime = Time.time + 1;
+        }
+        
+        public virtual void Cover() 
+        {
+            if (DP == MAXDP)
+            {
+                GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.breakdown,false);
+            }
+        }
 
         protected void Update()
         {
@@ -44,6 +65,21 @@ namespace GameDemo.Character
             {
                 Death();
             }
+
+            if (MAXDP!=0&&DP<=0)
+            {
+                Break();
+            }
+
+            if (!GetComponentInChildren<Animator>().GetBool(CharacterAnimationParameters.breakdown))
+            {
+                if (hideTime <= Time.time)
+                            {
+                                CoverDP();
+                            }
+            }
+
+            Cover();
         }
     }
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameDemo.Character;
+using TMPro;
+using UnityEngine.UI;
+
 namespace GameDemo.Skill
 {
     /// <summary>
@@ -32,14 +35,35 @@ namespace GameDemo.Skill
         private void OnceDamage()
         {
             //伤害值 技能系数*攻击力
+            
             float damage = data.atkRatio * data.owner.GetComponent<CharacterStatus>().ATK;
             for (int i = 0; i < data.attackTargets.Length; i++)
             {
-                
+                //todo 修正属性伤害
+               
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
-                Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
-                anim.SetBool(status.CharacterAnimationParameters.attacked,true);
-                status.HP -= damage;
+                if (status.type == data.weakType)
+                {
+                    status.DP -= 1;
+                    Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
+                    anim.SetBool(status.CharacterAnimationParameters.attacked,true);
+                    status.HP -= damage*2;
+                    //飘字
+                
+                    var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
+                    textmp.text = (2*damage).ToString();
+                }
+                if (status.type == data.sesistanceType)
+                {
+                    Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
+                    anim.SetBool(status.CharacterAnimationParameters.attacked,true);
+                    status.HP -= damage/2;
+                    var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
+                    textmp.text = (damage/2).ToString();
+                }
+                
+                
+                //GameObject floatPoint = data.attackTargets[i].Find("floatPoint").gameObject;
             }
         }
     }

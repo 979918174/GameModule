@@ -20,12 +20,7 @@
         Passive
     }
 
-    public enum Type
-    {
-        Fire,
-        Water,
-        Grass
-    }
+    
     
     public enum SelectorType
     {
