@@ -2303,8 +2303,8 @@ MonoBehaviour:
     skillDesc: 
     skillCoolDown: 1
     coolDownRemain: 0
-    attackDistance: 5
-    attackAngle: 360
+    attackDistance: 7
+    attackAngle: 60
     attackTargetTags:
     - Enemy
     attackTargets: []
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
   rotateSpeed: 10
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!114 &519596672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,7 +2508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123
+  m_text: damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4037,7 +4037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123
+  m_text: damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4303,7 +4303,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123
+  m_text: damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4694,7 +4694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
   rotateSpeed: 10
-  moveSpeed: 4
+  moveSpeed: 8
 --- !u!114 &1749028863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4770,9 +4770,9 @@ MonoBehaviour:
     skillConfig: {fileID: 11400000, guid: 5d3aebec6c2bd2a4789c39273db8cd67, type: 2}
     skillName: 
     skillDesc: 
-    skillCoolDown: 1
+    skillCoolDown: 0
     coolDownRemain: 0
-    attackDistance: 5
+    attackDistance: 3
     attackAngle: 360
     attackTargetTags:
     - Enemy
@@ -5767,7 +5767,7 @@ MonoBehaviour:
     skillCoolDown: 1
     coolDownRemain: 0
     attackDistance: 5
-    attackAngle: 360
+    attackAngle: 120
     attackTargetTags:
     - Enemy
     attackTargets: []
