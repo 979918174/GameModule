@@ -28,17 +28,19 @@ namespace GameDemo.Character
         
         public void ChangeCharacterUp()
         {
+            Vector3 LastPostion = currentCharacter.transform.position;
+            Quaternion LastRotation = currentCharacter.transform.rotation;
             currentCharacter.SetActive(false);
+            
+
             if (index==MyCharacters.Length-1)
             {
                 currentCharacter = MyCharacters[0];
                 index = 0;
                 for (int i = 0; i < MyCharacters.Length; i++)
                 {
-                    if (MyCharacters[i] != currentCharacter)
-                    {
-                        MyCharacters[i].transform.position = currentCharacter.transform.position;
-                    }
+                    MyCharacters[i].transform.position = LastPostion;
+                    MyCharacters[i].transform.rotation = LastRotation;
                 }
             }
             else
@@ -47,10 +49,8 @@ namespace GameDemo.Character
                 index += 1;
                 for (int i = 0; i < MyCharacters.Length; i++)
                 {
-                    if (MyCharacters[i] != currentCharacter)
-                    {
-                        MyCharacters[i].transform.position = currentCharacter.transform.position;
-                    }
+                    MyCharacters[i].transform.position = LastPostion;
+                    MyCharacters[i].transform.rotation = LastRotation;
                 }
             }
             currentCharacter.SetActive(true);
@@ -58,16 +58,28 @@ namespace GameDemo.Character
         }
         public void ChangeCharacterDown()
         {
+            Vector3 LastPostion = currentCharacter.transform.position;
+            Quaternion LastRotation = currentCharacter.transform.rotation;
             currentCharacter.SetActive(false);
             if (index==0)
             {
                 currentCharacter = MyCharacters[MyCharacters.Length - 1];
                 index = MyCharacters.Length - 1;
+                for (int i = 0; i < MyCharacters.Length; i++)
+                {
+                    MyCharacters[i].transform.position = LastPostion;
+                    MyCharacters[i].transform.rotation = LastRotation;
+                }
             }
             else
             {
                 currentCharacter = MyCharacters[index - 1];
                 index -= 1;
+                for (int i = 0; i < MyCharacters.Length; i++)
+                {
+                    MyCharacters[i].transform.position = LastPostion;
+                    MyCharacters[i].transform.rotation = LastRotation;
+                }
             }
             currentCharacter.SetActive(true);
         }
