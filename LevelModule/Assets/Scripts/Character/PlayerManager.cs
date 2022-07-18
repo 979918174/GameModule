@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace GameDemo.Character
 {
@@ -12,6 +13,7 @@ namespace GameDemo.Character
     {
         public GameObject[] MyCharacters;
         public GameObject currentCharacter;
+        public GameObject CamaraConfig;
         public int index;
         public void Awake()
         {
@@ -22,6 +24,7 @@ namespace GameDemo.Character
             {
                 MyCharacters[i].SetActive(false);
             }
+            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
         }
 
@@ -53,6 +56,7 @@ namespace GameDemo.Character
                     MyCharacters[i].transform.rotation = LastRotation;
                 }
             }
+            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
 
         }
@@ -81,6 +85,7 @@ namespace GameDemo.Character
                     MyCharacters[i].transform.rotation = LastRotation;
                 }
             }
+            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
         }
     }
