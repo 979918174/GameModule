@@ -15,10 +15,10 @@ MonoBehaviour:
   chosenFormat: 0
   modelExport: 0
   scaleFactor: 0.01
-  spawnModelsIntoScene: 0
+  spawnModelsIntoScene: 1
   spawnAtRandomPosition: 1
   ImporterSettings:
-    StartIndex: 2
+    StartIndex: 3
     EndIndex: 6
     ImportModel: 1
     ImportTextures: 1

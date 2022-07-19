@@ -17,7 +17,6 @@ namespace GameDemo.Character
         private void Start()
         {
             selectedGO = transform.Find(selectedName).gameObject;
-            Debug.Log(selectedGO);
         }
         private float hideTime;
         public void SetSelectedActive(bool state) 

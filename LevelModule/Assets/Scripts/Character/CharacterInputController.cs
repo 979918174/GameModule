@@ -32,11 +32,19 @@ namespace GameDemo.Character
             inputActions.Enable();
             inputActions.Player.Movement.started += MovementOnstarted;
             inputActions.Player.Attack_01.performed += Attack_01Onperformed;
+            inputActions.Player.Attack_02.performed += Attack_02Onperformed;
             inputActions.Player.Movement.performed += MovementOnperformed;
             inputActions.Player.Movement.canceled += MovementOncanceled;
             inputActions.Player.ChangeUP.performed += ChangeUPOnperformed;
             inputActions.Player.ChangeUP.canceled += ChangeUPOncanceled;
             inputActions.Player.ChangeDown.performed += ChangeDownOnperformed;
+        }
+
+        private void Attack_02Onperformed(InputAction.CallbackContext obj)
+        {
+            //todo
+            moveDis = Vector3.zero;
+            currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
         }
 
         private void ChangeUPOncanceled(InputAction.CallbackContext obj)
@@ -95,6 +103,7 @@ namespace GameDemo.Character
             //注销事件
             inputActions.Player.Movement.started -= MovementOnstarted;
             inputActions.Player.Attack_01.performed -= Attack_01Onperformed;
+            inputActions.Player.Attack_02.performed -= Attack_02Onperformed;
             inputActions.Player.Movement.performed -= MovementOnperformed;
             inputActions.Player.Movement.canceled -= MovementOncanceled;
             inputActions.Player.ChangeUP.performed -= ChangeUPOnperformed;
