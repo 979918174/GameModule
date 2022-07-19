@@ -23,8 +23,9 @@ namespace Common
         }
 
         private void Update()
-        {
-            transform.position += new Vector3(0,upSpeed*Time.deltaTime,0);
+        { 
+            textMeshPro.rectTransform.position += new Vector3(0, upSpeed * Time.deltaTime, 0);
+            //transform.position += new Vector3(0,upSpeed*Time.deltaTime,0);
         }
 
         public void ShowUIDamage(float _amount)

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 900
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dff58d800cade4e498461f8f4e939374, type: 2}
-  m_sharedMaterial: {fileID: 4198171666679375665, guid: dff58d800cade4e498461f8f4e939374, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: baee8d90d601e364fba1f19330cc7571, type: 2}
+  m_sharedMaterial: {fileID: -1577872028224054211, guid: baee8d90d601e364fba1f19330cc7571, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 9220601165546257880}
   - component: {fileID: 4683052664787144524}
   m_Layer: 5
-  m_Name: DamageFloat_Weak
+  m_Name: DamageFloat_Sesistance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
