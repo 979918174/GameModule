@@ -19,7 +19,7 @@ MonoBehaviour:
   spawnAtRandomPosition: 1
   ImporterSettings:
     StartIndex: 2
-    EndIndex: 3
+    EndIndex: 6
     ImportModel: 1
     ImportTextures: 1
     ImportMaterials: 1
@@ -132,56 +132,88 @@ MonoBehaviour:
     InterpolateAnimations: 0
     RenameGeneratedAnimationFiles: 1
     importPaths:
+    - "Assets \u2044 Resources \u2044 3D \u2044 Bin3DS \u2044 "
     - "Assets \u2044 Res \u2044 3D \u2044 Bin3DS \u2044 "
     - "Assets \u2044 Bin3DS \u2044 "
     exportPaths:
+    - "Assets \u2044 Resources \u2044 3D \u2044 Pokemon \u2044 "
     - "Assets \u2044 Res \u2044 3D \u2044 Pokemon \u2044 "
     - "Assets \u2044 Exported \u2044 "
-    ImportPath: Assets/Res/3D/Bin3DS/
-    ExportPath: Assets/Res/3D/Pokemon/
+    ImportPath: Assets/Resources/3D/Bin3DS/
+    ExportPath: Assets/Resources/3D/Pokemon/
     SelectedImportIndex: 0
     SelectedExportIndex: 0
   mergedBinariesPreview:
   - PokemonMergedBinary:
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00001.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00002.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00003.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00004.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00005.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00006.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00007.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00008.bin"
-    - "Assets/Res/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00009.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03907.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03908.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03909.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03910.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03911.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03912.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03913.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03914.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03\\dec_03915.bin"
   - PokemonMergedBinary:
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00046.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00047.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00048.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00049.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00050.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00051.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00052.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00053.bin"
-    - "Assets/Res/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00054.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03916.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03917.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03918.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03919.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03920.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03921.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03922.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03923.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5927\u5634\u5A03maga\\dec_03924.bin"
   - PokemonMergedBinary:
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01846.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01847.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01848.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01849.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01850.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01851.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01852.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01853.bin"
-    - "Assets/Res/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01854.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00001.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00002.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00003.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00004.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00005.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00006.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00007.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00008.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5999\u86D9\u79CD\u5B50\\dec_00009.bin"
   - PokemonMergedBinary:
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00091.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00092.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00093.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00094.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00095.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00096.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00097.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00098.bin"
-    - "Assets/Res/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00099.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00235.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00236.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00237.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00238.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00239.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00240.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00241.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00242.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u62C9\u8FBE\\dec_00243.bin"
+  - PokemonMergedBinary:
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00046.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00047.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00048.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00049.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00050.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00051.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00052.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00053.bin"
+    - "Assets/Resources/3D/Bin3DS/\u5C0F\u706B\u9F99\\dec_00054.bin"
+  - PokemonMergedBinary:
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01846.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01847.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01848.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01849.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01850.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01851.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01852.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01853.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6025\u51BB\u9E1F\\dec_01854.bin"
+  - PokemonMergedBinary:
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00091.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00092.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00093.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00094.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00095.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00096.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00097.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00098.bin"
+    - "Assets/Resources/3D/Bin3DS/\u6770\u5C3C\u9F9F\\dec_00099.bin"
   customShaderSettings:
     bodyShader: {fileID: -6465566751694194690, guid: 707e4c837f2b58240a84f53df2eb732e, type: 3}
     irisShader: {fileID: -6465566751694194690, guid: e06474ae45c337c40975fcdd32084fcc, type: 3}
