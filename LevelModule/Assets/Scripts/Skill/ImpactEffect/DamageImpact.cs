@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Common;
 using UnityEngine;
 using GameDemo.Character;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine.UI;
 
 namespace GameDemo.Skill
@@ -24,7 +26,6 @@ namespace GameDemo.Skill
             float atkTime = 0;
             do
             {
-                
                 OnceDamage();
                 yield return new WaitForSeconds(data.atkInterval);
                 atkTime += data.atkInterval;
@@ -49,9 +50,10 @@ namespace GameDemo.Skill
                     anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                     status.HP -= damage*2;
                     //Æ®×Ö
-                
-                    var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
-                    textmp.text = (2*damage).ToString();
+                    DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
+                        data.attackTargets[i].transform.position, quaternion.identity).GetComponent<DamageFloat>();
+                    damageFloat.ShowUIDamage(damage*2);
+
                 }
                 else
                 {
@@ -60,16 +62,14 @@ namespace GameDemo.Skill
                         Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
                         anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                         status.HP -= damage/2;
-                        var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
-                        textmp.text = (damage/2).ToString();
+
                     }
                     else
                     {
                         Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
                         anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                         status.HP -= damage;
-                        var textmp = data.attackTargets[i].GetComponentInChildren<TextMeshPro>();
-                        textmp.text = (damage).ToString();
+
                     }
                 }
                 

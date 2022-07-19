@@ -62,6 +62,24 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack_02"",
+                    ""type"": ""Button"",
+                    ""id"": ""204be788-4676-41f2-96c1-7c0a8d969b27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""112be7a1-2ce9-4ed2-9056-231fd953d834"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +214,50 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""action"": ""ChangeDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51c2fb62-b48c-49fa-adad-024b6da059dd"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack_02"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df54d254-802f-402b-a485-8303efb9423c"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack_02"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aef15f3e-44c6-49fc-97cb-3dd939c773b1"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc50b27e-eb28-4416-9e0e-dd37b96e9951"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +270,8 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_ChangeUP = m_Player.FindAction("ChangeUP", throwIfNotFound: true);
         m_Player_ChangeDown = m_Player.FindAction("ChangeDown", throwIfNotFound: true);
+        m_Player_Attack_02 = m_Player.FindAction("Attack_02", throwIfNotFound: true);
+        m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +335,8 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_ChangeUP;
     private readonly InputAction m_Player_ChangeDown;
+    private readonly InputAction m_Player_Attack_02;
+    private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
         private @InputAction_1 m_Wrapper;
@@ -279,6 +345,8 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @ChangeUP => m_Wrapper.m_Player_ChangeUP;
         public InputAction @ChangeDown => m_Wrapper.m_Player_ChangeDown;
+        public InputAction @Attack_02 => m_Wrapper.m_Player_Attack_02;
+        public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -300,6 +368,12 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 @ChangeDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeDown;
                 @ChangeDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeDown;
                 @ChangeDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeDown;
+                @Attack_02.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack_02;
+                @Attack_02.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack_02;
+                @Attack_02.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack_02;
+                @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -316,6 +390,12 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 @ChangeDown.started += instance.OnChangeDown;
                 @ChangeDown.performed += instance.OnChangeDown;
                 @ChangeDown.canceled += instance.OnChangeDown;
+                @Attack_02.started += instance.OnAttack_02;
+                @Attack_02.performed += instance.OnAttack_02;
+                @Attack_02.canceled += instance.OnAttack_02;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
             }
         }
     }
@@ -326,5 +406,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnChangeUP(InputAction.CallbackContext context);
         void OnChangeDown(InputAction.CallbackContext context);
+        void OnAttack_02(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
 }

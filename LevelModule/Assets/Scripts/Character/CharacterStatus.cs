@@ -25,6 +25,10 @@ namespace GameDemo.Character
         public float MAXDP;
         [Tooltip("属性")]
         public TypeID type;
+        [Tooltip("旋转速度")]
+        public float rotateSpeed;
+        [Tooltip("移动速度")]
+        public float moveSpeed;
 
         public CharacterAnimationParameter CharacterAnimationParameters;
 

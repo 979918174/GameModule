@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Common;
 
 namespace GameDemo.Character
 {
@@ -15,8 +16,13 @@ namespace GameDemo.Character
         public GameObject currentCharacter;
         public GameObject CamaraConfig;
         public int index;
+        public CharacterInputController inputController;
+        public GameObject damageCanva_weak;
+        public GameObject damageCanva_normal;
+        public GameObject damageCanva_sesistance;
         public void Awake()
         {
+            inputController = GetComponent<CharacterInputController>();
             MyCharacters = GameObject.FindGameObjectsWithTag("Player");
             currentCharacter = MyCharacters[0];
             index = 0;
@@ -26,6 +32,7 @@ namespace GameDemo.Character
             }
             CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
+            inputController.currentPlayer = currentCharacter;
         }
 
         
@@ -34,6 +41,7 @@ namespace GameDemo.Character
             Vector3 LastPostion = currentCharacter.transform.position;
             Quaternion LastRotation = currentCharacter.transform.rotation;
             currentCharacter.SetActive(false);
+            
             
 
             if (index==MyCharacters.Length-1)
@@ -56,6 +64,7 @@ namespace GameDemo.Character
                     MyCharacters[i].transform.rotation = LastRotation;
                 }
             }
+            inputController.currentPlayer = currentCharacter;
             CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
 
@@ -85,6 +94,7 @@ namespace GameDemo.Character
                     MyCharacters[i].transform.rotation = LastRotation;
                 }
             }
+            inputController.currentPlayer = currentCharacter;
             CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
         }

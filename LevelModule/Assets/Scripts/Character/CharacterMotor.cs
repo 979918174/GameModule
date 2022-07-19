@@ -16,6 +16,7 @@ namespace GameDemo.Character
         public float rotateSpeed = 20;
         [Tooltip("移动速度")]
         public float moveSpeed = 2;
+        
         private void Start()
         {
             //controller = GetComponent<CharacterController>();
@@ -27,13 +28,13 @@ namespace GameDemo.Character
             //插值
             if (direction == Vector3.zero) return;
             Quaternion LookDir = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, LookDir, rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, LookDir, GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().rotateSpeed * Time.deltaTime);
         }
         //移动
         public void Movement(Vector3 direction)
         {
             LookAtTarget(direction);
-            rigidbody.velocity = direction.normalized * moveSpeed;
+            rigidbody.velocity = direction.normalized * GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().moveSpeed;
             //Vector3 forward = transform.forward;
             //forward.y = -1;
             //controller.Move(transform.forward * Time.deltaTime * moveSpeed);
