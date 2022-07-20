@@ -40,7 +40,7 @@ namespace Common
         void OnCancelAnim(string animParam)
         {
             anim.SetBool(animParam,false);
-            if (animParam == "attack01")
+            if (animParam == "attack01"|| animParam == "attack02")
             {
                 GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.started += _characterInputController.MovementOnstarted;
                 GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.performed += _characterInputController.MovementOnperformed;

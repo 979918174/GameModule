@@ -69,6 +69,7 @@ namespace GameDemo.Character
         {
             //播放动画
             currentPlayer.GetComponentInChildren<Animator>().SetBool(currentPlayer.GetComponent<PlayerStatus>().CharacterAnimationParameters.run,true);
+            Debug.Log("MovementOnstarted");
         }
 
         public void MovementOnperformed(InputAction.CallbackContext obj)

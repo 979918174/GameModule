@@ -249,4 +249,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 9220601165217713928}
   LifeTimer: 1
-  upSpeed: 3
+  upSpeed: 60
