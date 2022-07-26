@@ -14,6 +14,9 @@ namespace Common
     {
 
         public TextMeshProUGUI textMeshPro;
+        public RectTransform rectTrans;
+        public Transform WorldPosition;
+        public Vector2 screenPos;
         public float LifeTimer;
         public float upSpeed;
 
@@ -24,7 +27,9 @@ namespace Common
 
         private void Update()
         { 
-            textMeshPro.rectTransform.position += new Vector3(0, upSpeed * Time.deltaTime, 0);
+            //textMeshPro.rectTransform.position += new Vector3(0, upSpeed * Time.deltaTime, 0);
+            screenPos = Camera.main.WorldToScreenPoint(WorldPosition.position);
+            rectTrans.position = screenPos;
             //transform.position += new Vector3(0,upSpeed*Time.deltaTime,0);
         }
 

@@ -51,8 +51,8 @@ namespace GameDemo.Skill
                     status.HP -= damage*2;
                     //Æ®×Ö
                     DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
-                    data.attackTargets[i].transform.position, quaternion.identity).GetComponent<DamageFloat>();
-                    damageFloat.textMeshPro.rectTransform.position = Camera.main.WorldToScreenPoint(data.attackTargets[i].transform.position + new Vector3(1, 0, 1));
+                    data.attackTargets[i].transform.position, quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
+                    //damageFloat.textMeshPro.rectTransform.position = Camera.main.WorldToScreenPoint(data.attackTargets[i].transform.position + new Vector3(1, 0, 1));
                     damageFloat.ShowUIDamage(damage*2);
 
 
