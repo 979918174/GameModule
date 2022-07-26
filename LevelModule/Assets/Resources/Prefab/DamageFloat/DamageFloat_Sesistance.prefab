@@ -248,5 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 9220601165217713928}
+  rectTrans: {fileID: 0}
+  WorldTransform: {fileID: 0}
+  screenPos: {x: 0, y: 0}
   LifeTimer: 0.5
-  upSpeed: 1

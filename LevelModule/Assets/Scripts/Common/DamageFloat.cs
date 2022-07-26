@@ -15,22 +15,23 @@ namespace Common
 
         public TextMeshProUGUI textMeshPro;
         public RectTransform rectTrans;
-        public Transform WorldPosition;
+        public Transform WorldTransform;
         public Vector2 screenPos;
         public float LifeTimer;
-        public float upSpeed;
 
         private void Start()
         {
-            Destroy(gameObject,LifeTimer);
+            Destroy(gameObject, LifeTimer);       
         }
 
         private void Update()
-        { 
-            //textMeshPro.rectTransform.position += new Vector3(0, upSpeed * Time.deltaTime, 0);
-            screenPos = Camera.main.WorldToScreenPoint(WorldPosition.position);
-            rectTrans.position = screenPos;
-            //transform.position += new Vector3(0,upSpeed*Time.deltaTime,0);
+        {
+            if (WorldTransform != null) 
+            {
+                
+                screenPos = Camera.main.WorldToScreenPoint(WorldTransform.position);
+                textMeshPro.rectTransform.position = screenPos;
+            }
         }
 
         public void ShowUIDamage(float _amount)
