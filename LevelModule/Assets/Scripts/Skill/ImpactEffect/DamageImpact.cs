@@ -6,6 +6,7 @@ using GameDemo.Character;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine.UI;
+using Cinemachine; 
 
 namespace GameDemo.Skill
 {
@@ -81,11 +82,15 @@ namespace GameDemo.Skill
                         damageFloat.ShowUIDamage(damage);
 
                     }
+                    
+
                 }
-                
-                
-                
-                
+                //ΥπΖΑ
+                data.owner.GetComponentInParent<CinemachineImpulseSource>().GenerateImpulse();
+
+
+
+
                 //GameObject floatPoint = data.attackTargets[i].Find("floatPoint").gameObject;
             }
         }
