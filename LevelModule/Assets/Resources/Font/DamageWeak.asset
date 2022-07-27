@@ -56,7 +56,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 2_shuzi Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: BEVEL_ON UNDERLAY_ON
+  m_ShaderKeywords: UNDERLAY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -141,7 +141,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1.2862746, g: 1.2862746, b: 1.2862746, a: 1}
+    - _FaceColor: {r: 1, g: 0.7185301, b: 0, a: 1}
     - _GlowColor: {r: 0, g: 0, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -160,11 +160,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: 2_shuzi SDF
+  m_Name: DamageWeak
   m_EditorClassIdentifier: 
-  hashCode: -357349695
+  hashCode: 1240898515
   material: {fileID: -1508694100099748999}
-  materialHashCode: -857707455
+  materialHashCode: 437404435
   m_Version: 1.1.0
   m_SourceFontFileGUID: 3d0eec15314c125478156f10e5c1ed60
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 3d0eec15314c125478156f10e5c1ed60, type: 3}
@@ -234,6 +234,20 @@ MonoBehaviour:
       m_Height: 69
     m_Scale: 1
     m_AtlasIndex: 0
+  - m_Index: 20
+    m_Metrics:
+      m_Width: 45
+      m_Height: 68.046875
+      m_HorizontalBearingX: 5.484375
+      m_HorizontalBearingY: 68.046875
+      m_HorizontalAdvance: 56.0625
+    m_GlyphRect:
+      m_X: 338
+      m_Y: 10
+      m_Width: 46
+      m_Height: 69
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 23
     m_Metrics:
       m_Width: 45.171875
@@ -290,20 +304,6 @@ MonoBehaviour:
       m_Height: 13
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 20
-    m_Metrics:
-      m_Width: 45
-      m_Height: 68.046875
-      m_HorizontalBearingX: 5.484375
-      m_HorizontalBearingY: 68.046875
-      m_HorizontalAdvance: 56.0625
-    m_GlyphRect:
-      m_X: 338
-      m_Y: 10
-      m_Width: 46
-      m_Height: 69
-    m_Scale: 1
-    m_AtlasIndex: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 48
@@ -316,6 +316,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 50
     m_GlyphIndex: 19
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 51
+    m_GlyphIndex: 20
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 54
@@ -332,10 +336,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 256
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 51
-    m_GlyphIndex: 20
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -7208435177659594510}

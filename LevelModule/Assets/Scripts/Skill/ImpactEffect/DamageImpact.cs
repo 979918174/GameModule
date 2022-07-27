@@ -45,15 +45,16 @@ namespace GameDemo.Skill
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
                 if (status.type == data.weakType)
                 {
+                    //»¤¶ÜÉËº¦
                     status.DP -= 1;
+                    //ÊÜ»÷¶¯»­
                     Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
                     anim.SetBool(status.CharacterAnimationParameters.attacked,true);
+                    //ÉËº¦
                     status.HP -= damage*2;
                     //Æ®×Ö
                     DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
-                    data.attackTargets[i].transform.position, quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
-                    damageFloat.WorldTransform = data.attackTargets[i];
-                    damageFloat.textMeshPro.rectTransform.position = Camera.main.WorldToScreenPoint(data.attackTargets[i].transform.position);
+                    data.attackTargets[i].transform.position+new Vector3(UnityEngine.Random.Range(-0.5f,0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                     damageFloat.ShowUIDamage(damage*2);
                 }
                 else
@@ -63,11 +64,9 @@ namespace GameDemo.Skill
                         Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
                         anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                         status.HP -= damage/2;
-
-                        DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
-                        data.attackTargets[i].transform.position, quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
-                        damageFloat.WorldTransform = data.attackTargets[i];
-                        damageFloat.textMeshPro.rectTransform.position = Camera.main.WorldToScreenPoint(data.attackTargets[i].transform.position);
+                        //Æ®×Ö
+                        DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_sesistance,
+                        data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                         damageFloat.ShowUIDamage(damage / 2);
 
                     }
@@ -76,11 +75,9 @@ namespace GameDemo.Skill
                         Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
                         anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                         status.HP -= damage;
-
-                        DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
-                        data.attackTargets[i].transform.position, quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
-                        damageFloat.WorldTransform = data.attackTargets[i];
-                        damageFloat.textMeshPro.rectTransform.position = Camera.main.WorldToScreenPoint(data.attackTargets[i].transform.position);
+                        //Æ®×Ö
+                        DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_normal,
+                        data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                         damageFloat.ShowUIDamage(damage);
 
                     }
