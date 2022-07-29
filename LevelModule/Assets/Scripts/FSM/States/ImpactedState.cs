@@ -7,11 +7,11 @@ namespace GameDemo.FSM
     /// <summary>
     /// 
     /// </summary>
-    public class IdleState : FSMState
+    public class ImpactedState : FSMState
     {
         public override void Init()
         {
-            StateID = FSMStateID.Idle;
+            StateID = FSMStateID.Impacted;
         }
 
         public override void EnterState(FSMBase fsm)

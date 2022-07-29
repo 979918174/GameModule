@@ -1,23 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace GameDemo.FSM
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class IdleState : FSMState
+    public class Attacking_MoveState : FSMState
     {
         public override void Init()
         {
-            StateID = FSMStateID.Idle;
+            StateID = FSMStateID.Attacking_Move;
         }
 
         public override void EnterState(FSMBase fsm)
         {
             base.EnterState(fsm);
-            //²¥·Å¶¯»­
         }
 
         public override void ExitState(FSMBase fsm)
@@ -25,4 +20,5 @@ namespace GameDemo.FSM
             base.ExitState(fsm);
         }
     }
+
 }

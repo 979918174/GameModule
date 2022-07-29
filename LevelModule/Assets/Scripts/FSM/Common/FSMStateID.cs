@@ -13,8 +13,11 @@ namespace GameDemo.FSM
         Default,
         Dead,
         Idle,
-        Pursuit,
-        Attacking,
-        Patrolling
+        Move,
+        Attacking_Stand,
+        Attacking_Move,
+        Changing,
+        BreakDown,
+        Impacted
     }
 }

@@ -7,11 +7,11 @@ namespace GameDemo.FSM
     /// <summary>
     /// 
     /// </summary>
-    public class IdleState : FSMState
+    public class BreakDownState : FSMState
     {
         public override void Init()
         {
-            StateID = FSMStateID.Idle;
+            StateID = FSMStateID.BreakDown;
         }
 
         public override void EnterState(FSMBase fsm)
@@ -23,6 +23,7 @@ namespace GameDemo.FSM
         public override void ExitState(FSMBase fsm)
         {
             base.ExitState(fsm);
+
         }
     }
 }
