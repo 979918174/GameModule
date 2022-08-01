@@ -80,6 +80,15 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpeedUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8779c15-5825-4043-8311-4a9156a13bdc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,17 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92832ef3-cbee-4e01-afb4-5136c41ab24c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpeedUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -272,6 +292,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         m_Player_ChangeDown = m_Player.FindAction("ChangeDown", throwIfNotFound: true);
         m_Player_Attack_02 = m_Player.FindAction("Attack_02", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
+        m_Player_SpeedUp = m_Player.FindAction("SpeedUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +358,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ChangeDown;
     private readonly InputAction m_Player_Attack_02;
     private readonly InputAction m_Player_Run;
+    private readonly InputAction m_Player_SpeedUp;
     public struct PlayerActions
     {
         private @InputAction_1 m_Wrapper;
@@ -347,6 +369,7 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         public InputAction @ChangeDown => m_Wrapper.m_Player_ChangeDown;
         public InputAction @Attack_02 => m_Wrapper.m_Player_Attack_02;
         public InputAction @Run => m_Wrapper.m_Player_Run;
+        public InputAction @SpeedUp => m_Wrapper.m_Player_SpeedUp;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -374,6 +397,9 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 @Run.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @Run.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
                 @Run.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRun;
+                @SpeedUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeedUp;
+                @SpeedUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeedUp;
+                @SpeedUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeedUp;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -396,6 +422,9 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
                 @Run.started += instance.OnRun;
                 @Run.performed += instance.OnRun;
                 @Run.canceled += instance.OnRun;
+                @SpeedUp.started += instance.OnSpeedUp;
+                @SpeedUp.performed += instance.OnSpeedUp;
+                @SpeedUp.canceled += instance.OnSpeedUp;
             }
         }
     }
@@ -408,5 +437,6 @@ public partial class @InputAction_1 : IInputActionCollection2, IDisposable
         void OnChangeDown(InputAction.CallbackContext context);
         void OnAttack_02(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnSpeedUp(InputAction.CallbackContext context);
     }
 }

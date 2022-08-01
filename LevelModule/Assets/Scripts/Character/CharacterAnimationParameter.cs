@@ -20,5 +20,6 @@ namespace GameDemo.Character
         public string attacked = "attacked";
         public string idle = "idle";
         public string breakdown = "breakdown";
+        public string Speed = "speed";
     }
 }

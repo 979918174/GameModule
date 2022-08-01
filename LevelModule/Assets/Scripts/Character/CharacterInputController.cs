@@ -76,7 +76,6 @@ namespace GameDemo.Character
         {
             //调用马达移动功能
             currentPlayer.GetComponentInChildren<Animator>().SetBool(currentPlayer.GetComponent<PlayerStatus>().CharacterAnimationParameters.run,true);
-            //_characterMotor.Movement(new Vector3(obj.ReadValue<Vector2>().x,0,obj.ReadValue<Vector2>().y));
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
 
