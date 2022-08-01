@@ -30,14 +30,36 @@ namespace GameDemo.Character
         {
             //注册事件
             inputActions.Enable();
+            //移动键开始
             inputActions.Player.Movement.started += MovementOnstarted;
+            //攻击键01持续
             inputActions.Player.Attack_01.performed += Attack_01Onperformed;
+            //攻击键02持续
             inputActions.Player.Attack_02.performed += Attack_02Onperformed;
+            //移动键持续
             inputActions.Player.Movement.performed += MovementOnperformed;
+            //移动键取消
             inputActions.Player.Movement.canceled += MovementOncanceled;
+            //交换键上持续
             inputActions.Player.ChangeUP.performed += ChangeUPOnperformed;
+            //交换键上取消
             inputActions.Player.ChangeUP.canceled += ChangeUPOncanceled;
+            //交换键下取消
             inputActions.Player.ChangeDown.performed += ChangeDownOnperformed;
+            //加速键开始
+            inputActions.Player.SpeedUp.started += SpeedUpOnstarted;
+            //加速键取消
+            inputActions.Player.SpeedUp.canceled += SpeedUpOncanceled;
+        }
+
+        private void SpeedUpOncanceled(InputAction.CallbackContext obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SpeedUpOnstarted(InputAction.CallbackContext obj)
+        {
+            throw new NotImplementedException();
         }
 
         private void Attack_02Onperformed(InputAction.CallbackContext obj)
@@ -108,6 +130,8 @@ namespace GameDemo.Character
             inputActions.Player.Movement.canceled -= MovementOncanceled;
             inputActions.Player.ChangeUP.performed -= ChangeUPOnperformed;
             inputActions.Player.ChangeDown.performed -= ChangeDownOnperformed;
+            inputActions.Player.SpeedUp.started -= SpeedUpOnstarted;
+            inputActions.Player.SpeedUp.canceled -= SpeedUpOncanceled;
             inputActions.Disable();
         }
 
