@@ -16,6 +16,8 @@ namespace GameDemo.Character
         public float rotateSpeed = 20;
         [Tooltip("移动速度")]
         public float moveSpeed = 2;
+        [Tooltip("加速倍率")]
+        public float SpeedUPRate = 1;
         
         private void Start()
         {
@@ -34,7 +36,7 @@ namespace GameDemo.Character
         public void Movement(Vector3 direction)
         {
             LookAtTarget(direction);
-            rigidbody.velocity = direction.normalized * GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().moveSpeed;
+            rigidbody.velocity = direction.normalized * GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().moveSpeed*SpeedUPRate;
             //Vector3 forward = transform.forward;
             //forward.y = -1;
             //controller.Move(transform.forward * Time.deltaTime * moveSpeed);

@@ -20,6 +20,7 @@ namespace GameDemo.FSM
         //×´Ì¬ÁÐ±í
         private List<FSMState> _states;
 
+        public FSMState currentState;
         //Ä¬ÈÏ×´Ì¬
         private FSMState defaultState;
 
@@ -54,11 +55,15 @@ namespace GameDemo.FSM
                 _states.Add(state);
             }*/
             IdleState idle = new IdleState();
-            idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
+            //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
+            idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Move);
             _states.Add(idle);
             
             DeadState dead = new DeadState();
             _states.Add(dead);
+            
+            MoveState move = new MoveState();
+            _states.Add(move);
             
             //ÉèÖÃ×´Ì¬
         }
@@ -66,7 +71,7 @@ namespace GameDemo.FSM
         public void InitComponent()
         {
             anim = GetComponentInChildren<Animator>();
-            chStatus = GetComponent<CharacterStatus>();
+            chStatus = GetComponentInChildren<CharacterStatus>();
         }
 
         //ÇÐ»»×´Ì¬
@@ -89,7 +94,7 @@ namespace GameDemo.FSM
             currentState.EnterState(this);
         }
         
-        public FSMState currentState;
+        
             //Ã»Ö¡´¦ÀíÂß¼­
         public void Update()
         {

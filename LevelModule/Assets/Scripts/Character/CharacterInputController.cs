@@ -52,14 +52,16 @@ namespace GameDemo.Character
             inputActions.Player.SpeedUp.canceled += SpeedUpOncanceled;
         }
 
+        //加速键弹起：还原马达参数SpeedUPRate
         private void SpeedUpOncanceled(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            currentPlayer.GetComponent<CharacterMotor>().SpeedUPRate /= 2;
         }
 
+        //加速键按下：改变马达参数SpeedUPRate
         private void SpeedUpOnstarted(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            currentPlayer.GetComponent<CharacterMotor>().SpeedUPRate *= 2;
         }
 
         private void Attack_02Onperformed(InputAction.CallbackContext obj)
@@ -89,15 +91,11 @@ namespace GameDemo.Character
 
         public void MovementOnstarted(InputAction.CallbackContext obj)
         {
-            //播放动画
-            currentPlayer.GetComponentInChildren<Animator>().SetBool(currentPlayer.GetComponent<PlayerStatus>().CharacterAnimationParameters.run,true);
-            Debug.Log("MovementOnstarted");
         }
 
         public void MovementOnperformed(InputAction.CallbackContext obj)
         {
             //调用马达移动功能
-            currentPlayer.GetComponentInChildren<Animator>().SetBool(currentPlayer.GetComponent<PlayerStatus>().CharacterAnimationParameters.run,true);
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
 
@@ -115,9 +113,7 @@ namespace GameDemo.Character
 
         public void MovementOncanceled(InputAction.CallbackContext obj)
         {
-            //结束动画
             moveDis = Vector3.zero;
-            currentPlayer.GetComponentInChildren<Animator>().SetBool(currentPlayer.GetComponentInChildren<PlayerStatus>().CharacterAnimationParameters.run,false);
         }
 
         public void OnDisable()

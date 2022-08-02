@@ -11,7 +11,7 @@ namespace GameDemo.Character
     [Serializable]
     public class CharacterAnimationParameter
     {
-        public string run = "run";
+        public string move = "move";
         public string dead = "dead";
         public string walk = "walk";
         public string attack01 = "attack01";
@@ -20,6 +20,6 @@ namespace GameDemo.Character
         public string attacked = "attacked";
         public string idle = "idle";
         public string breakdown = "breakdown";
-        public string Speed = "speed";
+        public string SpeedUPRate = "speedUPRate";
     }
 }

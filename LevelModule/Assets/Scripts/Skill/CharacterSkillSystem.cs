@@ -41,7 +41,6 @@ namespace GameDemo.Skill
             inputActions.Player.Movement.started -= GetComponentInParent<CharacterInputController>().MovementOnstarted;
             inputActions.Player.Movement.performed -= GetComponentInParent<CharacterInputController>().MovementOnperformed;
             inputActions.Player.Movement.canceled -= GetComponentInParent<CharacterInputController>().MovementOncanceled;
-            anim.SetBool(_characterStatus.CharacterAnimationParameters.run,false);
             //准备技能
             skill = _characterSkillManager.PrePareSkill(skillID);
             //播放动画
