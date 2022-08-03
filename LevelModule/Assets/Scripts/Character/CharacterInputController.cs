@@ -18,12 +18,22 @@ namespace GameDemo.Character
         private Vector3 moveDis = Vector3.zero;
         public PlayerManager playerManager;
         public GameObject currentPlayer;
+
+        /// <summary>
+        /// 输入判定组，用于Trigger监测
+        /// </summary>
+
+        public bool B_InputMoveStart;
+        public bool B_InputMoveCancel;
         public void Awake()
         {
             //查找组件InputSystem
             inputActions = new InputAction_1();
             _characterMotor = GetComponent<CharacterMotor>();
             playerManager = GetComponent<PlayerManager>();
+            //
+            B_InputMoveStart = false;
+            B_InputMoveCancel = false;
         }
 
         public void OnEnable()
@@ -55,13 +65,13 @@ namespace GameDemo.Character
         //加速键弹起：还原马达参数SpeedUPRate
         private void SpeedUpOncanceled(InputAction.CallbackContext obj)
         {
-            currentPlayer.GetComponent<CharacterMotor>().SpeedUPRate /= 2;
+            this.GetComponent<CharacterMotor>().SpeedUPRate /= 2;
         }
 
         //加速键按下：改变马达参数SpeedUPRate
         private void SpeedUpOnstarted(InputAction.CallbackContext obj)
         {
-            currentPlayer.GetComponent<CharacterMotor>().SpeedUPRate *= 2;
+            this.GetComponent<CharacterMotor>().SpeedUPRate *= 2;
         }
 
         private void Attack_02Onperformed(InputAction.CallbackContext obj)
@@ -91,6 +101,7 @@ namespace GameDemo.Character
 
         public void MovementOnstarted(InputAction.CallbackContext obj)
         {
+            B_InputMoveStart = true;
         }
 
         public void MovementOnperformed(InputAction.CallbackContext obj)
@@ -113,6 +124,7 @@ namespace GameDemo.Character
 
         public void MovementOncanceled(InputAction.CallbackContext obj)
         {
+            B_InputMoveCancel = true;
             moveDis = Vector3.zero;
         }
 

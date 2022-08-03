@@ -15,6 +15,8 @@ namespace GameDemo.FSM
         KilledTarget,
         WithoutAttackRange,
         LoseTarget,
-        CompletePatrol
+        CompletePatrol,
+        InputMoveStart,
+        InputMoveCancel
     }
 }

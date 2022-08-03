@@ -19,7 +19,7 @@ namespace GameDemo.FSM
         public CharacterStatus chStatus;
         //状态列表
         private List<FSMState> _states;
-
+        public FSMStateID fSMStateID;
         public FSMState currentState;
         //默认状态
         private FSMState defaultState;
@@ -56,13 +56,14 @@ namespace GameDemo.FSM
             }*/
             IdleState idle = new IdleState();
             //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
-            idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Move);
+            idle.AddMap(FSMTriggerID.InputMoveStart,FSMStateID.Move);
             _states.Add(idle);
             
             DeadState dead = new DeadState();
             _states.Add(dead);
             
             MoveState move = new MoveState();
+            move.AddMap(FSMTriggerID.InputMoveCancel, FSMStateID.Idle);
             _states.Add(move);
             
             //设置状态
@@ -98,6 +99,7 @@ namespace GameDemo.FSM
             //没帧处理逻辑
         public void Update()
         {
+            fSMStateID = currentState.StateID;
             //判断条件是否满足
             currentState.Reason(this);
             //执行当前逻辑
