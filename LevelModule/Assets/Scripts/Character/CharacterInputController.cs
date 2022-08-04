@@ -25,6 +25,10 @@ namespace GameDemo.Character
 
         public bool B_InputMoveStart;
         public bool B_InputMoveCancel;
+        public bool B_InputAttack01Start;
+        public bool B_InputAttack01Cancel;
+        public bool B_InputAttack02Start;
+        public bool B_InputAttack02Cancel;
         public void Awake()
         {
             //查找组件InputSystem
@@ -34,6 +38,10 @@ namespace GameDemo.Character
             //
             B_InputMoveStart = false;
             B_InputMoveCancel = false;
+            B_InputAttack01Start = false;
+            B_InputAttack01Cancel = false;
+            B_InputAttack02Start = false;
+            B_InputAttack02Cancel = false;
         }
 
         public void OnEnable()
@@ -113,7 +121,7 @@ namespace GameDemo.Character
         public void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
             //todo
-            moveDis = Vector3.zero;
+            B_InputAttack01Start = true;
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
             /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
             //调用攻击功能,技能管理器
