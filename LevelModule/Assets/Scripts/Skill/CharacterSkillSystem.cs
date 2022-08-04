@@ -41,8 +41,8 @@ namespace GameDemo.Skill
             if (skill == null) return;
             anim.SetBool(skill.animationName,true);
             //生成技能
-            
-            //单攻
+            StartCoroutine(SkillPreAnim(skill));
+            /*//单攻
             if (skill.attackType != SkillAttackType.Single) return;
             //查找目标
             Transform targetTF = SelectTarget();
@@ -53,7 +53,7 @@ namespace GameDemo.Skill
             SetSelectedActiveFx(false);
             selectedTarget = targetTF;
             //选中A，在自动取消前，又选中B目标，则手动将A取消
-            SetSelectedActiveFx(true);
+            SetSelectedActiveFx(true);*/
         }
         //选中的目标
         public Transform selectedTarget;
@@ -73,6 +73,11 @@ namespace GameDemo.Skill
         public void UseRandomSkill()
         {
             
+        }
+
+        IEnumerator SkillPreAnim(SkillData data) 
+        {
+            yield return new WaitForSeconds(1);
         }
     }
 }

@@ -10,10 +10,12 @@ namespace GameDemo.FSM
     /// </summary>
     public class Anima_Attack01EndTrigger : FSMTrigger
     {
+        private Animator anim;
         public override bool HandleTrigger(FSMBase fsm)
         {
+            anim = fsm.GetComponentInChildren<Animator>();
             //return fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01;
-            return fsm.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).normalizedTime > 0.9f && fsm.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attack.Fight_attack"); 
+            return anim.GetCurrentAnimatorStateInfo(1).normalizedTime > 0.9f && anim.GetCurrentAnimatorStateInfo(1).IsName("Attack.Fight_attack"); 
         }
 
         public override void Init()
