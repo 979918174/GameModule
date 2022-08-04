@@ -45,8 +45,9 @@ namespace GameDemo.FSM
             //修改动画参数
             currentCharacter.GetComponentInChildren<Animator>().SetFloat(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.speedUPRate,currentCharacter.GetComponentInParent<CharacterMotor>().SpeedUPRate);
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.move,false);
-
+            //修改判断系数
             fsm.GetComponent<CharacterInputController>().B_InputMoveCancel = false;
+            fsm.GetComponent<CharacterInputController>().B_InputAttack01Start = false;
             base.ExitState(fsm);
         }
     }

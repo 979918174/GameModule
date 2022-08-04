@@ -23,14 +23,8 @@ namespace GameDemo.Skill
         {
             _characterSkillManager = GetComponent<CharacterSkillManager>();
             anim = GetComponentInChildren<Animator>();
-            GetComponentInChildren<AnimatorEventBehaviour>().attackHandler += DeploySkill;
             inputActions = GetComponentInParent<CharacterInputController>().inputActions;
             _characterStatus = GetComponent<CharacterStatus>();
-        }
-
-        private void DeploySkill()
-        {
-            _characterSkillManager.GenerateSkill(skill);
         }
 
         private SkillData skill;
@@ -38,9 +32,9 @@ namespace GameDemo.Skill
         public void AttackUseSkill(int skillID)
         {
             //todo 注销移动事件,关掉移动动画
-            inputActions.Player.Movement.started -= GetComponentInParent<CharacterInputController>().MovementOnstarted;
-            inputActions.Player.Movement.performed -= GetComponentInParent<CharacterInputController>().MovementOnperformed;
-            inputActions.Player.Movement.canceled -= GetComponentInParent<CharacterInputController>().MovementOncanceled;
+            //inputActions.Player.Movement.started -= GetComponentInParent<CharacterInputController>().MovementOnstarted;
+            //inputActions.Player.Movement.performed -= GetComponentInParent<CharacterInputController>().MovementOnperformed;
+            //inputActions.Player.Movement.canceled -= GetComponentInParent<CharacterInputController>().MovementOncanceled;
             //准备技能
             skill = _characterSkillManager.PrePareSkill(skillID);
             //播放动画

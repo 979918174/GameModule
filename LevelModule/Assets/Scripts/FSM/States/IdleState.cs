@@ -28,9 +28,9 @@ namespace GameDemo.FSM
         public override void ExitState(FSMBase fsm)
         {
             currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
-            fsm.GetComponent<CharacterInputController>().B_InputMoveStart = false;
-
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.idle, false);
+            //ÐÞ¸ÄÅÐ¶ÏÏµÊý
+            fsm.GetComponent<CharacterInputController>().B_InputMoveStart = false;
             base.ExitState(fsm);
         }
     }

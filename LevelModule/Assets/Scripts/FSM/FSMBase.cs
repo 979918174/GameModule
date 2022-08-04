@@ -68,7 +68,7 @@ namespace GameDemo.FSM
             _states.Add(move);
 
             Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
-            move.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
+            attacking_MoveState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
             _states.Add(attacking_MoveState);
 
             //…Ë÷√◊¥Ã¨
