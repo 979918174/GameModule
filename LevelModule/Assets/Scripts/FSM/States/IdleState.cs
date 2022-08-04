@@ -19,8 +19,13 @@ namespace GameDemo.FSM
 
         public override void EnterState(FSMBase fsm)
         {
-            currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
             base.EnterState(fsm);
+            characterInputController = fsm.GetComponent<CharacterInputController>();
+            currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
+            //开放输入-注册输入事件
+            characterInputController.inputActions.Player.Movement.started += characterInputController.MovementOnstarted;
+            characterInputController.inputActions.Player.Movement.performed += characterInputController.MovementOnperformed;
+            characterInputController.inputActions.Player.Movement.canceled += characterInputController.MovementOncanceled;
             //修改动画参数
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.idle, true);
         }

@@ -17,13 +17,13 @@ namespace GameDemo.Skill
 
         private CharacterSkillManager _characterSkillManager;
         private Animator anim;
-        private InputAction_1 inputActions;
+        private CharacterInputController characterInputController;
         private CharacterStatus _characterStatus;
         private void Start()
         {
             _characterSkillManager = GetComponent<CharacterSkillManager>();
             anim = GetComponentInChildren<Animator>();
-            inputActions = GetComponentInParent<CharacterInputController>().inputActions;
+            characterInputController = GetComponentInParent<CharacterInputController>();
             _characterStatus = GetComponent<CharacterStatus>();
         }
 
@@ -31,29 +31,16 @@ namespace GameDemo.Skill
 
         public void AttackUseSkill(int skillID)
         {
-            //todo 注销移动事件,关掉移动动画
-            //inputActions.Player.Movement.started -= GetComponentInParent<CharacterInputController>().MovementOnstarted;
-            //inputActions.Player.Movement.performed -= GetComponentInParent<CharacterInputController>().MovementOnperformed;
-            //inputActions.Player.Movement.canceled -= GetComponentInParent<CharacterInputController>().MovementOncanceled;
             //准备技能
             skill = _characterSkillManager.PrePareSkill(skillID);
             //播放动画
             if (skill == null) return;
-            anim.SetBool(skill.animationName,true);
-            //生成技能
+            //anim.SetBool(skill.animationName,true);
+            //判断攻击前后摇类型 todo
+            //生成技能            
             StartCoroutine(SkillPreAnim(skill));
-            /*//单攻
-            if (skill.attackType != SkillAttackType.Single) return;
-            //查找目标
-            Transform targetTF = SelectTarget();
-            //转向目标
-            transform.LookAt(targetTF);
-            //选中目标(特效)
-            //先取消上次选中的物体
-            SetSelectedActiveFx(false);
-            selectedTarget = targetTF;
-            //选中A，在自动取消前，又选中B目标，则手动将A取消
-            SetSelectedActiveFx(true);*/
+            //结束技能
+            StartCoroutine(SkillEndAnim(skill));
         }
         //选中的目标
         public Transform selectedTarget;
@@ -77,7 +64,15 @@ namespace GameDemo.Skill
 
         IEnumerator SkillPreAnim(SkillData data) 
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(data.skillPreFrame);
+            _characterSkillManager.GenerateSkill(data);
+        }
+        
+        IEnumerator SkillEndAnim(SkillData data) 
+        {
+            yield return new WaitForSeconds(data.skillEndFrame);
+            characterInputController.T_AnimaEnd_Attack01 = true;
+            //anim.SetBool(skill.animationName,false);
         }
     }
 }

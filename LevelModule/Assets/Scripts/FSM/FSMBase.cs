@@ -57,6 +57,7 @@ namespace GameDemo.FSM
             IdleState idle = new IdleState();
             //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
             idle.AddMap(FSMTriggerID.InputMoveStart,FSMStateID.Move);
+            idle.AddMap(FSMTriggerID.InputAttackStart,FSMStateID.Attacking_Stand);
             _states.Add(idle);
             
             DeadState dead = new DeadState();
@@ -70,7 +71,10 @@ namespace GameDemo.FSM
             Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
             attacking_MoveState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
             _states.Add(attacking_MoveState);
-
+            
+            Attacking_StandState attacking_StandState = new Attacking_StandState();
+            attacking_StandState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Idle);
+            _states.Add(attacking_StandState);
             //…Ë÷√◊¥Ã¨
         }
 

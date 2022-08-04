@@ -89,6 +89,11 @@ namespace GameDemo.Skill
         
         ////// <summary>抵抗属性</summary>
         public TypeID  sesistanceType;
-
+        
+        ////// <summary>技能关键帧</summary>
+        public float skillPreFrame;
+        
+        ////// <summary>技能结束帧</summary>
+        public float skillEndFrame;
     }
 }
