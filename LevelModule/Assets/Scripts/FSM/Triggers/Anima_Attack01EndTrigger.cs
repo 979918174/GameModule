@@ -6,18 +6,18 @@ using GameDemo.Character;
 namespace GameDemo.FSM
 {
     /// <summary>
-    /// 条件：按下移动键
+    /// 条件：
     /// </summary>
-    public class InputAttackStartTrigger : FSMTrigger
+    public class Anima_Attack01EndTrigger : FSMTrigger
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return (fsm.GetComponent<CharacterInputController>().B_InputAttack01Start|| fsm.GetComponent<CharacterInputController>().B_InputAttack02Start);
+            return fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01;
         }
 
         public override void Init()
         {
-            TriggerID = FSMTriggerID.InputAttackStart;
+            TriggerID = FSMTriggerID.Anima_Attack01End;
         }
     }
 

@@ -17,7 +17,7 @@ namespace GameDemo.FSM
 
         public override void Init()
         {
-            TriggerID = FSMTriggerID.InputMoveCancel;
+            TriggerID = FSMTriggerID.InputAttackCancel;
         }
     }
 
