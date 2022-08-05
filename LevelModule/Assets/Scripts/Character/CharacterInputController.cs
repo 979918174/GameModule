@@ -87,7 +87,6 @@ namespace GameDemo.Character
         private void Attack_02Onperformed(InputAction.CallbackContext obj)
         {
             //todo
-            moveDis = Vector3.zero;
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
         }
 
@@ -116,6 +115,7 @@ namespace GameDemo.Character
 
         public void MovementOnperformed(InputAction.CallbackContext obj)
         {
+            //B_InputMoveStart = true;
             //调用马达移动功能
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
@@ -124,7 +124,7 @@ namespace GameDemo.Character
         {
             //todo
             B_InputAttack01Start = true;
-            T_AnimaEnd_Attack01 = false;
+            //T_AnimaEnd_Attack01 = false;
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
             /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
             //调用攻击功能,技能管理器
@@ -137,6 +137,7 @@ namespace GameDemo.Character
         {
             B_InputMoveCancel = true;
             moveDis = Vector3.zero;
+            Debug.Log("222");
         }
 
         public void OnDisable()

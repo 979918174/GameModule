@@ -28,12 +28,18 @@ namespace GameDemo.FSM
 
             //修改动画参数（bool）
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.attack01, true);
+            //
+            characterInputController.T_AnimaEnd_Attack01 = false;
         }
 
         public override void ExitState(FSMBase fsm)
         {
             characterInputController = fsm.GetComponent<CharacterInputController>();
             currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
+
+            characterInputController.inputActions.Player.Movement.started += characterInputController.MovementOnstarted;
+            characterInputController.inputActions.Player.Movement.performed += characterInputController.MovementOnperformed;
+            characterInputController.inputActions.Player.Movement.canceled += characterInputController.MovementOncanceled;
             //修改动画参数（bool）
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.attack01, false);
             characterInputController.B_InputAttack01Start= false;

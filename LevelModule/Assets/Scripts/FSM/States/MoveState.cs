@@ -21,7 +21,9 @@ namespace GameDemo.FSM
             
             //注册输入事件
             characterInputController = fsm.GetComponent<CharacterInputController>();
-            characterInputController.inputActions.Player.Movement.performed += characterInputController.MovementOnperformed; 
+            characterInputController.inputActions.Player.Movement.started += characterInputController.MovementOnstarted;
+            characterInputController.inputActions.Player.Movement.performed += characterInputController.MovementOnperformed;
+            characterInputController.inputActions.Player.Movement.canceled += characterInputController.MovementOncanceled; 
             
             //修改动画参数
             currentCharacter.GetComponentInChildren<Animator>().SetFloat(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.speedUPRate,currentCharacter.GetComponentInParent<CharacterMotor>().SpeedUPRate);
