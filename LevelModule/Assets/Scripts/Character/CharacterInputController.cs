@@ -126,6 +126,7 @@ namespace GameDemo.Character
             B_InputAttack01Start = true;
             //T_AnimaEnd_Attack01 = false;
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
+
             /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
             //调用攻击功能,技能管理器
             SkillData skillData = SkillManager.PrePareSkill(1002);

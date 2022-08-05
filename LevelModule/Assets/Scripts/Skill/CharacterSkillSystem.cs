@@ -37,7 +37,8 @@ namespace GameDemo.Skill
             if (skill == null) return;
             //anim.SetBool(skill.animationName,true);
             //判断攻击前后摇类型 todo
-            //生成技能            
+            //生成技能
+
             StartCoroutine(SkillPreAnim(skill));
             //结束技能
             StartCoroutine(SkillEndAnim(skill));
