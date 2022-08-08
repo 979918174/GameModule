@@ -32,4 +32,11 @@
         Single,
         Group
     }
+    
+    public enum SkillMoveType
+    {
+        Move,
+        Stand
+    }
+
 }

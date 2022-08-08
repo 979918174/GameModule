@@ -2916,6 +2916,7 @@ MonoBehaviour:
     sesistanceType: 2
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
   - skillID: 1003
     skillConfig: {fileID: 0}
     skillName: 
@@ -2945,6 +2946,7 @@ MonoBehaviour:
     sesistanceType: 0
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
   - skillID: 1004
     skillConfig: {fileID: 0}
     skillName: 
@@ -2974,6 +2976,7 @@ MonoBehaviour:
     sesistanceType: 0
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
 --- !u!114 &519596672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8758,6 +8761,7 @@ MonoBehaviour:
     sesistanceType: 1
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
   - skillID: 1003
     skillConfig: {fileID: 0}
     skillName: 
@@ -8787,6 +8791,7 @@ MonoBehaviour:
     sesistanceType: 1
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
   - skillID: 1004
     skillConfig: {fileID: 0}
     skillName: 
@@ -8816,6 +8821,7 @@ MonoBehaviour:
     sesistanceType: 0
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
 --- !u!114 &1749028867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10059,6 +10065,7 @@ MonoBehaviour:
     sesistanceType: 0
     skillPreFrame: 1
     skillEndFrame: 1.5
+    skillMoveType: 1
   - skillID: 1003
     skillConfig: {fileID: 0}
     skillName: 
@@ -10088,6 +10095,7 @@ MonoBehaviour:
     sesistanceType: 0
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
   - skillID: 1004
     skillConfig: {fileID: 0}
     skillName: 
@@ -10117,6 +10125,7 @@ MonoBehaviour:
     sesistanceType: 0
     skillPreFrame: 0
     skillEndFrame: 0
+    skillMoveType: 0
 --- !u!114 &2117977657
 MonoBehaviour:
   m_ObjectHideFlags: 0

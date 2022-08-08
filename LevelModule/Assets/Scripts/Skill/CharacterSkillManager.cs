@@ -40,7 +40,7 @@ namespace GameDemo.Skill
             //判断条件(不为空&&冷却)
             int sp = GetComponent<CharacterStatus>().SP;
             //返回技能数据
-            if (data!=null&&data.coolDownRemain<=0&&data.costSP<=sp)
+            if (data!=null&&data.coolDownRemain<=1&&data.costSP<=sp)
             {
                 return data;
             }

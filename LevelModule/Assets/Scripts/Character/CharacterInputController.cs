@@ -138,7 +138,6 @@ namespace GameDemo.Character
         {
             B_InputMoveCancel = true;
             moveDis = Vector3.zero;
-            Debug.Log("222");
         }
 
         public void OnDisable()
