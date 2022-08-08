@@ -18,11 +18,22 @@ namespace GameDemo.Character
         public float moveSpeed = 2;
         [Tooltip("加速倍率")]
         public float SpeedUPRate = 1;
-        
+
+        public void OnEnable()
+        {
+            if (!GetComponent<PlayerManager>())
+            {
+                Shake();
+            }
+        }
+     
         private void Start()
         {
+            
             //controller = GetComponent<CharacterController>();
             rigidbody= GetComponent<Rigidbody>();
+            
+
         }
         //注视方向旋转
         public void LookAtTarget(Vector3 direction)
@@ -41,6 +52,28 @@ namespace GameDemo.Character
             //forward.y = -1;
             //controller.Move(transform.forward * Time.deltaTime * moveSpeed);
         }
-        
+        public Vector3 shakeRate = new Vector3(0.1f, 0.1f, 0.1f);
+        public float shakeTime = 0.5f;
+        public float shakeDertaTime = 0.1f;
+
+
+        public void Shake()
+        {
+            StartCoroutine(Shake_Coroutine());
+        }
+
+        public IEnumerator Shake_Coroutine()
+        {
+            var oriPosition = gameObject.transform.position;
+            for (float i = 0; i < shakeTime; i += shakeDertaTime)
+            {
+                gameObject.transform.position = oriPosition +
+                    UnityEngine.Random.Range(-shakeRate.x, shakeRate.x) * Vector3.right +
+                    UnityEngine.Random.Range(-shakeRate.y, shakeRate.y) * Vector3.up +
+                    UnityEngine.Random.Range(-shakeRate.z, shakeRate.z) * Vector3.forward;
+                yield return new WaitForSeconds(shakeDertaTime);
+            }
+            gameObject.transform.position = oriPosition;
+        }  
     }
 }

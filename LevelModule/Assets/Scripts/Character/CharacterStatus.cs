@@ -29,6 +29,8 @@ namespace GameDemo.Character
         public float rotateSpeed;
         [Tooltip("移动速度")]
         public float moveSpeed;
+        [Tooltip("受击时间")]
+        public float hurtTime;
         [Tooltip("是否受击")]
         public bool IsHurt;
         public CharacterAnimationParameter CharacterAnimationParameters;
@@ -46,10 +48,10 @@ namespace GameDemo.Character
             GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.dead,true);
         }
         
-        public virtual void Break() 
+      /*  public virtual void Break() 
         {
             GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.breakdown,true);
-        }
+        }*/
         
         public virtual void CoverDP()
         {
@@ -73,11 +75,11 @@ namespace GameDemo.Character
                 Death();
             }
 
-            if (MAXDP!=0&&DP<=0)
+            /*if (MAXDP!=0&&DP<=0)
             {
                 Break();
             }
-
+*/
             if (GetComponentInChildren<Animator>().GetBool(CharacterAnimationParameters.breakdown))
             {
                 if (hideTime <= Time.time)

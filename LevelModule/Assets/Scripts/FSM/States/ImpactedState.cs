@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameDemo.Character;
 
 namespace GameDemo.FSM
 {
@@ -17,6 +18,7 @@ namespace GameDemo.FSM
         public override void EnterState(FSMBase fsm)
         {
             base.EnterState(fsm);
+            fsm.anim.SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.attacked, true);
             //²¥·Å¶¯»­
         }
 

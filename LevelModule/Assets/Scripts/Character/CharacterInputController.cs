@@ -166,9 +166,10 @@ namespace GameDemo.Character
 
         public void FixedUpdate()
         {
-            _characterMotor.Movement(moveDis);
+            if (GetComponent<PlayerManager>())
+            {
+                _characterMotor.Movement(moveDis);
+            }
         }
-        
-        
     }
 }
