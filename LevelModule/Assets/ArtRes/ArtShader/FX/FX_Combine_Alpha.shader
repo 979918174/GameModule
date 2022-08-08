@@ -77,11 +77,7 @@
             ZWrite [_ZWrite]
             //保证一直位于最上层
             ZTest [_ZTest]
-            Lighting Off
-            Fog
-            {
-                Mode Off
-            }
+
             //HLSL代码段
             HLSLPROGRAM
             #pragma vertex vert
