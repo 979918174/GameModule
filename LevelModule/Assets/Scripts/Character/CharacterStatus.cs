@@ -29,7 +29,8 @@ namespace GameDemo.Character
         public float rotateSpeed;
         [Tooltip("移动速度")]
         public float moveSpeed;
-
+        [Tooltip("是否受击")]
+        public bool IsHurt;
         public CharacterAnimationParameter CharacterAnimationParameters;
 
         private float hideTime;

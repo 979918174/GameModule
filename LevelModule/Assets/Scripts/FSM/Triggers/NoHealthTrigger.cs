@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameDemo.Character;
 
 namespace GameDemo.FSM
 {
@@ -16,7 +17,15 @@ namespace GameDemo.FSM
 
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return fsm.chStatus.HP <= 0;
+            if (fsm.GetComponent<PlayerManager>())
+            {
+                return fsm.chStatus.HP <= 0;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }

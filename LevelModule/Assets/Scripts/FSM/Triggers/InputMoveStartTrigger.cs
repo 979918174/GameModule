@@ -12,7 +12,14 @@ namespace GameDemo.FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return fsm.GetComponent<CharacterInputController>().B_InputMoveStart;
+            if (fsm.GetComponent<PlayerManager>())
+            {
+                return fsm.GetComponent<CharacterInputController>().B_InputMoveStart;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override void Init()

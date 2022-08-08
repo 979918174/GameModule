@@ -34,6 +34,7 @@ namespace GameDemo.Skill
             //准备技能
             skill = _characterSkillManager.PrePareSkill(skillID);
             //播放动画
+            Debug.Log(skill);
             if (skill == null) return;
             //anim.SetBool(skill.animationName,true);
             //判断攻击前后摇类型 todo

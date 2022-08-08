@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GameDemo.Skill;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using GameDemo.FSM;
 
 namespace GameDemo.Character
 {
@@ -122,16 +123,23 @@ namespace GameDemo.Character
 
         public void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
-            //todo
-            B_InputAttack01Start = true;
-            //T_AnimaEnd_Attack01 = false;
-            currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
+            if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle)
+            {
+                Debug.Log("AttackKey");
+                //todo
+                B_InputAttack01Start = true;
+                //T_AnimaEnd_Attack01 = false;
+                currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
+                //characterInputController.inputActions.Player.Attack_01.performed -= characterInputController.Attack_01Onperformed;
+                //inputActions.Player.Attack_01.performed -= Attack_01Onperformed;
 
-            /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
-            //调用攻击功能,技能管理器
-            SkillData skillData = SkillManager.PrePareSkill(1002);
-            if (skillData != null) //生成技能
-                SkillManager.GenerateSkill(skillData);*/
+                /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
+                //调用攻击功能,技能管理器
+                SkillData skillData = SkillManager.PrePareSkill(1002);
+                if (skillData != null) //生成技能
+                    SkillManager.GenerateSkill(skillData);*/
+            }
+
         }
 
         public void MovementOncanceled(InputAction.CallbackContext obj)

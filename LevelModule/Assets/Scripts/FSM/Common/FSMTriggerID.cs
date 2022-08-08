@@ -21,6 +21,7 @@ namespace GameDemo.FSM
         InputAttackStart,
         InputAttackCancel,
         Anima_Attack01End,
-        InputAttackStart_Move
+        InputAttackStart_Move,
+        Impacted
     }
 }

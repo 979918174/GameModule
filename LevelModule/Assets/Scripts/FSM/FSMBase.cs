@@ -46,7 +46,6 @@ namespace GameDemo.FSM
         //≈‰÷√◊¥Ã¨ª˙£¨¥¥Ω®◊¥Ã¨∂‘œÛ£¨…Ë÷√◊¥Ã¨£®AddMap£©
         private void ConfigFSM()
         {
-            _states = new List<FSMState>();
             //¥¥Ω®◊¥Ã¨∂‘œÛ
             /*for (int i = 0; i < UPPER; i++)
             {
@@ -54,34 +53,97 @@ namespace GameDemo.FSM
                 FSMState state = Activator.CreateInstance(type) as FSMState;
                 _states.Add(state);
             }*/
-            IdleState idle = new IdleState();
-            //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
-            idle.AddMap(FSMTriggerID.InputMoveStart,FSMStateID.Move);
-            idle.AddMap(FSMTriggerID.InputAttackStart,FSMStateID.Attacking_Stand);
-            _states.Add(idle);
-            
-            DeadState dead = new DeadState();
-            _states.Add(dead);
-            
-            MoveState move = new MoveState();
-            move.AddMap(FSMTriggerID.InputMoveCancel, FSMStateID.Idle);
-            move.AddMap(FSMTriggerID.InputAttackStart_Move, FSMStateID.Attacking_Move);
-            _states.Add(move);
+            if (GetComponent<PlayerManager>())
+            {
+                _states = new List<FSMState>();
 
-            Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
-            attacking_MoveState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
-            _states.Add(attacking_MoveState);
-            
-            Attacking_StandState attacking_StandState = new Attacking_StandState();
-            attacking_StandState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Idle);
-            _states.Add(attacking_StandState);
-            //…Ë÷√◊¥Ã¨
+                IdleState idle = new IdleState();
+                //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
+                idle.AddMap(FSMTriggerID.InputMoveStart, FSMStateID.Move);
+                idle.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
+                idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+
+                _states.Add(idle);
+
+                DeadState dead = new DeadState();
+                _states.Add(dead);
+
+                MoveState move = new MoveState();
+                move.AddMap(FSMTriggerID.InputMoveCancel, FSMStateID.Idle);
+                move.AddMap(FSMTriggerID.InputAttackStart_Move, FSMStateID.Attacking_Move);
+                move.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                _states.Add(move);
+
+                Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
+                attacking_MoveState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
+                attacking_MoveState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                _states.Add(attacking_MoveState);
+
+                Attacking_StandState attacking_StandState = new Attacking_StandState();
+                attacking_StandState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Idle);
+                attacking_StandState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                _states.Add(attacking_StandState);
+                //…Ë÷√◊¥Ã¨
+            }
+            else
+            {
+                if (true)
+                {
+                    _states = new List<FSMState>();
+
+                    IdleState idle = new IdleState();
+                    //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
+                    //idle.AddMap(FSMTriggerID.InputMoveStart, FSMStateID.Move);
+                    //idle.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
+                    idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                    idle.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
+
+                    _states.Add(idle);
+
+                    DeadState dead = new DeadState();
+                    _states.Add(dead);
+
+                    MoveState move = new MoveState();
+                    //move.AddMap(FSMTriggerID.InputMoveCancel, FSMStateID.Idle);
+                    //move.AddMap(FSMTriggerID.InputAttackStart_Move, FSMStateID.Attacking_Move);
+                    //move.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                    _states.Add(move);
+
+                    Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
+                    //attacking_MoveState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
+                    //attacking_MoveState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                    //_states.Add(attacking_MoveState);
+
+                    Attacking_StandState attacking_StandState = new Attacking_StandState();
+                    //attacking_StandState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Idle);
+                    //attacking_StandState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                    //_states.Add(attacking_StandState);
+                    //…Ë÷√◊¥Ã¨
+                    ImpactedState impactedState = new ImpactedState();
+                    _states.Add(impactedState);
+                }
+            }
+
         }
 
         public void InitComponent()
         {
-            anim = GetComponentInChildren<Animator>();
-            chStatus = GetComponentInChildren<CharacterStatus>();
+            //≈–∂œ «∑Ò «ÕÊº“
+            if (GetComponent<PlayerManager>())
+            {
+                anim = GetComponentInChildren<Transform>().GetComponentInChildren<Animator>();
+                chStatus = GetComponentInChildren<CharacterStatus>();
+            }
+            else
+            {
+                //≈–∂œ «∑Ò «µ–»À
+                if (true)
+                {
+                    anim = GetComponentInChildren<Animator>();
+                    chStatus = GetComponent<EnemyStatus>();
+                }
+            }
+            
         }
 
         //«–ªª◊¥Ã¨

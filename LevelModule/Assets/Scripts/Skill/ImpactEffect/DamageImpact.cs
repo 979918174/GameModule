@@ -49,8 +49,6 @@ namespace GameDemo.Skill
                     //»¤¶ÜÉËº¦
                     status.DP -= 1;
                     //ÊÜ»÷¶¯»­
-                    Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
-                    anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                     //ÉËº¦
                     status.HP -= damage*2;
                     //Æ®×Ö
@@ -62,8 +60,6 @@ namespace GameDemo.Skill
                 {
                     if (status.type == data.sesistanceType)
                     {
-                        Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
-                        anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                         status.HP -= damage/2;
                         //Æ®×Ö
                         DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_sesistance,
@@ -73,24 +69,17 @@ namespace GameDemo.Skill
                     }
                     else
                     {
-                        Animator anim = data.attackTargets[i].GetComponentInChildren<Animator>();
-                        anim.SetBool(status.CharacterAnimationParameters.attacked,true);
                         status.HP -= damage;
                         //Æ®×Ö
                         DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_normal,
                         data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                         damageFloat.ShowUIDamage(damage);
-
                     }
-                    
-
                 }
+                status.IsHurt = true;
+                //status.IsHurt = false;
                 //ÕðÆÁ
                 data.owner.GetComponentInParent<CinemachineImpulseSource>().GenerateImpulse();
-
-
-
-
                 //GameObject floatPoint = data.attackTargets[i].Find("floatPoint").gameObject;
             }
         }

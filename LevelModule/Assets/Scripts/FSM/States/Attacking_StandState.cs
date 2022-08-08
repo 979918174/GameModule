@@ -25,8 +25,7 @@ namespace GameDemo.FSM
             characterInputController.inputActions.Player.Movement.started -= characterInputController.MovementOnstarted;
             characterInputController.inputActions.Player.Movement.performed -= characterInputController.MovementOnperformed;
             characterInputController.inputActions.Player.Movement.canceled -= characterInputController.MovementOncanceled;
-            
-            characterInputController.inputActions.Player.Attack_01.performed -= characterInputController.Attack_01Onperformed;
+          
             //修改动画参数（bool）
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.attack01, true);
             //

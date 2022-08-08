@@ -39,6 +39,7 @@ namespace GameDemo.Skill
             SkillData data = ArrayHelper.Find(skillDatas, s => s.skillID == id);
             //判断条件(不为空&&冷却)
             int sp = GetComponent<CharacterStatus>().SP;
+            Debug.Log(data.coolDownRemain);
             //返回技能数据
             if (data!=null&&data.coolDownRemain<=1&&data.costSP<=sp)
             {
