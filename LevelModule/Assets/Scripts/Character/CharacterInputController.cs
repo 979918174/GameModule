@@ -115,7 +115,7 @@ namespace GameDemo.Character
 
         public void MovementOnperformed(InputAction.CallbackContext obj)
         {
-            //B_InputMoveStart = true;
+            B_InputMoveStart = true;
             //调用马达移动功能
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
@@ -136,6 +136,7 @@ namespace GameDemo.Character
 
         public void MovementOncanceled(InputAction.CallbackContext obj)
         {
+            B_InputMoveStart = false;
             B_InputMoveCancel = true;
             moveDis = Vector3.zero;
         }

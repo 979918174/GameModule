@@ -36,6 +36,11 @@ namespace GameDemo.FSM
             fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01 = true;
         }
 
+        public override void ActionState(FSMBase fsm)
+        {
+          
+        }
+
         public override void ExitState(FSMBase fsm)
         {
             currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
