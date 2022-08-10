@@ -25,6 +25,7 @@ namespace GameDemo.Skill
                 InitDeplopyer();
             }
         }
+
         //选区算法对象
         private IAttackSelector _selector;
         //效果算法对象

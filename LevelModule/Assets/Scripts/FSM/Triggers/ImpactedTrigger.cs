@@ -23,8 +23,6 @@ namespace GameDemo.FSM
                     return false;
                 }
             }
-            
-            
         }
 
         public override void Init()

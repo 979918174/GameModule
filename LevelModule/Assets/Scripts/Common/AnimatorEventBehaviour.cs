@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GameDemo.Character;
 using UnityEngine;
+using GameDemo.FSM;
 
 namespace Common
 {
@@ -21,6 +22,8 @@ namespace Common
         private InputAction_1 inputActions;
         public CharacterInputController _characterInputController;
 
+       
+
         private void Start()
         {
             anim = GetComponent<Animator>();
@@ -37,6 +40,14 @@ namespace Common
             }
         }
 
+        void OnChangeSpeed() 
+        {
+            anim.SetFloat("attackedSpeed", 1f);
+            if (GetComponentInParent<EnemyStatus>())
+            {
+                GetComponentInParent<EnemyStatus>().passFristAttacked = true;
+            }
+        }
         void OnCancelAnim(string animParam)
         {
             anim.SetBool(animParam,false);
@@ -46,6 +57,14 @@ namespace Common
                 GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.performed += _characterInputController.MovementOnperformed;
                 GetComponentInParent<CharacterInputController>().inputActions.Player.Movement.canceled += _characterInputController.MovementOncanceled;
             }*/
+            if (animParam == "attacked")
+            {
+                if (GetComponentInParent<EnemyStatus>())
+                {
+                    GetComponentInParent<EnemyStatus>().T_AnimaEnd_Attacked = true;
+                    GetComponentInParent<EnemyStatus>().passFristAttacked = false;
+                }
+            }
         }
     }
 }

@@ -30,11 +30,16 @@ namespace GameDemo.Character
         [Tooltip("移动速度")]
         public float moveSpeed;
         [Tooltip("受击时间")]
+
+        //动画相关判断值
+        public bool passFristAttacked;
+        [Tooltip("是否首次受击")]
         public float hurtTime;
         [Tooltip("是否受击")]
         public bool IsHurt;
+        [Tooltip("受击是否结束")]
+        public bool T_AnimaEnd_Attacked;
         public CharacterAnimationParameter CharacterAnimationParameters;
-
         private float hideTime;
         public void Damage() 
         {

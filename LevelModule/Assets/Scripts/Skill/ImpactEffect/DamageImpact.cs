@@ -6,7 +6,8 @@ using GameDemo.Character;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine.UI;
-using Cinemachine; 
+using Cinemachine;
+using System;
 
 namespace GameDemo.Skill
 {
@@ -15,6 +16,7 @@ namespace GameDemo.Skill
     /// </summary>
     public class DamageImpact : IImpactEffect
     {
+ 
         private SkillData data;
         public void Execute(SkillDeployer deployer)
         {
@@ -36,13 +38,15 @@ namespace GameDemo.Skill
         //单次伤害
         private void OnceDamage()
         {
-            //伤害值 技能系数*攻击力
             
+            //伤害值 技能系数*攻击力
+
             float damage = data.atkRatio * data.owner.GetComponent<CharacterStatus>().ATK;
             for (int i = 0; i < data.attackTargets.Length; i++)
             {
+                EventManager.Instance.TriggerEventListener<FSM.FSMBase>("造成伤害", data.attackTargets[i].GetComponent<FSM.FSMBase>());
                 //todo 修正属性伤害
-               
+
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
                 if (status.type == data.weakType)
                 {

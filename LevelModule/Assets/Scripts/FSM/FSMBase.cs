@@ -120,6 +120,7 @@ namespace GameDemo.FSM
                     //_states.Add(attacking_StandState);
                     //…Ë÷√◊¥Ã¨
                     ImpactedState impactedState = new ImpactedState();
+                    impactedState.AddMap(FSMTriggerID.Anima_AttackedEnd, FSMStateID.Idle);
                     _states.Add(impactedState);
                 }
             }
