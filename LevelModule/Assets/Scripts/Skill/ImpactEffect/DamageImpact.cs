@@ -45,6 +45,7 @@ namespace GameDemo.Skill
             for (int i = 0; i < data.attackTargets.Length; i++)
             {
                 EventManager.Instance.TriggerEventListener<FSM.FSMBase>("造成伤害", data.attackTargets[i].GetComponent<FSM.FSMBase>());
+                EventManager.Instance.TriggerEventListener<Transform>("造成伤害", data.attackTargets[i].GetComponent<Transform>());
                 //todo 修正属性伤害
 
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
