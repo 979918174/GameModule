@@ -145,7 +145,6 @@ namespace Common
                     }
                 }
             }
-
             return array;
         }
 

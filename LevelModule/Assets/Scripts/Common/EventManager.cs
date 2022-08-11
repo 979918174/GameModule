@@ -45,12 +45,32 @@ namespace Common
                 actionDic.Add(name, new EventInfo<T>() { action = action});
             }
         }
+
+        public void AddEventListener(string name, UnityAction action)
+        {
+            if (actionDic.ContainsKey(name))
+            {
+                (actionDic[name] as EventInfo).action += action;
+            }
+            else
+            {
+                actionDic.Add(name, new EventInfo() { action = action });
+            }
+        }
         //触发事件
         public void TriggerEventListener<T>(string name,T par)
         {
             if (actionDic.ContainsKey(name))
             {
                 (actionDic[name] as EventInfo<T>).action?.Invoke(par);
+            }
+        }
+
+        public void TriggerEventListener(string name)
+        {
+            if (actionDic.ContainsKey(name))
+            {
+                (actionDic[name] as EventInfo).action?.Invoke();
             }
         }
         //移除事件
