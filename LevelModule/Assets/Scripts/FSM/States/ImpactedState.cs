@@ -21,8 +21,10 @@ namespace GameDemo.FSM
             base.EnterState(fsm);
             //播放动画
             fsm.anim.SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.attacked, true);
-            //伤害事件注册判断方法
+            //伤害事件注册受击动画播放方法
             EventManager.Instance.AddEventListener<FSMBase>("造成伤害", OnDamageChange);
+            //伤害事件注册震动方法
+            EventManager.Instance.AddEventListener<FSMBase>("造成伤害", OnShake);
         }
 
         public override void ActionState(FSMBase fsm)
@@ -37,6 +39,11 @@ namespace GameDemo.FSM
             {
                 fsm.anim.SetFloat("attackedSpeed", -1f);
             }
+        }
+
+        public void OnShake(FSMBase fsm)
+        {
+            fsm.GetComponent<CharacterMotor>().Shake();
         }
         public override void ExitState(FSMBase fsm)
         {

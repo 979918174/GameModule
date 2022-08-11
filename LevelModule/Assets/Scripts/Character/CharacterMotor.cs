@@ -18,20 +18,13 @@ namespace GameDemo.Character
         public float moveSpeed = 2;
         [Tooltip("加速倍率")]
         public float SpeedUPRate = 1;
-
-        public void OnEnable()
-        {
-            if (!GetComponent<PlayerManager>())
-            {
-                Shake();
-            }
-        }
      
         private void Start()
         {
             
             //controller = GetComponent<CharacterController>();
             rigidbody= GetComponent<Rigidbody>();
+            
             
 
         }

@@ -2668,9 +2668,9 @@ MonoBehaviour:
   rotateSpeed: 20
   moveSpeed: 2
   SpeedUPRate: 1
-  shakeRate: {x: 0.1, y: 0, z: 0.1}
-  shakeTime: 1
-  shakeDertaTime: 0.2
+  shakeRate: {x: 0.05, y: 0, z: 0.05}
+  shakeTime: 0.4
+  shakeDertaTime: 0.1
 --- !u!1 &465652088
 GameObject:
   m_ObjectHideFlags: 3
