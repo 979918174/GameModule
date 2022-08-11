@@ -8,6 +8,7 @@ using Unity.Mathematics;
 using UnityEngine.UI;
 using Cinemachine;
 using System;
+using GameDemo.Character;
 
 namespace GameDemo.Skill
 {
@@ -44,14 +45,15 @@ namespace GameDemo.Skill
             float damage = data.atkRatio * data.owner.GetComponent<CharacterStatus>().ATK;
             for (int i = 0; i < data.attackTargets.Length; i++)
             {
+                //触发“造成伤害”
                 EventManager.Instance.TriggerEventListener<FSM.FSMBase>("造成伤害", data.attackTargets[i].GetComponent<FSM.FSMBase>());
                 //todo 修正属性伤害
 
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
                 if (status.type == data.weakType)
                 {
-                    //护盾伤害
-                    status.DP -= 1;
+                    //触发“造成克制伤害”
+                    EventManager.Instance.TriggerEventListener<CharacterStatus>("造成克制伤害", data.attackTargets[i].GetComponent<CharacterStatus>());
                     //受击动画
                     //伤害
                     status.HP -= damage*2;

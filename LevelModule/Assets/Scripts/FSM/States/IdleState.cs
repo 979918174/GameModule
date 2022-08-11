@@ -22,7 +22,6 @@ namespace GameDemo.FSM
             base.EnterState(fsm);
             if (fsm.GetComponent<PlayerManager>())
             {
-                Debug.Log("进入idle");
                 //初始化赋值
                 characterInputController = fsm.GetComponent<CharacterInputController>();
                 currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;

@@ -36,6 +36,7 @@ public class ShaderSetting : MonoBehaviour
 
     void Blink(FSMBase fsm) 
     {
+        Debug.Log("222");
         StartCoroutine(blinkTime_Coroutine());
     }
 

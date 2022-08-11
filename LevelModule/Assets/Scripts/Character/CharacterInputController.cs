@@ -98,6 +98,7 @@ namespace GameDemo.Character
 
         private void ChangeDownOnperformed(InputAction.CallbackContext obj)
         {
+            
             playerManager.GetComponent<PlayerManager>().ChangeCharacterDown();
         }
 
@@ -125,7 +126,6 @@ namespace GameDemo.Character
         {
             if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle)
             {
-                Debug.Log("AttackKey");
                 //todo
                 B_InputAttack01Start = true;
                 //T_AnimaEnd_Attack01 = false;

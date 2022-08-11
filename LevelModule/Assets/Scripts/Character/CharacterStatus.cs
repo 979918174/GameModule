@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Common;
 using GameDemo.Skill;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace GameDemo.Character
         [Tooltip("当前护盾值")]
         public int DP;
         [Tooltip("最大护盾值")]
-        public float MAXDP;
+        public int MAXDP;
         [Tooltip("属性")]
         public TypeID type;
         [Tooltip("旋转速度")]
@@ -39,12 +40,19 @@ namespace GameDemo.Character
         public bool IsHurt;
         [Tooltip("受击是否结束")]
         public bool T_AnimaEnd_Attacked;
+        [Tooltip("是否有护盾")] 
+        public bool HaveDp;
         public CharacterAnimationParameter CharacterAnimationParameters;
-        private float hideTime;
-        public void Damage() 
+
+
+        protected void Start()
         {
-            
-        
+            if (DP!=0)
+            {
+                HaveDp = true;
+            }
+            //EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DpManager.Instance.DPDamage);
+            EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DPDamageTest);
         }
 
         //调用父类，执行子类
@@ -53,47 +61,37 @@ namespace GameDemo.Character
             GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.dead,true);
         }
         
-      /*  public virtual void Break() 
-        {
-            GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.breakdown,true);
-        }*/
-        
-        public virtual void CoverDP()
-        {
-            DP += 1;
-            hideTime = Time.time + 1;
-            
-        }
-        
-        public virtual void Cover() 
-        {
-            if (DP == MAXDP)
-            {
-                GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.breakdown,false);
-            }
-        }
-
         protected void Update()
         {
-            if (HP<=0)
-            {
-                Death();
-            }
 
-            /*if (MAXDP!=0&&DP<=0)
+        }
+        public void breakDown(float time)
+        {
+            StartCoroutine(Break_Coroutine(time));
+        }
+        
+        public IEnumerator Break_Coroutine(float time)
+        {
+            HaveDp = false;
+            yield return new WaitForSeconds(time);
+            HaveDp = true;
+            DP = MAXDP;
+        } 
+        
+        public void DPDamageTest(CharacterStatus characterStatus) 
+        {
+            Debug.Log("111");
+            if (characterStatus.DP>1)
             {
-                Break();
+                characterStatus.DP -= 1;
             }
-*/
-            if (GetComponentInChildren<Animator>().GetBool(CharacterAnimationParameters.breakdown))
+            else
             {
-                if (hideTime <= Time.time)
-                            {
-                                CoverDP();
-                            }
+                if (characterStatus.DP==1&&characterStatus.HaveDp)
+                {
+                    characterStatus.breakDown(3f);
+                }
             }
-
-            Cover();
         }
     }
 }
