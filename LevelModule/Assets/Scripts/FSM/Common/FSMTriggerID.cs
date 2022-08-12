@@ -24,6 +24,7 @@ namespace GameDemo.FSM
         InputAttackStart_Move,
         Impacted,
         Anima_AttackedEnd,
-        Break
+        Break,
+        BreakToIdle
     }
 }

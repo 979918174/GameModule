@@ -97,7 +97,7 @@ namespace GameDemo.FSM
                     //idle.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
                     idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
                     idle.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
-
+                    idle.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
                     _states.Add(idle);
 
                     DeadState dead = new DeadState();
@@ -121,7 +121,12 @@ namespace GameDemo.FSM
                     //…Ë÷√◊¥Ã¨
                     ImpactedState impactedState = new ImpactedState();
                     impactedState.AddMap(FSMTriggerID.Anima_AttackedEnd, FSMStateID.Idle);
+                    impactedState.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
                     _states.Add(impactedState);
+
+                    BreakDownState breakDownState = new BreakDownState();
+                    breakDownState.AddMap(FSMTriggerID.BreakToIdle, FSMStateID.Idle);
+                    _states.Add(breakDownState);
                 }
             }
 

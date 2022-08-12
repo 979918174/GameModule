@@ -44,6 +44,8 @@ namespace GameDemo.Character
         public bool T_AnimaEnd_Attacked;
         [Tooltip("是否有护盾")] 
         public bool HaveDp;
+        [Tooltip("是否被击倒")]
+        public bool IsBreak;
         public CharacterAnimationParameter CharacterAnimationParameters;
 
         [ShowInInspector]
@@ -73,15 +75,18 @@ namespace GameDemo.Character
         }
         public void breakDown(float time)
         {
+            Transform trans = transform.Find("head");
+            GameObject FX = GameObjectPool.Instance.CreateObject("Art_fx_com_dizziness", ResourceManager.Load<GameObject>("Art_fx_com_dizziness"), trans.position, trans.rotation);
+            GameObjectPool.Instance.CollectObject(FX, time);
             StartCoroutine(Break_Coroutine(time));
         }
         
         public IEnumerator Break_Coroutine(float time)
         {
             HaveDp = false;
+            IsBreak = true;
             yield return new WaitForSeconds(time);
-            HaveDp = true;
-            DP = MAXDP;
+            IsBreak = false;
         } 
         
         public void DPDamageTest(CharacterStatus characterStatus) 

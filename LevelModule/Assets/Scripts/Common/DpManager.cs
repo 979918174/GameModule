@@ -25,6 +25,7 @@ namespace Common
             {
                 if (characterStatus.DP==1&&characterStatus.HaveDp)
                 {
+                    characterStatus.DP -= 1;
                     characterStatus.breakDown(3f);
                 }
             }
