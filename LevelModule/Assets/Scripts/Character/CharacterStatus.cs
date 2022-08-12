@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Common;
 using GameDemo.Skill;
 using UnityEngine;
+using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
 namespace GameDemo.Character
 {
@@ -44,6 +46,8 @@ namespace GameDemo.Character
         public bool HaveDp;
         public CharacterAnimationParameter CharacterAnimationParameters;
 
+        [ShowInInspector]
+        public Dictionary<string, IEventInfo> actionDic;
 
         protected void Start()
         {
@@ -52,7 +56,9 @@ namespace GameDemo.Character
                 HaveDp = true;
             }
             //EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DpManager.Instance.DPDamage);
-            EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DPDamageTest);
+            actionDic = EventManager.Instance.actionDic;
+
+
         }
 
         //调用父类，执行子类

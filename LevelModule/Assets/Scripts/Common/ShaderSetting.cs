@@ -4,7 +4,7 @@ using UnityEngine;
 using Common;
 using GameDemo.FSM;
 using GameDemo.Character;
-public class ShaderSetting : MonoBehaviour
+public class ShaderSetting : MonoSingleton<ShaderSetting>
 {
     public float blinkTime;
     public float blackTime;
@@ -14,19 +14,13 @@ public class ShaderSetting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var item in GetComponentInChildren<Transform>().GetComponentsInChildren<SkinnedMeshRenderer>())
-        {
-            materials.Add(item.material);
-        }
-        materials = ArrayHelper.FindAll_L<Material>(materials, t => t.shader.name == "Shader Graphs/LitPokemonShader");
-
         //StartCoroutine(blinkTime_Coroutine());
-        EventManager.Instance.AddEventListener<FSMBase>("造成伤害", Blink);
+        EventManager.Instance.AddEventListener<CharacterStatus>("造成伤害_角色状态", Blink);
     }
 
     private void OnEnable()
     {
-        //StartCoroutine(blinkTime_Coroutine());
+
     }
     // Update is called once per frame
     void Update()
@@ -34,20 +28,15 @@ public class ShaderSetting : MonoBehaviour
         
     }
 
-    void Blink(FSMBase fsm) 
+    void Blink(CharacterStatus characterStatus) 
     {
+        foreach (var item in characterStatus.GetComponentInChildren<Transform>().GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            materials.Add(item.material);
+        }
+        materials = ArrayHelper.FindAll_L<Material>(materials, t => t.shader.name == "Shader Graphs/LitPokemonShader");
         Debug.Log("222");
         StartCoroutine(blinkTime_Coroutine());
-    }
-
-    void Black()
-    {
-
-    }
-
-    void CoverPar()
-    {
-
     }
 
     public IEnumerator blinkTime_Coroutine()
@@ -87,6 +76,7 @@ public class ShaderSetting : MonoBehaviour
             /*item.SetColor("Color_148bed11a38b41a5b92404c3d3378974", Color.Lerp(new Color(1, 1, 1, 1), new Color(0, 0, 0, 1), Time.deltaTime * coverTime));
             item.SetColor("Color_1c0cb89cf1a94bb38394531b7d9b1fc5", Color.Lerp(new Color(0, 0, 0, 1), new Color(1, 1, 1, 1), Time.deltaTime * coverTime));*/
         }
+        materials.Clear();
         yield return new WaitForSeconds(0.05f);
     }
 }

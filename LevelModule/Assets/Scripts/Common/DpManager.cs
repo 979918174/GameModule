@@ -7,21 +7,12 @@ using System;
 namespace Common
 {
 
-    public class DpManager
+    public class DpManager:MonoSingleton<DpManager>
     {
-        private static DpManager instance;
-
-        public static DpManager Instance
+        public override void Init()
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new DpManager();
-                }
-
-                return instance;
-            }
+            base.Init();
+            EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害", DPDamage);
         }
         public void DPDamage(CharacterStatus characterStatus) 
         {
@@ -38,8 +29,5 @@ namespace Common
                 }
             }
         }
-        
-
-       
     }
 }

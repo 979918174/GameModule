@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3262,7 +3262,6 @@ GameObject:
   - component: {fileID: 400082667}
   - component: {fileID: 400082669}
   - component: {fileID: 400082668}
-  - component: {fileID: 400082670}
   m_Layer: 0
   m_Name: Enemy_2
   m_TagString: Enemy
@@ -3391,22 +3390,6 @@ MonoBehaviour:
   shakeRate: {x: 0.05, y: 0, z: 0.05}
   shakeTime: 0.4
   shakeDertaTime: 0.1
---- !u!114 &400082670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400082663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a13c87c42c03e2149a2d6ee988eb77c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkTime: 70
-  blackTime: 70
-  coverTime: 60
-  materials: []
 --- !u!1 &465652088
 GameObject:
   m_ObjectHideFlags: 3
@@ -5412,6 +5395,49 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 8595459259270556511, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
   m_PrefabInstance: {fileID: 8595459259580196188}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1057235736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1057235738}
+  - component: {fileID: 1057235737}
+  m_Layer: 0
+  m_Name: DPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1057235737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057235736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a89ef08bb45ba891f00b85ee28f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1057235738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057235736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1152379986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7476,6 +7502,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedTarget: {fileID: 0}
+--- !u!1 &1784818208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784818210}
+  - component: {fileID: 1784818209}
+  m_Layer: 0
+  m_Name: ShaderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1784818209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784818208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13c87c42c03e2149a2d6ee988eb77c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkTime: 70
+  blackTime: 70
+  coverTime: 70
+  materials: []
+--- !u!4 &1784818210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784818208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8136626, y: 7.372709, z: 8.597467}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1790703359
 PrefabInstance:
   m_ObjectHideFlags: 0

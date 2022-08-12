@@ -47,6 +47,7 @@ namespace GameDemo.Skill
             {
                 //触发“造成伤害”
                 EventManager.Instance.TriggerEventListener<FSM.FSMBase>("造成伤害", data.attackTargets[i].GetComponent<FSM.FSMBase>());
+                EventManager.Instance.TriggerEventListener<CharacterStatus>("造成伤害_角色状态", data.attackTargets[i].GetComponent<CharacterStatus>());
                 //todo 修正属性伤害
 
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
