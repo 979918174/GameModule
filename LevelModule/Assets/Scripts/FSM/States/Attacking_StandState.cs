@@ -19,6 +19,7 @@ namespace GameDemo.FSM
             base.EnterState(fsm);
             characterInputController = fsm.GetComponent<CharacterInputController>();
             currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
+            characterInputController.moveDis =Vector3.zero;
             //开放输入-注册输入事件
 
             //屏蔽输入-注销输入事件(移动、攻击)

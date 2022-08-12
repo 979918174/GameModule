@@ -16,7 +16,7 @@ namespace GameDemo.Character
     {
         public InputAction_1 inputActions;
         private CharacterMotor _characterMotor;
-        private Vector3 moveDis = Vector3.zero;
+        public Vector3 moveDis = Vector3.zero;
         public PlayerManager playerManager;
         public GameObject currentPlayer;
 
@@ -124,7 +124,7 @@ namespace GameDemo.Character
 
         public void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
-            if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle)
+            if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle||GetComponent<FSMBase>().currentState.StateID == FSMStateID.Move)
             {
                 //todo
                 B_InputAttack01Start = true;
