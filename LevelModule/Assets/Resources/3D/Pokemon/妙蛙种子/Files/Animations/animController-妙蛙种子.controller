@@ -247,7 +247,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fight_attack
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -298,7 +298,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fight_lost
+  m_Name: Breakdown
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -311,7 +311,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7167067049663402172, guid: 18c31d85ee23d054b8d93ff595867b4c, type: 3}
+  m_Motion: {fileID: 7400000, guid: d0a07fe5a0033324c9caf592aef570ad, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

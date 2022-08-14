@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2736448397325926043}
   - component: {fileID: 2736448397325926045}
   - component: {fileID: 2736448397325926042}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ci (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,7 +4891,7 @@ GameObject:
   - component: {fileID: 2736448397496618584}
   - component: {fileID: 2736448397496618586}
   - component: {fileID: 2736448397496618587}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ci
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9753,7 +9753,7 @@ GameObject:
   - component: {fileID: 2736448397828938049}
   - component: {fileID: 2736448397828938051}
   - component: {fileID: 2736448397828938048}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: bao (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10026,7 +10026,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.61
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14633,7 +14633,7 @@ GameObject:
   - component: {fileID: 2736448398179633211}
   - component: {fileID: 2736448398179633213}
   - component: {fileID: 2736448398179633210}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: sanguang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19513,7 +19513,7 @@ GameObject:
   - component: {fileID: 2736448398448499669}
   - component: {fileID: 2736448398448499671}
   - component: {fileID: 2736448398448499668}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: bao (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24609,7 +24609,7 @@ GameObject:
   - component: {fileID: 2736448398616429610}
   - component: {fileID: 2736448398616429612}
   - component: {fileID: 2736448398616429613}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: bao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24638,7 +24638,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2736448398616429611}
   serializedVersion: 7
-  lengthInSec: 0.1
+  lengthInSec: 0.3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -24882,7 +24882,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.91
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -29496,7 +29496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3586474105532424080}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: fx_com_hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29535,7 +29535,7 @@ GameObject:
   - component: {fileID: 1898353910564343254}
   - component: {fileID: 7593887816197541811}
   - component: {fileID: 5506210386594324106}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ci (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

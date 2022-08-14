@@ -51,6 +51,8 @@ namespace GameDemo.Character
         [ShowInInspector]
         public Dictionary<string, IEventInfo> actionDic;
 
+
+        public Transform headTrans;
         protected void Start()
         {
             if (DP!=0)
@@ -59,6 +61,7 @@ namespace GameDemo.Character
             }
             //EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DpManager.Instance.DPDamage);
             actionDic = EventManager.Instance.actionDic;
+            headTrans = transform.Find("head");
         }
 
         //调用父类，执行子类
@@ -66,19 +69,30 @@ namespace GameDemo.Character
         {
    
         }
-        
+
+        //初始化判断参数
+        public void InitConditionPar()
+        {
+            if (DP!=0)
+            {
+                HaveDp = true;
+            }
+            passFristAttacked = false;
+            IsHurt = false;
+            T_AnimaEnd_Attacked = false;
+            IsBreak = false;
+        }
+
         protected void Update()
         {
             if (HP<=0)
             {
                 Death();
             }
-
         }
         public void breakDown(float time)
         {
-            Transform trans = transform.Find("head");
-            GameObject FX = GameObjectPool.Instance.CreateObject("Art_fx_com_stun", ResourceManager.Load<GameObject>("Art_fx_com_stun"), trans.position, trans.rotation);
+            GameObject FX = GameObjectPool.Instance.CreateObject("Art_fx_com_stun", ResourceManager.Load<GameObject>("Art_fx_com_stun"), headTrans.position, headTrans.rotation);
             GameObjectPool.Instance.CollectObject(FX, time);
             StartCoroutine(Break_Coroutine(time));
         }

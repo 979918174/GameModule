@@ -13,7 +13,7 @@ using GameDemo.Character;
 namespace GameDemo.Skill
 {
     /// <summary>
-    /// ÉËº¦Ğ§¹û
+    /// ä¼¤å®³æ•ˆæœ
     /// </summary>
     public class DamageImpact : IImpactEffect
     {
@@ -24,7 +24,7 @@ namespace GameDemo.Skill
             data = deployer.SkillData;
             deployer.StartCoroutine(RepeatDamage(deployer));
         }
-        //ÖØ¸´ÉËº¦
+        //é‡å¤ä¼¤å®³
         private IEnumerator RepeatDamage(SkillDeployer deployer)
         {
             float atkTime = 0;
@@ -33,32 +33,32 @@ namespace GameDemo.Skill
                 OnceDamage();
                 yield return new WaitForSeconds(data.atkInterval);
                 atkTime += data.atkInterval;
-                deployer.CalculateTargets();//ÖØĞÂ¼ÆËãÄ£°å
+                deployer.CalculateTargets();//é‡æ–°è®¡ç®—æ¨¡æ¿
              } while (atkTime < data.durationTime);
         }
-        //µ¥´ÎÉËº¦
+        //å•æ¬¡ä¼¤å®³
         private void OnceDamage()
         {
             
-            //ÉËº¦Öµ ¼¼ÄÜÏµÊı*¹¥»÷Á¦
+            //ä¼¤å®³å€¼ æŠ€èƒ½ç³»æ•°*æ”»å‡»åŠ›
 
             float damage = data.atkRatio * data.owner.GetComponent<CharacterStatus>().ATK;
             for (int i = 0; i < data.attackTargets.Length; i++)
             {
-                //´¥·¢¡°Ôì³ÉÉËº¦¡±
-                EventManager.Instance.TriggerEventListener<FSM.FSMBase>("Ôì³ÉÉËº¦", data.attackTargets[i].GetComponent<FSM.FSMBase>());
-                EventManager.Instance.TriggerEventListener<CharacterStatus>("Ôì³ÉÉËº¦_½ÇÉ«×´Ì¬", data.attackTargets[i].GetComponent<CharacterStatus>());
-                //todo ĞŞÕıÊôĞÔÉËº¦
+                //è§¦å‘â€œé€ æˆä¼¤å®³â€
+                EventManager.Instance.TriggerEventListener<FSM.FSMBase>("é€ æˆä¼¤å®³", data.attackTargets[i].GetComponent<FSM.FSMBase>());
+                EventManager.Instance.TriggerEventListener<CharacterStatus>("é€ æˆä¼¤å®³_è§’è‰²çŠ¶æ€", data.attackTargets[i].GetComponent<CharacterStatus>());
+                //todo ä¿®æ­£å±æ€§ä¼¤å®³
 
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
                 if (status.type == data.weakType)
                 {
-                    //´¥·¢¡°Ôì³É¿ËÖÆÉËº¦¡±
-                    EventManager.Instance.TriggerEventListener<CharacterStatus>("Ôì³É¿ËÖÆÉËº¦", data.attackTargets[i].GetComponent<CharacterStatus>());
-                    //ÊÜ»÷¶¯»­
-                    //ÉËº¦
+                    //è§¦å‘â€œé€ æˆå…‹åˆ¶ä¼¤å®³â€
+                    EventManager.Instance.TriggerEventListener<CharacterStatus>("é€ æˆå…‹åˆ¶ä¼¤å®³", data.attackTargets[i].GetComponent<CharacterStatus>());
+                    //å—å‡»åŠ¨ç”»
+                    //ä¼¤å®³
                     status.HP -= damage*2;
-                    //Æ®×Ö
+                    //é£˜å­—
                     DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
                     data.attackTargets[i].transform.position+new Vector3(UnityEngine.Random.Range(-0.5f,0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                     damageFloat.ShowUIDamage(damage*2);
@@ -68,7 +68,7 @@ namespace GameDemo.Skill
                     if (status.type == data.sesistanceType)
                     {
                         status.HP -= damage/2;
-                        //Æ®×Ö
+                        //é£˜å­—
                         DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_sesistance,
                         data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                         damageFloat.ShowUIDamage(damage / 2);
@@ -77,7 +77,7 @@ namespace GameDemo.Skill
                     else
                     {
                         status.HP -= damage;
-                        //Æ®×Ö
+                        //é£˜å­—
                         DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_normal,
                         data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
                         damageFloat.ShowUIDamage(damage);
@@ -85,10 +85,16 @@ namespace GameDemo.Skill
                 }
                 status.IsHurt = true;
                 //status.IsHurt = false;
-                //ÕğÆÁ
+                //éœ‡å±
                 data.owner.GetComponentInParent<CinemachineImpulseSource>().GenerateImpulse();
                 //GameObject floatPoint = data.attackTargets[i].Find("floatPoint").gameObject;
+                
+                Transform trans = data.attackTargets[i].Find("hitPoint");
+                GameObject FX = GameObjectPool.Instance.CreateObject("fx_com_hit", ResourceManager.Load<GameObject>("fx_com_hit"), trans.position, trans.rotation);
+                GameObjectPool.Instance.CollectObject(FX, 2f);
+                
             }
+            
         }
     }
 }

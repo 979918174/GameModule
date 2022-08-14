@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mate_lc_hit01
-  m_Shader: {fileID: -6465566751694194690, guid: ef4c325ac4fc3eb478c3c48ffdfa153b, type: 3}
-  m_ShaderKeywords: ENABLE_Alpha FX_DISSOLVE _DISSOLVERANGEUSECUSTOMDATA_ON
+  m_Shader: {fileID: 4800000, guid: 912320d59f912aa4a991eb9f11fb65ea, type: 3}
+  m_ShaderKeywords: ENABLE_Alpha FX_DISSOLVE _DISSOLVERANGEUSECUSTOMDATA_ON _USECUSTOMDATAMASKUV_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -147,7 +147,7 @@ Material:
     - _V_Mask: 0
     - _V_twi: 0
     - _WorkflowMode: 1
-    - _ZTest: 8
+    - _ZTest: 4
     - _ZWrite: 0
     - _glow: 10
     - _isLux: 0

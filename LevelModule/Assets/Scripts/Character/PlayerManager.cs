@@ -54,9 +54,6 @@ namespace GameDemo.Character
             Vector3 LastPostion = transform.position;
             Quaternion LastRotation = transform.rotation;
             currentCharacter.SetActive(false);
-            
-            
-
             if (index==MyCharacters.Count-1)
             {
                 currentCharacter = MyCharacters[0];
@@ -81,7 +78,7 @@ namespace GameDemo.Character
             CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
             FSMPar();
-
+            currentCharacter.GetComponent<CharacterStatus>().InitConditionPar();
         }
         public void ChangeCharacterDown()
         {
@@ -111,6 +108,8 @@ namespace GameDemo.Character
             inputController.currentPlayer = currentCharacter;
             CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
+            FSMPar();
+            currentCharacter.GetComponent<CharacterStatus>().InitConditionPar();
         }
     }
 }
