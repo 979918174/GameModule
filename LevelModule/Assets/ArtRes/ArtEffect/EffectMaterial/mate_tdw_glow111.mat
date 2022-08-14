@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: mate_tdw_glow111
   m_Shader: {fileID: 4800000, guid: 912320d59f912aa4a991eb9f11fb65ea, type: 3}
-  m_ShaderKeywords: ENABLE_Alpha _DISSOLVERANGEUSECUSTOMDATA_ON
+  m_ShaderKeywords: ENABLE_Alpha FX_MASK FX_UVTRANSFORM _DISSOLVERANGEUSECUSTOMDATA_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
