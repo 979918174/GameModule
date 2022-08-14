@@ -85,9 +85,10 @@ namespace GameDemo.Character
             this.GetComponent<CharacterMotor>().SpeedUPRate *= 2;
         }
 
-        private void Attack_02Onperformed(InputAction.CallbackContext obj)
+        public void Attack_02Onperformed(InputAction.CallbackContext obj)
         {
             //todo
+            B_InputAttack02Start = true;
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
         }
 

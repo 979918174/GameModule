@@ -7456,9 +7456,9 @@ MonoBehaviour:
     skillType: 0
     weakType: 2
     sesistanceType: 1
-    skillPreFrame: 0
-    skillEndFrame: 0
-    skillMoveType: 0
+    skillPreFrame: 0.5
+    skillEndFrame: 2
+    skillMoveType: 1
   - skillID: 1004
     skillConfig: {fileID: 0}
     skillName: 
@@ -8626,8 +8626,8 @@ MonoBehaviour:
     skillDesc: 
     skillCoolDown: 1
     coolDownRemain: 0
-    attackDistance: 5
-    attackAngle: 120
+    attackDistance: 6
+    attackAngle: 150
     attackTargetTags:
     - Enemy
     attackTargets: []

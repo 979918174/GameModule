@@ -46,7 +46,7 @@ namespace GameDemo.FSM
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.move,false);
             //ÐÞ¸ÄÅÐ¶ÏÏµÊý
             fsm.GetComponent<CharacterInputController>().B_InputMoveCancel = false;
-            fsm.GetComponent<CharacterInputController>().B_InputAttack01Start = false;
+            //fsm.GetComponent<CharacterInputController>().B_InputAttack01Start = false;
             base.ExitState(fsm);
         }
     }
