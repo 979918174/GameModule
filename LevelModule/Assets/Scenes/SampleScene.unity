@@ -3285,7 +3285,7 @@ MonoBehaviour:
   MAXHP: 100
   ATK: 0
   SP: 0
-  DP: 6
+  DP: 2
   MAXDP: 6
   type: 2
   rotateSpeed: 20

@@ -1,5 +1,5 @@
-Art_fx_com_dizziness=3D/Effect/fx_com_dizziness/Art_fx_com_dizziness
 fx_com_hit=3D/Effect/fx_com_hit/fx_com_hit
+Art_fx_com_stun=3D/Effect/fx_com_stun/Art_fx_com_stun
 妙蛙种子=3D/Pokemon/妙蛙种子/妙蛙种子
 小拉达=3D/Pokemon/小拉达/小拉达
 小火龙=3D/Pokemon/小火龙/小火龙

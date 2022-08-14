@@ -78,7 +78,7 @@ namespace GameDemo.Character
         public void breakDown(float time)
         {
             Transform trans = transform.Find("head");
-            GameObject FX = GameObjectPool.Instance.CreateObject("Art_fx_com_dizziness", ResourceManager.Load<GameObject>("Art_fx_com_dizziness"), trans.position, trans.rotation);
+            GameObject FX = GameObjectPool.Instance.CreateObject("Art_fx_com_stun", ResourceManager.Load<GameObject>("Art_fx_com_stun"), trans.position, trans.rotation);
             GameObjectPool.Instance.CollectObject(FX, time);
             StartCoroutine(Break_Coroutine(time));
         }
