@@ -12,7 +12,8 @@ namespace GameDemo.Character
         public override void Death()
         {
             base.Death();
-            Destroy(gameObject, 4f);
+            //定时销毁物体(溶解时间)
+            Destroy(gameObject, 2f);
         }
     }
 }

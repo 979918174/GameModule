@@ -35,7 +35,7 @@ namespace GameDemo.FSM
             InitDefaultState();
         }
 
-        private void InitDefaultState()
+        public void InitDefaultState()
         {
             defaultState = ArrayHelper.Find_L(_states, s => s.StateID == defaultStateID);
             currentState = defaultState;

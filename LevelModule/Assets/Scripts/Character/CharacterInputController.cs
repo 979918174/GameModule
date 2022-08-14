@@ -107,6 +107,7 @@ namespace GameDemo.Character
          
             playerManager.GetComponent<PlayerManager>().ChangeCharacterUp();
             
+            
         }
 
 

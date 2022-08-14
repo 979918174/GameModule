@@ -59,18 +59,20 @@ namespace GameDemo.Character
             }
             //EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DpManager.Instance.DPDamage);
             actionDic = EventManager.Instance.actionDic;
-
-
         }
 
         //调用父类，执行子类
         public virtual void Death() 
         {
-            GetComponentInChildren<Animator>().SetBool(CharacterAnimationParameters.dead,true);
+   
         }
         
         protected void Update()
         {
+            if (HP<=0)
+            {
+                Death();
+            }
 
         }
         public void breakDown(float time)
@@ -104,5 +106,7 @@ namespace GameDemo.Character
                 }
             }
         }
+        
+        
     }
 }

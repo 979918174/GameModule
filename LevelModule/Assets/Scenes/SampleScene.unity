@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3281,7 +3281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae76c72d0253c384b8026edb4414e637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10000
+  HP: 7000
   MAXHP: 100
   ATK: 0
   SP: 0
@@ -3773,7 +3773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &519596669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7367,7 +7367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1749028861
 Transform:
   m_ObjectHideFlags: 0
@@ -8253,6 +8253,7 @@ MonoBehaviour:
   currentCharacter: {fileID: 0}
   CamaraConfig: {fileID: 595218483}
   index: 0
+  fsmBase: {fileID: 0}
   inputController: {fileID: 0}
   damageCanva_weak: {fileID: 6384784403793181067, guid: 1b8b59faeca228440b2fcd061a673f6c, type: 3}
   damageCanva_normal: {fileID: 6384784403793181067, guid: f8e1c5d6dc91d3246898ee68abf0b08c, type: 3}
@@ -8269,6 +8270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a273020a5929ef498803ef39e504e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDis: {x: 0, y: 0, z: 0}
   playerManager: {fileID: 0}
   currentPlayer: {fileID: 0}
   B_InputMoveStart: 0
@@ -8289,10 +8291,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1867960548
 MonoBehaviour:
@@ -8606,9 +8608,9 @@ MonoBehaviour:
     - Enemy
     attackTargets: []
     costSP: 0
-    durationTime: 1
+    durationTime: 0.1
     atkRatio: 2
-    atkInterval: 0.3
+    atkInterval: 0.25
     owner: {fileID: 0}
     skillprefab: {fileID: 0}
     prefabName: SkillNormal_P001_Prefab
@@ -8622,8 +8624,8 @@ MonoBehaviour:
     skillType: 2
     weakType: 2
     sesistanceType: 0
-    skillPreFrame: 1
-    skillEndFrame: 1.5
+    skillPreFrame: 0.5
+    skillEndFrame: 0.75
     skillMoveType: 1
   - skillID: 1003
     skillConfig: {fileID: 0}
@@ -8705,7 +8707,7 @@ MonoBehaviour:
   MAXDP: 0
   type: 0
   rotateSpeed: 10
-  moveSpeed: 3
+  moveSpeed: 6
   passFristAttacked: 0
   hurtTime: 0
   IsHurt: 0
