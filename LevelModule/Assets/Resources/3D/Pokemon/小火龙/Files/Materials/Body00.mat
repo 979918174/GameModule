@@ -49,9 +49,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Occlusion: 0
+    - Vector1_3f7d4e245e664b2397e2311495e64944: 0
+    - Vector1_51408771fa58413983fd3150eedd4315: 0.218
+    - Vector1_813317de5ce54d4c9025515a1bbbbf0c: 0
     - _AlphaClipThreshold: 0.5
     - _NormalStrength: 1
     m_Colors:
+    - Color_148bed11a38b41a5b92404c3d3378974: {r: 0, g: 0, b: 0, a: 0}
+    - Color_1c0cb89cf1a94bb38394531b7d9b1fc5: {r: 1, g: 1, b: 1, a: 0}
+    - Color_4bf814dd77444bb79da3c5d8163ad6d2: {r: 0.403632, g: 0.423361, b: 0.9403296, a: 0}
     - _BaseMapOffset: {r: 0, g: 0, b: 0, a: 0}
     - _BaseMapTiling: {r: 2, g: 1, b: 0, a: 0}
     - _NormalMapOffset: {r: 0, g: 0, b: 0, a: 0}
