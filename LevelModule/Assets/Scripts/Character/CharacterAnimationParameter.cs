@@ -22,5 +22,6 @@ namespace GameDemo.Character
         public string breakdown = "breakdown";
         public string speedUPRate = "speedUPRate";
         public string attack01_move = "attack01_move";
+        public string changing = "changing";
     }
 }

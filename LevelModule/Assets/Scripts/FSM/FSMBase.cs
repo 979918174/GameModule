@@ -62,6 +62,7 @@ namespace GameDemo.FSM
                 idle.AddMap(FSMTriggerID.InputMoveStart, FSMStateID.Move);
                 idle.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
                 idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+                idle.AddMap(FSMTriggerID.InputChangeStart, FSMStateID.Changing);
 
                 _states.Add(idle);
 
@@ -85,6 +86,9 @@ namespace GameDemo.FSM
                 attacking_StandState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
                 _states.Add(attacking_StandState);
                 //…Ë÷√◊¥Ã¨
+                ChangingState changingState = new ChangingState();
+                changingState.AddMap(FSMTriggerID.InputChangeCancel, FSMStateID.Idle);
+                _states.Add(changingState);
             }
             else
             {

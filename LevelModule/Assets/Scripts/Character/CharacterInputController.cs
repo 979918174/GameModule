@@ -31,6 +31,8 @@ namespace GameDemo.Character
         public bool B_InputAttack02Start;
         public bool B_InputAttack02Cancel;
         public bool T_AnimaEnd_Attack01;
+        public bool B_InputChangeStart;
+        public bool B_InputChangeCancel;
         public void Awake()
         {
             //查找组件InputSystem
@@ -45,6 +47,8 @@ namespace GameDemo.Character
             B_InputAttack02Start = false;
             B_InputAttack02Cancel = false;
             T_AnimaEnd_Attack01 = false;
+            B_InputChangeStart = false;
+            B_InputChangeCancel = false;
         }
 
         public void OnEnable()
@@ -65,26 +69,38 @@ namespace GameDemo.Character
             inputActions.Player.ChangeUP.performed += ChangeUPOnperformed;
             //交换键上取消
             inputActions.Player.ChangeUP.canceled += ChangeUPOncanceled;
-            //交换键下取消
+            //交换键下持续
             inputActions.Player.ChangeDown.performed += ChangeDownOnperformed;
+            //交换键下取消
+            inputActions.Player.ChangeDown.canceled += ChangeDownOncanceled;
             //加速键开始
             inputActions.Player.SpeedUp.started += SpeedUpOnstarted;
             //加速键取消
             inputActions.Player.SpeedUp.canceled += SpeedUpOncanceled;
         }
 
+       
+
         //加速键弹起：还原马达参数SpeedUPRate
         private void SpeedUpOncanceled(InputAction.CallbackContext obj)
         {
             this.GetComponent<CharacterMotor>().SpeedUPRate /= 2;
         }
-
         //加速键按下：改变马达参数SpeedUPRate
         private void SpeedUpOnstarted(InputAction.CallbackContext obj)
         {
             this.GetComponent<CharacterMotor>().SpeedUPRate *= 2;
         }
 
+        public void Attack_01Onperformed(InputAction.CallbackContext obj)
+        {
+            if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle || GetComponent<FSMBase>().currentState.StateID == FSMStateID.Move)
+            {
+                //todo
+                B_InputAttack01Start = true;
+                currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
+            }
+        }
         public void Attack_02Onperformed(InputAction.CallbackContext obj)
         {
             //todo
@@ -92,24 +108,28 @@ namespace GameDemo.Character
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
         }
 
+
+
         private void ChangeUPOncanceled(InputAction.CallbackContext obj)
         {
-            
+            playerManager.GetComponent<PlayerManager>().ChangeCharacterUp();
+        }
+
+        private void ChangeDownOncanceled(InputAction.CallbackContext obj)
+        {
+            playerManager.GetComponent<PlayerManager>().ChangeCharacterDown();
         }
 
         private void ChangeDownOnperformed(InputAction.CallbackContext obj)
         {
-            
-            playerManager.GetComponent<PlayerManager>().ChangeCharacterDown();
+            B_InputChangeStart = true;
         }
 
         private void ChangeUPOnperformed(InputAction.CallbackContext obj)
         {
-         
-            playerManager.GetComponent<PlayerManager>().ChangeCharacterUp();
-            
-            
+            B_InputChangeStart = true;
         }
+
 
 
         public void MovementOnstarted(InputAction.CallbackContext obj)
@@ -122,26 +142,6 @@ namespace GameDemo.Character
             B_InputMoveStart = true;
             //调用马达移动功能
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
-        }
-
-        public void Attack_01Onperformed(InputAction.CallbackContext obj)
-        {
-            if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle||GetComponent<FSMBase>().currentState.StateID == FSMStateID.Move)
-            {
-                //todo
-                B_InputAttack01Start = true;
-                //T_AnimaEnd_Attack01 = false;
-                currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
-                //characterInputController.inputActions.Player.Attack_01.performed -= characterInputController.Attack_01Onperformed;
-                //inputActions.Player.Attack_01.performed -= Attack_01Onperformed;
-
-                /*CharacterSkillManager SkillManager = GetComponent<Skill.CharacterSkillManager>();
-                //调用攻击功能,技能管理器
-                SkillData skillData = SkillManager.PrePareSkill(1002);
-                if (skillData != null) //生成技能
-                    SkillManager.GenerateSkill(skillData);*/
-            }
-
         }
 
         public void MovementOncanceled(InputAction.CallbackContext obj)

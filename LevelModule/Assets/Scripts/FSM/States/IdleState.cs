@@ -32,6 +32,7 @@ namespace GameDemo.FSM
                 characterInputController.inputActions.Player.Attack_01.performed += characterInputController.Attack_01Onperformed;
                 characterInputController.inputActions.Player.Attack_02.performed += characterInputController.Attack_02Onperformed;
                 //修改动画参数
+                currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.changing, false);
                 currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.idle, true);
                 //初始化判断条件
                 fsm.GetComponent<CharacterInputController>().B_InputMoveCancel = false;
