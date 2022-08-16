@@ -148,9 +148,9 @@ Material:
     - _V_Mask: 0
     - _V_twi: 0
     - _WorkflowMode: 1
-    - _ZTest: 8
+    - _ZTest: 4
     - _ZWrite: 0
-    - _glow: 80
+    - _glow: 50
     - _isLux: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
