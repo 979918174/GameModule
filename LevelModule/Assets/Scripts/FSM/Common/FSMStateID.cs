@@ -18,6 +18,7 @@ namespace GameDemo.FSM
         Attacking_Move,
         Changing,
         BreakDown,
-        Impacted
+        Impacted,
+        Enemy_FindPlayer
     }
 }

@@ -32,9 +32,11 @@ namespace GameDemo.Character
         public float rotateSpeed;
         [Tooltip("移动速度")]
         public float moveSpeed;
-        [Tooltip("受击时间")]
+        [Tooltip("攻击距离")]
+        public float attackDistance;
 
         //动画相关判断值
+        [Tooltip("受击时间")]
         public bool passFristAttacked;
         [Tooltip("是否首次受击")]
         public float hurtTime;

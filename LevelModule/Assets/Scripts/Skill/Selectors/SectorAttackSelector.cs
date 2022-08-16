@@ -35,7 +35,6 @@ namespace GameDemo.Skill
             if (data.attackType == SkillAttackType.Group)
             {
                 return result;
-                
             }
             else
             {

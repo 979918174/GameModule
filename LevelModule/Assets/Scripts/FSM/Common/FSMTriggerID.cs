@@ -10,7 +10,6 @@ namespace GameDemo.FSM
     public enum FSMTriggerID
     {
         NoHealth,
-        SawTarget,
         ReachTarget,
         KilledTarget,
         WithoutAttackRange,
@@ -27,6 +26,7 @@ namespace GameDemo.FSM
         Break,
         BreakToIdle,
         InputChangeStart,
-        InputChangeCancel
+        InputChangeCancel,
+        AI_SawTarget
     }
 }
