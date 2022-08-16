@@ -30,7 +30,7 @@ namespace GameDemo.FSM
         public override void ActionState(FSMBase fsm)
         {
             //更新玩家坐标给AI寻路参数
-            fsm.GetComponent<NavMeshAgent>().destination = PlayerTrans.GetComponent<Transform>().position;
+            fsm.MoveToTarget(fsm.targetTF.position, fsm.chStatus.attackDistance, fsm.moveSpeed);
         }
 
         public override void ExitState(FSMBase fsm)

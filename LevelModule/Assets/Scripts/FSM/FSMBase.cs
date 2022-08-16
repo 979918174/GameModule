@@ -5,6 +5,8 @@ using UnityEngine;
 using Common;
 using GameDemo.Character;
 using Type = System.Type;
+using GameDemo.Skill;
+using UnityEngine.AI;
 
 namespace GameDemo.FSM
 {
@@ -27,6 +29,17 @@ namespace GameDemo.FSM
         [Tooltip("默认状态ID")]
         public FSMStateID defaultStateID;
 
+        public Transform targetTF;
+        [Tooltip("攻击目标标签")]
+        public string[] targetTags = {"Player"};
+
+        [Tooltip("视野距离")]
+        public float sightDistance = 10;
+
+        [Tooltip("移动速度")]
+        public float moveSpeed = 2;
+
+        private UnityEngine.AI.NavMeshAgent navMeshAgent;
         private void Start()
         {
             InitComponent();
@@ -142,6 +155,7 @@ namespace GameDemo.FSM
             {
                 anim = GetComponentInChildren<Transform>().GetComponentInChildren<Animator>();
                 chStatus = GetComponentInChildren<CharacterStatus>();
+                
             }
             else
             {
@@ -150,9 +164,9 @@ namespace GameDemo.FSM
                 {
                     anim = GetComponentInChildren<Animator>();
                     chStatus = GetComponent<EnemyStatus>();
+                    navMeshAgent = GetComponent<NavMeshAgent>();
                 }
             }
-            
         }
 
         //切换状态
@@ -184,8 +198,30 @@ namespace GameDemo.FSM
             currentState.Reason(this);
             //执行当前逻辑
             currentState.ActionState(this);
+            if (GetComponent<EnemyStatus>())
+            {
+                SearchTarget();
+            }
         }
 
-        
+        private void SearchTarget() 
+        {
+            SkillData data = new SkillData()
+            {
+                attackTargetTags = targetTags,
+                attackDistance = sightDistance,
+                attackAngle = 360,
+                attackType = SkillAttackType.Group
+            };
+            Transform[] targetArr = new SectorAttackSelector().SelectTarget(data, transform);
+            targetTF = targetArr.Length==0?null:targetArr[0];
+        }
+        public void MoveToTarget(Vector3 position,float stopDistance,float moveSpeed) 
+        {
+            //通过寻路组件实现
+            navMeshAgent.SetDestination(position);
+            navMeshAgent.stoppingDistance = stopDistance;
+            navMeshAgent.speed = moveSpeed;
+        }
     }
 }

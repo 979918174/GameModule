@@ -1111,6 +1111,7 @@ MonoBehaviour:
   type: 0
   rotateSpeed: 10
   moveSpeed: 3
+  attackDistance: 0
   passFristAttacked: 0
   hurtTime: 0
   IsHurt: 0
@@ -1246,48 +1247,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5855784744859500618, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
   m_PrefabInstance: {fileID: 5855784744228550217}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &644118020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644118019}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startWhenEnabled: 1
-  asynchronousLoad: 0
-  pauseWhenDisabled: 0
-  restartWhenComplete: 0
-  logTaskChanges: 0
-  group: 0
-  resetValuesOnRestart: 0
-  externalBehavior: {fileID: 0}
-  mBehaviorSource:
-    behaviorName: Behavior
-    behaviorDescription: 
-    mTaskData:
-      types:
-      - BehaviorDesigner.Runtime.Tasks.EntryTask
-      - BehaviorDesigner.Runtime.Tasks.Sequence
-      parentIndex: ffffffff00000000
-      startIndex: 000000000a000000
-      variableStartIndex: 
-      JSONSerialization: 
-      fieldSerializationData:
-        typeName: []
-        fieldNameHash: 2944782b951203e811c37978c4a37522ae07a096e44d14616fd219c3a5f3b63149269a1caac4f9012944782b951203e811c37978c4a37522ae07a096e44d14616fd219c3a5f3b63149269a1caac4f9018690b4b290adcd7b
-        startIndex: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000014000000
-        dataPosition: 0000000004000000090000000a0000000b00000013000000130000001400000015000000190000001d00000021000000290000002a0000002b00000033000000330000003400000035000000390000003d000000
-        unityObjects: []
-        byteData: 
-        byteDataArray: 00000000456e747279010000602f4400004842000000000000000000000100000053657175656e63650100008046c3000020430000000000000000000000000000
-      Version: 1.7.3
-  gizmoViewMode: 2
-  showBehaviorDesignerGizmo: 1
 --- !u!195 &644118021
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1310,6 +1269,122 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &644118028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644118019}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTarget: {fileID: 0}
+--- !u!114 &644118029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644118019}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf98f50dc809134ea93b68437a2aa9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDatas:
+  - skillID: 0
+    skillConfig: {fileID: 0}
+    skillName: 
+    skillDesc: 
+    skillCoolDown: 0
+    coolDownRemain: 0
+    attackDistance: 0
+    attackAngle: 0
+    attackTargetTags:
+    - Enemy
+    attackTargets: []
+    costSP: 0
+    durationTime: 0
+    atkRatio: 0
+    atkInterval: 0
+    owner: {fileID: 0}
+    skillprefab: {fileID: 0}
+    prefabName: 
+    selectorType: 0
+    impactType:
+    - Damage
+    hitFXName: 
+    attackType: 0
+    animationName: 
+    skillType: 0
+    weakType: 0
+    sesistanceType: 0
+    skillPreFrame: 0
+    skillEndFrame: 0
+    skillMoveType: 0
+  - skillID: 0
+    skillConfig: {fileID: 0}
+    skillName: 
+    skillDesc: 
+    skillCoolDown: 0
+    coolDownRemain: 0
+    attackDistance: 0
+    attackAngle: 0
+    attackTargetTags:
+    - Enemy
+    attackTargets: []
+    costSP: 0
+    durationTime: 0
+    atkRatio: 0
+    atkInterval: 0
+    owner: {fileID: 0}
+    skillprefab: {fileID: 0}
+    prefabName: 
+    selectorType: 0
+    impactType:
+    - Damage
+    hitFXName: 
+    attackType: 0
+    animationName: 
+    skillType: 0
+    weakType: 0
+    sesistanceType: 0
+    skillPreFrame: 0
+    skillEndFrame: 0
+    skillMoveType: 0
+  - skillID: 0
+    skillConfig: {fileID: 0}
+    skillName: 
+    skillDesc: 
+    skillCoolDown: 0
+    coolDownRemain: 0
+    attackDistance: 0
+    attackAngle: 0
+    attackTargetTags:
+    - Enemy
+    attackTargets: []
+    costSP: 0
+    durationTime: 0
+    atkRatio: 0
+    atkInterval: 0
+    owner: {fileID: 0}
+    skillprefab: {fileID: 0}
+    prefabName: 
+    selectorType: 0
+    impactType:
+    - Damage
+    hitFXName: 
+    attackType: 0
+    animationName: 
+    skillType: 0
+    weakType: 0
+    sesistanceType: 0
+    skillPreFrame: 0
+    skillEndFrame: 0
+    skillMoveType: 0
 --- !u!20 &1052200451 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8595459259270556511, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
@@ -1972,6 +2047,7 @@ MonoBehaviour:
   type: 0
   rotateSpeed: 10
   moveSpeed: 4
+  attackDistance: 0
   passFristAttacked: 0
   hurtTime: 0
   IsHurt: 0
@@ -2945,6 +3021,11 @@ MonoBehaviour:
   chStatus: {fileID: 0}
   fSMStateID: 0
   defaultStateID: 3
+  targetTF: {fileID: 0}
+  targetTags:
+  - PlayerManager
+  sightDistance: 10
+  moveSpeed: 2
 --- !u!1 &2102496277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,6 +3279,7 @@ MonoBehaviour:
   type: 0
   rotateSpeed: 10
   moveSpeed: 3
+  attackDistance: 0
   passFristAttacked: 0
   hurtTime: 0
   IsHurt: 0
@@ -3687,6 +3769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_P025
       objectReference: {fileID: 0}
+    - target: {fileID: 5855784744859500623, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+      propertyPath: targetTF
+      value: 
+      objectReference: {fileID: 519596674}
     - target: {fileID: 5916620504321385570, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -5.788367
