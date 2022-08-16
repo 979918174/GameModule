@@ -37,10 +37,18 @@ namespace GameDemo.FSM
 
         public void InitDefaultState()
         {
-            defaultState = ArrayHelper.Find_L(_states, s => s.StateID == defaultStateID);
-            currentState = defaultState;
-            currentState.EnterState(this);
-
+            if (GetComponent<PlayerManager>())
+            {
+                defaultState = ArrayHelper.Find_L(_states, s => s.StateID == defaultStateID);
+                currentState = defaultState;
+                currentState.EnterState(this);
+            }
+            else
+            {
+                defaultState = ArrayHelper.Find_L(_states, s => s.StateID == FSMStateID.Enemy_FindPlayer);
+                currentState = defaultState;
+                currentState.EnterState(this);
+            }
         }
 
         //配置状态机，创建状态对象，设置状态（AddMap）
@@ -95,9 +103,7 @@ namespace GameDemo.FSM
                 if (true)
                 {
                     _states = new List<FSMState>();
-
                     IdleState idle = new IdleState();
-                    //idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
                     //idle.AddMap(FSMTriggerID.InputMoveStart, FSMStateID.Move);
                     //idle.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
                     idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
@@ -107,17 +113,6 @@ namespace GameDemo.FSM
 
                     DeadState dead = new DeadState();
                     _states.Add(dead);
-
-                    MoveState move = new MoveState();
-                    //move.AddMap(FSMTriggerID.InputMoveCancel, FSMStateID.Idle);
-                    //move.AddMap(FSMTriggerID.InputAttackStart_Move, FSMStateID.Attacking_Move);
-                    //move.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
-                    _states.Add(move);
-
-                    Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
-                    //attacking_MoveState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Move);
-                    //attacking_MoveState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
-                    //_states.Add(attacking_MoveState);
 
                     Attacking_StandState attacking_StandState = new Attacking_StandState();
                     //attacking_StandState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Idle);
@@ -132,6 +127,9 @@ namespace GameDemo.FSM
                     BreakDownState breakDownState = new BreakDownState();
                     breakDownState.AddMap(FSMTriggerID.BreakToIdle, FSMStateID.Idle);
                     _states.Add(breakDownState);
+
+                    Enemy_FindPlayerState enemy_FindPlayerState = new Enemy_FindPlayerState();
+                    _states.Add(enemy_FindPlayerState);
                 }
             }
 
