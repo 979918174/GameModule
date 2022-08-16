@@ -20,12 +20,7 @@ namespace GameDemo.FSM
 
         public override void EnterState(FSMBase fsm)
         {
-            PlayerTrans = GameObject.FindWithTag("PlayerManager");
-            if (PlayerTrans)
-            {
-                fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.move, true);
-                
-            }
+            fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.move, true);
         }
         public override void ActionState(FSMBase fsm)
         {

@@ -31,10 +31,10 @@ namespace GameDemo.FSM
 
         public Transform targetTF;
         [Tooltip("攻击目标标签")]
-        public string[] targetTags = {"Player"};
+        public string[] targetTags = {"PlayerManager"};
 
         [Tooltip("视野距离")]
-        public float sightDistance = 10;
+        public float sightDistance = 1000;
 
         [Tooltip("移动速度")]
         public float moveSpeed = 2;

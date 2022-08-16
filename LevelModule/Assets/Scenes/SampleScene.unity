@@ -3765,6 +3765,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5855784744859500609, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+      propertyPath: attackDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5855784744859500618, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_Name
       value: Enemy_P025
@@ -3773,6 +3777,14 @@ PrefabInstance:
       propertyPath: targetTF
       value: 
       objectReference: {fileID: 519596674}
+    - target: {fileID: 5855784744859500623, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+      propertyPath: sightDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855784744859500623, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+      propertyPath: targetTags.Array.data[0]
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5916620504321385570, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -5.788367
