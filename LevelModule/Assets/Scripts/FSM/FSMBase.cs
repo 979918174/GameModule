@@ -58,7 +58,7 @@ namespace GameDemo.FSM
             }
             else
             {
-                defaultState = ArrayHelper.Find_L(_states, s => s.StateID == FSMStateID.Enemy_FindPlayer);
+                defaultState = ArrayHelper.Find_L(_states, s => s.StateID == defaultStateID);
                 currentState = defaultState;
                 currentState.EnterState(this);
             }
@@ -122,6 +122,7 @@ namespace GameDemo.FSM
                     idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
                     idle.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
                     idle.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
+                    idle.AddMap(FSMTriggerID.AI_SawTarget, FSMStateID.Enemy_FindPlayer);
                     _states.Add(idle);
 
                     DeadState dead = new DeadState();
