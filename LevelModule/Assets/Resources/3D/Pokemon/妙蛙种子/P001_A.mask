@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: P001_A
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: BodyA_OptMesh_2_0
+    m_Weight: 0
+  - m_Path: BodyA_OptMesh_3_0
+    m_Weight: 0
+  - m_Path: BodyA_OptMesh_4_0
+    m_Weight: 0
+  - m_Path: BodyB_OptMesh_5_0
+    m_Weight: 0
+  - m_Path: Collider
+    m_Weight: 0
+  - m_Path: Eye_OptMesh_6_0
+    m_Weight: 0
+  - m_Path: LIris_OptMesh_7_0
+    m_Weight: 0
+  - m_Path: pm0001_00
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/LHips
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/LHips/LThigh
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/LHips/LThigh/LLeg
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/LHips/LThigh/LLeg/LFoot
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/LHips/LThigh/LLeg/LFoot/LToe
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/RHips
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/RHips/RThigh
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/RHips/RThigh/RLeg
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/RHips/RThigh/RLeg/RFoot
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Hips/RHips/RThigh/RLeg/RFoot/RToe
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04/LFeelerC05
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04/LFeelerC05/LFeelerC06
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04/LFeelerC05/LFeelerC06/LFeelerC07
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04/LFeelerC05/LFeelerC06/LFeelerC07/LFeelerC08
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04/LFeelerC05/LFeelerC06/LFeelerC07/LFeelerC08/LFeelerC09
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/LFeelerC01/LFeelerC02/LFeelerC03/LFeelerC04/LFeelerC05/LFeelerC06/LFeelerC07/LFeelerC08/LFeelerC09/LFeelerC10
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04/RFeelerC05
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04/RFeelerC05/RFeelerC06
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04/RFeelerC05/RFeelerC06/RFeelerC07
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04/RFeelerC05/RFeelerC06/RFeelerC07/RFeelerC08
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04/RFeelerC05/RFeelerC06/RFeelerC07/RFeelerC08/RFeelerC09
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Feeler/RFeelerC01/RFeelerC02/RFeelerC03/RFeelerC04/RFeelerC05/RFeelerC06/RFeelerC07/RFeelerC08/RFeelerC09/RFeelerC10
+    m_Weight: 1
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/Head
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/Head/Jaw
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/Head/LEar
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/Head/REar
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/LShoulder
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/LShoulder/LArm
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/LShoulder/LArm/LForeArm
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/LShoulder/LArm/LForeArm/LHand
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/LShoulder/LArm/LForeArm/LHand/LFinger
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/RShoulder
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/RShoulder/RArm
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/RShoulder/RArm/RForeArm
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/RShoulder/RArm/RForeArm/RHand
+    m_Weight: 0
+  - m_Path: pm0001_00/Origin/Waist/Spine1/Spine2/RShoulder/RArm/RForeArm/RHand/RFinger
+    m_Weight: 0
+  - m_Path: pm0001_00/pm0001_00_BodySkin
+    m_Weight: 0
+  - m_Path: pm0001_00/pm0001_00_IrisSkin
+    m_Weight: 0
+  - m_Path: pm0001_00/pm0001_00_LTutaSkin
+    m_Weight: 0
+  - m_Path: pm0001_00/pm0001_00_RTutaSkin
+    m_Weight: 0
+  - m_Path: pm0001_00_LTutaSkin_0_0
+    m_Weight: 0
+  - m_Path: pm0001_00_RTutaSkin_1_0
+    m_Weight: 0
+  - m_Path: Render
+    m_Weight: 0
+  - m_Path: RIris_OptMesh_8_0
+    m_Weight: 0
