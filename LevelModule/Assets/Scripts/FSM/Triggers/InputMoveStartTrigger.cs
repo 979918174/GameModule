@@ -18,10 +18,12 @@ namespace GameDemo.FSM
                 Keyboard.current.rightArrowKey.wasPressedThisFrame|| 
                 Keyboard.current.downArrowKey.wasPressedThisFrame;*/
             //Gamepad.current.leftStick.ReadValue() != null
-            return (Keyboard.current.upArrowKey.isPressed ||
+            return fsm.GetComponent<CharacterInputController>().inputActions.Player.Movement.phase == InputActionPhase.Performed||
+                fsm.GetComponent<CharacterInputController>().inputActions.Player.Movement.phase == InputActionPhase.Started;
+            /*return (Keyboard.current.upArrowKey.isPressed ||
             Keyboard.current.leftArrowKey.isPressed ||
             Keyboard.current.rightArrowKey.isPressed ||
-            Keyboard.current.downArrowKey.isPressed);
+            Keyboard.current.downArrowKey.isPressed);*/
         }
 
         public override void Init()
