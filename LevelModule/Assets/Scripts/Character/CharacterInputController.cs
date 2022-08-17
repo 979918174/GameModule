@@ -23,9 +23,6 @@ namespace GameDemo.Character
         /// <summary>
         /// 输入判定组，用于Trigger监测
         /// </summary>
-
-        public bool B_InputMoveStart;
-        public bool B_InputMoveCancel;
         public bool B_InputAttack01Start;
         public bool B_InputAttack01Cancel;
         public bool B_InputAttack02Start;
@@ -40,8 +37,6 @@ namespace GameDemo.Character
             _characterMotor = GetComponent<CharacterMotor>();
             playerManager = GetComponent<PlayerManager>();
             //
-            B_InputMoveStart = false;
-            B_InputMoveCancel = false;
             B_InputAttack01Start = false;
             B_InputAttack01Cancel = false;
             B_InputAttack02Start = false;
@@ -107,9 +102,7 @@ namespace GameDemo.Character
             B_InputAttack02Start = true;
             currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
         }
-
-
-
+        
         private void ChangeUPOncanceled(InputAction.CallbackContext obj)
         {
             playerManager.GetComponent<PlayerManager>().ChangeCharacterUp();
@@ -129,25 +122,19 @@ namespace GameDemo.Character
         {
             B_InputChangeStart = true;
         }
-
-
-
+        
         public void MovementOnstarted(InputAction.CallbackContext obj)
         {
-            B_InputMoveStart = true;
+           
         }
 
         public void MovementOnperformed(InputAction.CallbackContext obj)
         {
-            B_InputMoveStart = true;
-            //调用马达移动功能
             moveDis = new Vector3(obj.ReadValue<Vector2>().x, 0, obj.ReadValue<Vector2>().y);
         }
 
         public void MovementOncanceled(InputAction.CallbackContext obj)
         {
-            B_InputMoveStart = false;
-            B_InputMoveCancel = true;
             moveDis = Vector3.zero;
         }
 

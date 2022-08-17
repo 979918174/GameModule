@@ -35,7 +35,6 @@ namespace GameDemo.FSM
                 currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.changing, false);
                 currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.idle, true);
                 //初始化判断条件
-                fsm.GetComponent<CharacterInputController>().B_InputMoveCancel = false;
                 fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01 = true;
             }
             else 
@@ -55,8 +54,6 @@ namespace GameDemo.FSM
             {
                 currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
                 fsm.anim.SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.idle, false);
-                //修改判断系数
-                fsm.GetComponent<CharacterInputController>().B_InputMoveStart = false;
             }
             else
             {
