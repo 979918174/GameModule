@@ -36,6 +36,7 @@ namespace GameDemo.FSM
                 //move.AddMap(FSMTriggerID.InputAttackStart_Move, FSMStateID.Attacking_Move);
                 move.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
                 move.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
+                move.AddMap(FSMTriggerID.InputChangeStart, FSMStateID.Changing);
                 _states.Add(move);
 
                 Attacking_MoveState attacking_MoveState = new Attacking_MoveState();

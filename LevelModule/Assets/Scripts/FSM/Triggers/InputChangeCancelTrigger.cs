@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using GameDemo.Character;
 
 namespace GameDemo.FSM
@@ -11,15 +12,11 @@ namespace GameDemo.FSM
     public class InputChangeCancelTrigger : FSMTrigger
     {
         public override bool HandleTrigger(FSMBase fsm)
-        {
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                return fsm.GetComponent<CharacterInputController>().B_InputChangeCancel;
-            }
-            else
-            {
-                return false;
-            }
+        { 
+            return !(fsm.GetComponent<CharacterInputController>().inputActions.Player.ChangeUP.phase == InputActionPhase.Performed||
+                 fsm.GetComponent<CharacterInputController>().inputActions.Player.ChangeUP.phase == InputActionPhase.Started||
+                 fsm.GetComponent<CharacterInputController>().inputActions.Player.ChangeDown.phase == InputActionPhase.Performed||
+                 fsm.GetComponent<CharacterInputController>().inputActions.Player.ChangeDown.phase == InputActionPhase.Started);
         }
 
         public override void Init()

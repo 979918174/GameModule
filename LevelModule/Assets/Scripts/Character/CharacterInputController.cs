@@ -28,8 +28,6 @@ namespace GameDemo.Character
         public bool B_InputAttack02Start;
         public bool B_InputAttack02Cancel;
         public bool T_AnimaEnd_Attack01;
-        public bool B_InputChangeStart;
-        public bool B_InputChangeCancel;
         public void Awake()
         {
             //查找组件InputSystem
@@ -42,8 +40,6 @@ namespace GameDemo.Character
             B_InputAttack02Start = false;
             B_InputAttack02Cancel = false;
             T_AnimaEnd_Attack01 = false;
-            B_InputChangeStart = false;
-            B_InputChangeCancel = false;
         }
 
         public void OnEnable()
@@ -115,12 +111,12 @@ namespace GameDemo.Character
 
         private void ChangeDownOnperformed(InputAction.CallbackContext obj)
         {
-            B_InputChangeStart = true;
+            
         }
 
         private void ChangeUPOnperformed(InputAction.CallbackContext obj)
         {
-            B_InputChangeStart = true;
+
         }
         
         public void MovementOnstarted(InputAction.CallbackContext obj)

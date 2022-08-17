@@ -13,17 +13,8 @@ namespace GameDemo.FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            /*return Keyboard.current.upArrowKey.wasPressedThisFrame|| 
-                Keyboard.current.leftArrowKey.wasPressedThisFrame|| 
-                Keyboard.current.rightArrowKey.wasPressedThisFrame|| 
-                Keyboard.current.downArrowKey.wasPressedThisFrame;*/
-            //Gamepad.current.leftStick.ReadValue() != null
             return fsm.GetComponent<CharacterInputController>().inputActions.Player.Movement.phase == InputActionPhase.Performed||
-                fsm.GetComponent<CharacterInputController>().inputActions.Player.Movement.phase == InputActionPhase.Started;
-            /*return (Keyboard.current.upArrowKey.isPressed ||
-            Keyboard.current.leftArrowKey.isPressed ||
-            Keyboard.current.rightArrowKey.isPressed ||
-            Keyboard.current.downArrowKey.isPressed);*/
+                   fsm.GetComponent<CharacterInputController>().inputActions.Player.Movement.phase == InputActionPhase.Started;
         }
 
         public override void Init()
