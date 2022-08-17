@@ -25,7 +25,7 @@ namespace GameDemo.FSM
         public override void ActionState(FSMBase fsm)
         {
             //更新玩家坐标给AI寻路参数
-            fsm.MoveToTarget(fsm.targetTF.position, fsm.chStatus.attackDistance, fsm.moveSpeed);
+            (fsm as FSMBase_Enemy).MoveToTarget((fsm as FSMBase_Enemy).targetTF.position, (fsm as FSMBase_Enemy).chStatus.attackDistance, (fsm as FSMBase_Enemy).moveSpeed);
         }
 
         public override void ExitState(FSMBase fsm)

@@ -17,7 +17,7 @@ namespace GameDemo.FSM
 
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return fsm.targetTF != null;
+            return (fsm as FSMBase_Enemy).targetTF != null;
         }
     }
 }

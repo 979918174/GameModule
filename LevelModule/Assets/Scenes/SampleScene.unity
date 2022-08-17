@@ -1247,6 +1247,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5855784744859500618, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
   m_PrefabInstance: {fileID: 5855784744228550217}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &644118020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644118019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f229a30f33fdf0d48a285f0267c3e326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  chStatus: {fileID: 0}
+  fSMStateID: 0
+  defaultStateID: 3
+  navMeshAgent: {fileID: 0}
+  targetTF: {fileID: 0}
+  targetTags:
+  - PlayerManager
+  sightDistance: 1000
+  moveSpeed: 2
 --- !u!195 &644118021
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1276,7 +1298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644118019}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
@@ -1289,7 +1311,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644118019}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bf98f50dc809134ea93b68437a2aa9e, type: 3}
   m_Name: 
@@ -3014,18 +3036,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1867960543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdccd0f91e57959498c4b5c4dcc7ee2d, type: 3}
+  m_Script: {fileID: 11500000, guid: f255a305435414e4f81b4527e15aad21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   chStatus: {fileID: 0}
   fSMStateID: 0
   defaultStateID: 3
-  targetTF: {fileID: 0}
-  targetTags:
-  - PlayerManager
-  sightDistance: 10
-  moveSpeed: 2
 --- !u!1 &2102496277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,15 +3790,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_P025
       objectReference: {fileID: 0}
-    - target: {fileID: 5855784744859500623, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+    - target: {fileID: 0}
       propertyPath: targetTF
       value: 
       objectReference: {fileID: 519596674}
-    - target: {fileID: 5855784744859500623, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+    - target: {fileID: 0}
       propertyPath: sightDistance
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 5855784744859500623, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+    - target: {fileID: 0}
       propertyPath: targetTags.Array.data[0]
       value: Player
       objectReference: {fileID: 0}
@@ -3953,8 +3970,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10.6113205
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5855784744859500620, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
 --- !u!1001 &8595459259580196188
 PrefabInstance:

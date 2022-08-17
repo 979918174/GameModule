@@ -10,9 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5855784744859500608}
   - component: {fileID: 5855784744859500609}
-  - component: {fileID: 5855784744859500622}
-  - component: {fileID: 5855784744859500623}
-  - component: {fileID: 5855784744859500620}
   - component: {fileID: 5855784744859500621}
   m_Layer: 0
   m_Name: Enemy_P025
@@ -60,6 +57,7 @@ MonoBehaviour:
   type: 2
   rotateSpeed: 20
   moveSpeed: 2
+  attackDistance: 0
   passFristAttacked: 0
   hurtTime: 0
   IsHurt: 0
@@ -80,56 +78,6 @@ MonoBehaviour:
     attack01_move: attack01_move
     changing: changing
   headTrans: {fileID: 0}
---- !u!114 &5855784744859500622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5855784744859500618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf4d71f278ed7d40b075b3797c415d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedGO: {fileID: 0}
-  selectedName: selected
-  displayTime: 3
---- !u!114 &5855784744859500623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5855784744859500618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdccd0f91e57959498c4b5c4dcc7ee2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  chStatus: {fileID: 0}
-  fSMStateID: 0
-  defaultStateID: 3
---- !u!114 &5855784744859500620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5855784744859500618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b475329c49755f7408df25580c5e2bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 5855784744859500621}
-  rotateSpeed: 20
-  moveSpeed: 2
-  SpeedUPRate: 1
-  shakeRate: {x: 0.05, y: 0, z: 0.05}
-  shakeTime: 0.4
-  shakeDertaTime: 0.1
 --- !u!54 &5855784744859500621
 Rigidbody:
   m_ObjectHideFlags: 0
