@@ -1266,7 +1266,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   targetTF: {fileID: 0}
   targetTags:
-  - PlayerManager
+  - Player
   sightDistance: 1000
   moveSpeed: 2
 --- !u!195 &644118021
@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644118019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644118019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bf98f50dc809134ea93b68437a2aa9e, type: 3}
   m_Name: 
@@ -3789,18 +3789,6 @@ PrefabInstance:
     - target: {fileID: 5855784744859500618, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_Name
       value: Enemy_P025
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: targetTF
-      value: 
-      objectReference: {fileID: 519596674}
-    - target: {fileID: 0}
-      propertyPath: sightDistance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: targetTags.Array.data[0]
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5916620504321385570, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

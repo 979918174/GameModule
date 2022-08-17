@@ -88,5 +88,9 @@ namespace GameDemo.FSM
             //Ö´ÐÐµ±Ç°Âß¼­
             currentState.ActionState(this);
         }
+        public virtual void FixedUpdate()
+        {
+            currentState.FixActionState(this);
+        }
     }
 }

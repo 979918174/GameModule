@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameDemo.Character;
+using UnityEngine.InputSystem;
 
 namespace GameDemo.FSM
 {
@@ -12,7 +13,11 @@ namespace GameDemo.FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return fsm.GetComponent<CharacterInputController>().B_InputMoveCancel;
+            return !(Keyboard.current.upArrowKey.isPressed ||
+                Keyboard.current.leftArrowKey.isPressed ||
+                Keyboard.current.rightArrowKey.isPressed ||
+                Keyboard.current.downArrowKey.isPressed);
+            //Gamepad.current.leftStick.ReadValue() != null
         }
 
         public override void Init()

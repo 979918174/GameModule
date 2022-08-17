@@ -13,10 +13,10 @@ namespace GameDemo.FSM
 {
     public class FSMBase_Player : FSMBase
     {
+        public CharacterMotor characterMotor;
+        public CharacterInputController characterInputController;
         public override void ConfigFSM()
         {
-            if (GetComponent<PlayerManager>())
-            {
                 _states = new List<FSMState>();
 
                 IdleState idle = new IdleState();
@@ -51,8 +51,7 @@ namespace GameDemo.FSM
                 ChangingState changingState = new ChangingState();
                 changingState.AddMap(FSMTriggerID.InputChangeCancel, FSMStateID.Idle);
                 _states.Add(changingState);
-            }
-            base.ConfigFSM();
+ 
         }
 
         public override void InitDefaultState() 
@@ -70,6 +69,8 @@ namespace GameDemo.FSM
             {
                 anim = GetComponentInChildren<Transform>().GetComponentInChildren<Animator>();
                 chStatus = GetComponentInChildren<CharacterStatus>();
+                characterMotor = GetComponent<CharacterMotor>();
+                characterInputController = GetComponent<CharacterInputController>();
             }
         }
     }

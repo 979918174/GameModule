@@ -50,6 +50,8 @@ namespace GameDemo.FSM
 
         public virtual void ExitState(FSMBase fsm) { }
 
+        public virtual void FixActionState(FSMBase fsm) { }
+
         //检测当前状态的条件是否满足
         public void Reason(FSMBase fsm)
         {

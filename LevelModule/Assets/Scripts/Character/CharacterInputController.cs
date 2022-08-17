@@ -170,7 +170,7 @@ namespace GameDemo.Character
         {
             if (GetComponent<PlayerManager>())
             {
-                _characterMotor.Movement(moveDis);
+                //_characterMotor.Movement(moveDis);
             }
         }
     }

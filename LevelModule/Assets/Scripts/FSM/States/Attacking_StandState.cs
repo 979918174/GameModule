@@ -23,9 +23,6 @@ namespace GameDemo.FSM
             //开放输入-注册输入事件
 
             //屏蔽输入-注销输入事件(移动、攻击)
-            characterInputController.inputActions.Player.Movement.started -= characterInputController.MovementOnstarted;
-            characterInputController.inputActions.Player.Movement.performed -= characterInputController.MovementOnperformed;
-            characterInputController.inputActions.Player.Movement.canceled -= characterInputController.MovementOncanceled;
             characterInputController.inputActions.Player.Attack_01.performed -= characterInputController.Attack_01Onperformed;
             characterInputController.inputActions.Player.Attack_02.performed -= characterInputController.Attack_02Onperformed;
 
