@@ -1133,6 +1133,7 @@ MonoBehaviour:
   T_AnimaEnd_Attacked: 0
   HaveDp: 0
   IsBreak: 0
+  T_AnimaEnd_Attack01: 0
   CharacterAnimationParameters:
     move: move
     dead: dead
@@ -1313,7 +1314,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644118019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
@@ -1325,7 +1326,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644118019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bf98f50dc809134ea93b68437a2aa9e, type: 3}
   m_Name: 
@@ -2088,6 +2089,7 @@ MonoBehaviour:
   T_AnimaEnd_Attacked: 0
   HaveDp: 0
   IsBreak: 0
+  T_AnimaEnd_Attack01: 0
   CharacterAnimationParameters:
     move: move
     dead: dead
@@ -2949,7 +2951,6 @@ MonoBehaviour:
   moveDis: {x: 0, y: 0, z: 0}
   playerManager: {fileID: 0}
   currentPlayer: {fileID: 0}
-  T_AnimaEnd_Attack01: 0
 --- !u!54 &1867960547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3302,6 +3303,7 @@ MonoBehaviour:
   T_AnimaEnd_Attacked: 0
   HaveDp: 0
   IsBreak: 0
+  T_AnimaEnd_Attack01: 0
   CharacterAnimationParameters:
     move: move
     dead: dead

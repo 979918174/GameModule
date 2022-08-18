@@ -92,7 +92,10 @@ namespace GameDemo.Character
         }
         public void breakDown(float time)
         {
-            GameObject FX = GameObjectPool.Instance.CreateObject("Art_fx_com_stun", ResourceManager.Load<GameObject>("Art_fx_com_stun"), headTrans.position, headTrans.rotation);
+            GameObject FX = GameObjectPool.Instance.CreateObject("fx_com_stun", ResourceManager.Load<GameObject>("fx_com_stun"), headTrans.position, headTrans.rotation);
+            FX.transform.parent = headTrans;
+            FX.transform.localPosition = Vector3.zero;
+            FX.transform.localScale = Vector3.one;
             GameObjectPool.Instance.CollectObject(FX, time);
             StartCoroutine(Break_Coroutine(time));
         }

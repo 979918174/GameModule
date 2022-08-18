@@ -3,6 +3,12 @@
 小火龙=3D/Pokemon/小火龙/小火龙
 急冻鸟=3D/Pokemon/急冻鸟/急冻鸟
 杰尼龟=3D/Pokemon/杰尼龟/杰尼龟
+fx_change_hono=EffectPrefab/Common/Effect/fx_change_hono
+fx_change_kaze=EffectPrefab/Common/Effect/fx_change_kaze
+fx_com_hit=EffectPrefab/Common/Effect/fx_com_hit
+fx_com_stun=EffectPrefab/Common/Effect/fx_com_stun
+Art_fx_H0208_attack1_bullet_01=EffectPrefab/Skill/fx_p_H0208/Art_fx_H0208_attack1_bullet_01
+Art_fx_H0208_skill1_01=EffectPrefab/Skill/fx_p_H0208/Art_fx_H0208_skill1_01
 DamageFloat_Normal=Prefab/DamageFloat/DamageFloat_Normal
 DamageFloat_Sesistance=Prefab/DamageFloat/DamageFloat_Sesistance
 DamageFloat_Weak=Prefab/DamageFloat/DamageFloat_Weak

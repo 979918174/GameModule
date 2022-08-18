@@ -16,7 +16,6 @@ namespace Common
         }
         public void DPDamage(CharacterStatus characterStatus) 
         {
-            Debug.Log("111");
             if (characterStatus.DP>1)
             {
                 characterStatus.DP -= 1;
