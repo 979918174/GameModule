@@ -3,7 +3,10 @@ guid: 262e0657b5bb7ba48b294fdcb43bbefa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - RoleModel: {instanceID: 0}
+  - NormalSkill: {fileID: 11400000, guid: 5d3aebec6c2bd2a4789c39273db8cd67, type: 2}
+  - PokemonAttr: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

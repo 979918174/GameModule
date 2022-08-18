@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GameDemo.Character;
 using UnityEngine;
 using GameDemo.FSM;
+using GameDemo.Skill;
 
 namespace Common
 {
@@ -32,12 +33,11 @@ namespace Common
         }
     
         //声明事件
-        void OnAttack()
+        void OnAttack(int skillIndex)
         {
-            if (attackHandler != null)
-            {
-                attackHandler();
-            }
+            //前摇标志为T
+            //创造技能
+            GetComponentInParent<CharacterSkillSystem>().AttackUseSkill(skillIndex);
         }
 
         void OnChangeSpeed() 
@@ -64,6 +64,10 @@ namespace Common
                     GetComponentInParent<EnemyStatus>().T_AnimaEnd_Attacked = true;
                     GetComponentInParent<EnemyStatus>().passFristAttacked = false;
                 }
+            }
+            if (animParam == "attack01" || animParam == "attack02")
+            {
+                _characterInputController.T_AnimaEnd_Attack01 = true;
             }
         }
     }

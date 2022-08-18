@@ -19,7 +19,7 @@ namespace GameDemo.Skill
             }
         }
         //技能列表
-        public SkillData[] skillDatas = new SkillData[3];
+        public SkillData[] skillDatas = new SkillData[2];
         
         //初始化
         /// <summary>
@@ -33,10 +33,10 @@ namespace GameDemo.Skill
         }
 
         //技能释放条件：冷却
-        public SkillData PrePareSkill(int id)
+        public SkillData PrePareSkill(int index)
         {
             //根据id查找技能
-            SkillData data = ArrayHelper.Find(skillDatas, s => s.skillID == id);
+            SkillData data = skillDatas[index];
             //判断条件(不为空&&冷却)
             int sp = GetComponent<CharacterStatus>().SP;
             Debug.Log(data.coolDownRemain);

@@ -14,6 +14,7 @@ namespace GameDemo.Character
     /// </summary>
     public class CharacterStatus : MonoBehaviour
     {
+        public Pokemon pokemonConfig;
         [Tooltip("当前血量")]
         public float HP;
         [Tooltip("最大血量")]
@@ -49,10 +50,10 @@ namespace GameDemo.Character
         [Tooltip("是否被击倒")]
         public bool IsBreak;
         public CharacterAnimationParameter CharacterAnimationParameters;
-
         [ShowInInspector]
         public Dictionary<string, IEventInfo> actionDic;
 
+        
 
         public Transform headTrans;
         protected void Start()
@@ -109,7 +110,6 @@ namespace GameDemo.Character
         
         public void DPDamageTest(CharacterStatus characterStatus) 
         {
-            Debug.Log("111");
             if (characterStatus.DP>1)
             {
                 characterStatus.DP -= 1;

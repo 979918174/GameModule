@@ -95,8 +95,5 @@ namespace GameDemo.Skill
         
         ////// <summary>技能结束帧</summary>
         public float skillEndFrame;
-        
-        ////// <summary>技能移动类型</summary>
-        public SkillMoveType skillMoveType;
     }
 }

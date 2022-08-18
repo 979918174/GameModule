@@ -23,10 +23,6 @@ namespace GameDemo.Character
         /// <summary>
         /// 输入判定组，用于Trigger监测
         /// </summary>
-        public bool B_InputAttack01Start;
-        public bool B_InputAttack01Cancel;
-        public bool B_InputAttack02Start;
-        public bool B_InputAttack02Cancel;
         public bool T_AnimaEnd_Attack01;
         public void Awake()
         {
@@ -34,11 +30,7 @@ namespace GameDemo.Character
             inputActions = new InputAction_1();
             _characterMotor = GetComponent<CharacterMotor>();
             playerManager = GetComponent<PlayerManager>();
-            //
-            B_InputAttack01Start = false;
-            B_InputAttack01Cancel = false;
-            B_InputAttack02Start = false;
-            B_InputAttack02Cancel = false;
+ 
             T_AnimaEnd_Attack01 = false;
         }
 
@@ -85,18 +77,11 @@ namespace GameDemo.Character
 
         public void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
-            if (GetComponent<FSMBase>().currentState.StateID == FSMStateID.Idle || GetComponent<FSMBase>().currentState.StateID == FSMStateID.Move)
-            {
-                //todo
-                B_InputAttack01Start = true;
-                currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
-            }
+            currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
         }
         public void Attack_02Onperformed(InputAction.CallbackContext obj)
         {
-            //todo
-            B_InputAttack02Start = true;
-            currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
+            //currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
         }
         
         private void ChangeUPOncanceled(InputAction.CallbackContext obj)

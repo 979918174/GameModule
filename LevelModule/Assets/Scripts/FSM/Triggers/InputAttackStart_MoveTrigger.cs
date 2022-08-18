@@ -10,19 +10,16 @@ namespace GameDemo.FSM
     /// <summary>
     /// ????????????????????????????????
     /// </summary>
-    public class InputAttackStartTrigger : FSMTrigger
+    public class InputAttackStart_MoveTrigger : FSMTrigger
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return (fsm.GetComponent<CharacterInputController>().B_InputAttack01Start ||
-                    fsm.GetComponent<CharacterInputController>().B_InputAttack02Start) &&
-                   fsm.GetComponentInChildren<CharacterSkillManager>().skillDatas[0].skillMoveType ==
-                   SkillMoveType.Stand;
+            return false;
         }
 
         public override void Init()
         {
-            TriggerID = FSMTriggerID.InputAttackStart;
+            TriggerID = FSMTriggerID.InputAttackStart_Move;
         }
     }
 
