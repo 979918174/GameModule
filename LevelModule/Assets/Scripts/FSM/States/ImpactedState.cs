@@ -43,7 +43,7 @@ namespace GameDemo.FSM
 
         public void OnShake(FSMBase fsm)
         {
-            fsm.GetComponent<CharacterMotor>().Shake();
+            //fsm.GetComponent<CharacterMotor>().Shake();
         }
         public override void ExitState(FSMBase fsm)
         {

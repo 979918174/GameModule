@@ -30,10 +30,23 @@ namespace GameDemo.FSM
 
             IdleState idle = new IdleState();
             idle.AddMap(FSMTriggerID.AI_SawTarget, FSMStateID.Enemy_FindPlayer);
+            idle.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
+            idle.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
             _states.Add(idle);
 
             Enemy_FindPlayerState enemy_FindPlayerState = new Enemy_FindPlayerState();
+            enemy_FindPlayerState.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
+            enemy_FindPlayerState.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
             _states.Add(enemy_FindPlayerState);
+
+
+            BreakDownState breakDownState = new BreakDownState();
+            breakDownState.AddMap(FSMTriggerID.BreakToIdle, FSMStateID.Idle);
+            _states.Add(breakDownState);
+
+            ImpactedState impactedState = new ImpactedState();
+            impactedState.AddMap(FSMTriggerID.Anima_AttackedEnd, FSMStateID.Idle);
+            _states.Add(impactedState);
         }
 
         public override void InitDefaultState()
