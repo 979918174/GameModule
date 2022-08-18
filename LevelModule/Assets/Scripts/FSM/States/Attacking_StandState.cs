@@ -18,7 +18,6 @@ namespace GameDemo.FSM
         public override void EnterState(FSMBase fsm)
         {
             base.EnterState(fsm);
-            characterInputController = fsm.GetComponent<CharacterInputController>();
             currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
 
             if (fsm.GetComponent<CharacterInputController>().inputActions.Player.Attack_01.phase == InputActionPhase.Performed ||
@@ -35,7 +34,7 @@ namespace GameDemo.FSM
                 }
             }
             //修改动画参数（bool）
-            characterInputController.T_AnimaEnd_Attack01 = false;
+           
         }
 
         public override void ExitState(FSMBase fsm)
@@ -45,7 +44,8 @@ namespace GameDemo.FSM
             //修改动画参数（bool）
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.attack01, false);
             currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.attack02, false);
-            characterInputController.T_AnimaEnd_Attack01 = false;
+            //
+            currentCharacter.GetComponentInChildren<CharacterStatus>().T_AnimaEnd_Attack01 = false;
             base.ExitState(fsm);
         }
     }

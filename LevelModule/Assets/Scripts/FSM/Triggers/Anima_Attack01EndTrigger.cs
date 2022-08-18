@@ -13,7 +13,15 @@ namespace GameDemo.FSM
 
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01;
+            if (fsm.GetComponent<PlayerManager>())
+            {
+                return fsm.GetComponentInChildren<CharacterStatus>().T_AnimaEnd_Attack01;
+            }
+            else
+            {
+                return fsm.GetComponent<CharacterStatus>().T_AnimaEnd_Attack01;
+            }
+            
         }
 
         public override void Init()

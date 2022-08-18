@@ -15,23 +15,14 @@ namespace GameDemo.Character
     public class CharacterInputController : MonoBehaviour
     {
         public InputAction_1 inputActions;
-        private CharacterMotor _characterMotor;
         public Vector3 moveDis = Vector3.zero;
         public PlayerManager playerManager;
         public GameObject currentPlayer;
-
-        /// <summary>
-        /// 输入判定组，用于Trigger监测
-        /// </summary>
-        public bool T_AnimaEnd_Attack01;
         public void Awake()
         {
             //查找组件InputSystem
             inputActions = new InputAction_1();
-            _characterMotor = GetComponent<CharacterMotor>();
             playerManager = GetComponent<PlayerManager>();
- 
-            T_AnimaEnd_Attack01 = false;
         }
 
         public void OnEnable()
@@ -77,11 +68,11 @@ namespace GameDemo.Character
 
         public void Attack_01Onperformed(InputAction.CallbackContext obj)
         {
-            currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1002);
+            
         }
         public void Attack_02Onperformed(InputAction.CallbackContext obj)
         {
-            //currentPlayer.GetComponent<CharacterSkillSystem>().AttackUseSkill(1003);
+            
         }
         
         private void ChangeUPOncanceled(InputAction.CallbackContext obj)
@@ -132,14 +123,6 @@ namespace GameDemo.Character
             inputActions.Player.SpeedUp.started -= SpeedUpOnstarted;
             inputActions.Player.SpeedUp.canceled -= SpeedUpOncanceled;
             inputActions.Disable();
-        }
-
-        public void FixedUpdate()
-        {
-            if (GetComponent<PlayerManager>())
-            {
-                //_characterMotor.Movement(moveDis);
-            }
         }
     }
 }

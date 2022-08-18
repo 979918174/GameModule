@@ -35,7 +35,7 @@ namespace GameDemo.FSM
                 currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.changing, false);
                 currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.idle, true);
                 //初始化判断条件
-                fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01 = true;
+                fsm.GetComponentInChildren<CharacterStatus>().T_AnimaEnd_Attack01 = false;
             }
             else 
             {

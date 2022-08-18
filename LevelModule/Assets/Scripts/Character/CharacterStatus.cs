@@ -49,11 +49,9 @@ namespace GameDemo.Character
         public bool HaveDp;
         [Tooltip("是否被击倒")]
         public bool IsBreak;
+        [Tooltip("是否攻击1动画结束")]
+        public bool T_AnimaEnd_Attack01;
         public CharacterAnimationParameter CharacterAnimationParameters;
-        [ShowInInspector]
-        public Dictionary<string, IEventInfo> actionDic;
-
-        
 
         public Transform headTrans;
         protected void Start()
@@ -62,8 +60,7 @@ namespace GameDemo.Character
             {
                 HaveDp = true;
             }
-            //EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害",DpManager.Instance.DPDamage);
-            actionDic = EventManager.Instance.actionDic;
+
             headTrans = transform.Find("head");
         }
 

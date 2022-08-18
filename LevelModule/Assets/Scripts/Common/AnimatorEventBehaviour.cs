@@ -20,16 +20,17 @@ namespace Common
         //在脚本中播放动画，动画中需要执行逻辑，注册
         public event Action attackHandler;
         private Animator anim;
-        private InputAction_1 inputActions;
         public CharacterInputController _characterInputController;
 
        
 
         private void Start()
         {
+            if (GetComponentInParent<PlayerStatus>())
+            {
+                _characterInputController = GetComponentInParent<Transform>().GetComponentInParent<CharacterInputController>();
+            }
             anim = GetComponent<Animator>();
-            //inputActions = GetComponentInParent<CharacterInputController>().inputActions;
-            //_characterInputController = GetComponentInParent<Transform>().GetComponentInParent<CharacterInputController>();
         }
     
         //声明事件
@@ -59,15 +60,12 @@ namespace Common
             }*/
             if (animParam == "attacked")
             {
-                if (GetComponentInParent<EnemyStatus>())
-                {
-                    GetComponentInParent<EnemyStatus>().T_AnimaEnd_Attacked = true;
-                    GetComponentInParent<EnemyStatus>().passFristAttacked = false;
-                }
+                GetComponentInParent<CharacterStatus>().T_AnimaEnd_Attacked = true;
+                GetComponentInParent<CharacterStatus>().passFristAttacked = false;
             }
             if (animParam == "attack01" || animParam == "attack02")
             {
-                _characterInputController.T_AnimaEnd_Attack01 = true;
+                GetComponentInParent<CharacterStatus>().T_AnimaEnd_Attack01 = true;
             }
         }
     }

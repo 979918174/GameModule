@@ -32,9 +32,6 @@ namespace GameDemo.FSM
         public override void ExitState(FSMBase fsm)
         {
             base.ExitState(fsm);
-            currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.attack01_move, false);
-            //ÐÞ¸ÄÅÐ¶ÏÏµÊý
-            fsm.GetComponent<CharacterInputController>().T_AnimaEnd_Attack01 = false;
         }
     }
 
