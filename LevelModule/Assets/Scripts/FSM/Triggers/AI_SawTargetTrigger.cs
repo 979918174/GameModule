@@ -17,7 +17,7 @@ namespace GameDemo.FSM
 
         public override bool HandleTrigger(FSMBase fsm)
         {
-            return (fsm as FSMBase_Enemy).targetTF != null;
+            return (fsm as FSMBase_Enemy).targetTF != null&&Vector3.Distance((fsm as FSMBase_Enemy).targetTF.position, fsm.GetComponent<Transform>().position) > 4f;
         }
     }
 }

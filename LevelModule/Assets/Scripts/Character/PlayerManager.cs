@@ -45,6 +45,7 @@ namespace GameDemo.Character
         {
             fsmBase.InitComponent();
             fsmBase.InitDefaultState();
+            currentCharacter.GetComponent<CharacterStatus>().T_AnimaEnd_Attack01 = true;
         }
         //初始化判断参数
         
@@ -53,6 +54,9 @@ namespace GameDemo.Character
         {
             Vector3 LastPostion = transform.position;
             Quaternion LastRotation = transform.rotation;
+            
+            
+            
             currentCharacter.SetActive(false);
             if (index==MyCharacters.Count-1)
             {

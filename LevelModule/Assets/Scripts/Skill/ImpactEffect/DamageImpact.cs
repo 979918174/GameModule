@@ -59,9 +59,9 @@ namespace GameDemo.Skill
                     //伤害
                     status.HP -= damage*2;
                     //飘字
-                    DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
-                    data.attackTargets[i].transform.position+new Vector3(UnityEngine.Random.Range(-0.5f,0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
-                    damageFloat.ShowUIDamage(damage*2);
+                   // DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_weak,
+                    //data.attackTargets[i].transform.position+new Vector3(UnityEngine.Random.Range(-0.5f,0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
+                    //damageFloat.ShowUIDamage(damage*2);
                 }
                 else
                 {
@@ -69,9 +69,9 @@ namespace GameDemo.Skill
                     {
                         status.HP -= damage/2;
                         //飘字
-                        DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_sesistance,
-                        data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
-                        damageFloat.ShowUIDamage(damage / 2);
+                        //DamageFloat damageFloat = GameObject.Instantiate(data.owner.GetComponentInParent<PlayerManager>().damageCanva_sesistance,
+                        //data.attackTargets[i].transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), quaternion.identity, data.attackTargets[i]).GetComponent<DamageFloat>();
+                        //damageFloat.ShowUIDamage(damage / 2);
 
                     }
                     else
@@ -86,7 +86,7 @@ namespace GameDemo.Skill
                 status.IsHurt = true;
                 //status.IsHurt = false;
                 //震屏
-                data.owner.GetComponentInParent<CinemachineImpulseSource>().GenerateImpulse();
+                //data.owner.GetComponentInParent<CinemachineImpulseSource>().GenerateImpulse();
                 //GameObject floatPoint = data.attackTargets[i].Find("floatPoint").gameObject;
                 
                 Transform trans = data.attackTargets[i].Find("hitPoint");

@@ -27,6 +27,7 @@ namespace GameDemo.FSM
         BreakToIdle,
         InputChangeStart,
         InputChangeCancel,
-        AI_SawTarget
+        AI_SawTarget,
+        AI_AttackRange
     }
 }

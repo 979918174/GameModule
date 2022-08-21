@@ -19,14 +19,13 @@ namespace GameDemo.FSM
 
         public override void EnterState(FSMBase fsm)
         {
-            fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.move, true);
-            Debug.Log("222");
+            fsm.anim.SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.attack01, true);
         }
 
         public override void ExitState(FSMBase fsm)
         {
-            (fsm as FSMBase_Enemy).navMeshAgent.SetDestination(fsm.GetComponent<Transform>().position);
-            fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.move, false);
+            fsm.anim.SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.attack01, false);
+            fsm.chStatus.T_AnimaEnd_Attack01 = false;
         }
     }
 }

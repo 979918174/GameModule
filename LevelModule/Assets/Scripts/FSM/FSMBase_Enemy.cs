@@ -14,7 +14,7 @@ namespace GameDemo.FSM
     {
         public UnityEngine.AI.NavMeshAgent navMeshAgent;
 
-        public Transform targetTF;
+        public Transform targetTF = null;
 
         [Tooltip("攻击目标标签")]
         public string[] targetTags = { "PlayerManager" };
@@ -32,11 +32,13 @@ namespace GameDemo.FSM
             idle.AddMap(FSMTriggerID.AI_SawTarget, FSMStateID.Enemy_FindPlayer);
             idle.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
             idle.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
+            idle.AddMap(FSMTriggerID.AI_AttackRange,FSMStateID.Enemy_Attack);
             _states.Add(idle);
 
             Enemy_FindPlayerState enemy_FindPlayerState = new Enemy_FindPlayerState();
             enemy_FindPlayerState.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
             enemy_FindPlayerState.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
+            enemy_FindPlayerState.AddMap(FSMTriggerID.AI_AttackRange,FSMStateID.Enemy_Attack);
             _states.Add(enemy_FindPlayerState);
 
 
@@ -47,6 +49,11 @@ namespace GameDemo.FSM
             ImpactedState impactedState = new ImpactedState();
             impactedState.AddMap(FSMTriggerID.Anima_AttackedEnd, FSMStateID.Idle);
             _states.Add(impactedState);
+            
+            Enemy_AttackState enemyAttackState = new Enemy_AttackState();
+            enemyAttackState.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
+            enemyAttackState.AddMap(FSMTriggerID.Anima_Attack01End,FSMStateID.Idle);
+            _states.Add(enemyAttackState);
         }
 
         public override void InitDefaultState()
