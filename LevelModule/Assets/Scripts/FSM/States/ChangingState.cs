@@ -20,6 +20,7 @@ namespace GameDemo.FSM
         public override void EnterState(FSMBase fsm)
         {
             base.EnterState(fsm);
+            ShaderSetting.Instance.M_ChangeState(fsm.chStatus);
             //≥ı ºªØ∏≥÷µ
             characterInputController = fsm.GetComponent<CharacterInputController>();
             currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;

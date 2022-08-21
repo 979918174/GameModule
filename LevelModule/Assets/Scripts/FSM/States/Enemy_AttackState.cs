@@ -10,22 +10,17 @@ namespace GameDemo.FSM
     /// <summary>
     /// 
     /// </summary>
-    public class Enemy_FindPlayerState : FSMState
+    public class Enemy_AttackState : FSMState
     {
         public override void Init()
         {
-            StateID = FSMStateID.Enemy_FindPlayer;
+            StateID = FSMStateID.Enemy_Attack;
         }
 
         public override void EnterState(FSMBase fsm)
         {
             fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.move, true);
             Debug.Log("222");
-        }
-        public override void ActionState(FSMBase fsm)
-        {
-            //更新玩家坐标给AI寻路参数
-            (fsm as FSMBase_Enemy).MoveToTarget((fsm as FSMBase_Enemy).targetTF.position, (fsm as FSMBase_Enemy).chStatus.attackDistance, (fsm as FSMBase_Enemy).moveSpeed);
         }
 
         public override void ExitState(FSMBase fsm)
