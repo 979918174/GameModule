@@ -37,6 +37,7 @@ namespace GameDemo.FSM
             move.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
             move.AddMap(FSMTriggerID.InputAttackStart, FSMStateID.Attacking_Stand);
             move.AddMap(FSMTriggerID.InputChangeStart, FSMStateID.Changing);
+            move.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
             _states.Add(move);
 
             Attacking_MoveState attacking_MoveState = new Attacking_MoveState();
@@ -47,6 +48,8 @@ namespace GameDemo.FSM
             Attacking_StandState attacking_StandState = new Attacking_StandState();
             attacking_StandState.AddMap(FSMTriggerID.Anima_Attack01End, FSMStateID.Idle);
             attacking_StandState.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+            attacking_StandState.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
+            
             _states.Add(attacking_StandState);
 
             ChangingState changingState = new ChangingState();

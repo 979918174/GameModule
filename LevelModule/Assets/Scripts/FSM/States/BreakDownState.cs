@@ -21,14 +21,13 @@ namespace GameDemo.FSM
             base.EnterState(fsm);
             if (fsm.GetComponent<PlayerManager>())
             {
-
+                fsm.GetComponentInChildren<Transform>().GetComponentInChildren<Animator>().SetBool(fsm.GetComponentInChildren<CharacterStatus>().CharacterAnimationParameters.breakdown, true);
             }
             else
             {
                 fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.breakdown, true);
             }
-
-            //²¥·Å¶¯»­
+            
         }
 
         public override void ExitState(FSMBase fsm)
