@@ -20,10 +20,6 @@ namespace GameDemo.Character
         public int index;
         public FSMBase fsmBase;
         public CharacterInputController inputController;
-        public GameObject damageCanva_weak;
-        public GameObject damageCanva_normal;
-        public GameObject damageCanva_sesistance;
-        
         public void Awake()
         {
             inputController = GetComponent<CharacterInputController>();

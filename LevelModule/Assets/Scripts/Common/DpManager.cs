@@ -3,29 +3,35 @@ using GameDemo.Character;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using GameDemo.Event;
+using GameDemo.Skill;
 
 namespace Common
 {
 
     public class DpManager:MonoSingleton<DpManager>
     {
+        public void Awake()
+        {
+            EventCenter.AddListener<GameObject, Transform, SkillData>(EventType.Event_Damage, DPDamage);
+        }
         public override void Init()
         {
             base.Init();
-            EventManager.Instance.AddEventListener<CharacterStatus>("造成克制伤害", DPDamage);
         }
-        public void DPDamage(CharacterStatus characterStatus) 
+        public void DPDamage(GameObject self, Transform target, SkillData data) 
         {
-            if (characterStatus.DP>1)
+            CharacterStatus targetStatus = target.GetComponent<CharacterStatus>();
+            if (targetStatus.DP>1)
             {
-                characterStatus.DP -= 1;
+                targetStatus.DP -= 1;
             }
             else
             {
-                if (characterStatus.DP==1&&characterStatus.HaveDp)
+                if (targetStatus.DP==1&& targetStatus.HaveDp)
                 {
-                    characterStatus.DP -= 1;
-                    characterStatus.breakDown(4f);
+                    targetStatus.DP -= 1;
+                    targetStatus.breakDown(4f);
                 }
             }
         }

@@ -4,6 +4,8 @@ using UnityEngine;
 using Common;
 using GameDemo.FSM;
 using GameDemo.Character;
+using GameDemo.Skill;
+using GameDemo.Event;
 public class ShaderSetting : MonoSingleton<ShaderSetting>
 {
     public float blinkTime;
@@ -14,22 +16,11 @@ public class ShaderSetting : MonoSingleton<ShaderSetting>
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(blinkTime_Coroutine());
-        EventManager.Instance.AddEventListener<CharacterStatus>("Ôì³ÉÉËº¦_½ÇÉ«×´Ì¬", M_Blink);
+        EventCenter.AddListener<GameObject, Transform, SkillData>(EventType.Event_Damage, M_Blink);
     }
-
-    private void OnEnable()
+    public void M_Blink(GameObject self, Transform target, SkillData data) 
     {
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void M_Blink(CharacterStatus characterStatus) 
-    {
-        foreach (var item in characterStatus.GetComponentInChildren<Transform>().GetComponentsInChildren<SkinnedMeshRenderer>())
+        foreach (var item in target.GetComponentInChildren<Transform>().GetComponentsInChildren<SkinnedMeshRenderer>())
         {
             materials.Add(item.material);
         }
