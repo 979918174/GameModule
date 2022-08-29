@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameDemo.Character;
+using GameDemo.Skill;
 
 namespace GameDemo.FSM
 {
@@ -19,7 +20,7 @@ namespace GameDemo.FSM
         {
             if ((fsm as FSMBase_Enemy).targetTF)
             {
-                return  Vector3.Distance((fsm as FSMBase_Enemy).targetTF.position, fsm.GetComponent<Transform>().position) <= 4f;
+                return  Vector3.Distance((fsm as FSMBase_Enemy).targetTF.position, fsm.GetComponent<Transform>().position) <= fsm.GetComponent<CharacterSkillManager>().skillDatas[0].attackDistance;
             }
             else
             {

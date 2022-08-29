@@ -837,6 +837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!195 &131776918
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1627,6 +1630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!195 &189010188
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2696,6 +2702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!114 &519596670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3637,6 +3646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!114 &644118029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3656,7 +3668,7 @@ MonoBehaviour:
     skillDesc: 
     skillCoolDown: 1
     coolDownRemain: 0
-    attackDistance: 6
+    attackDistance: 3
     attackAngle: 150
     attackTargetTags:
     - Player
@@ -4503,6 +4515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!195 &1132040691
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10144,8 +10159,8 @@ MonoBehaviour:
   MAXHP: 100
   ATK: 30
   SP: 10
-  DP: 0
-  MAXDP: 0
+  DP: 5
+  MAXDP: 5
   type: 0
   rotateSpeed: 10
   moveSpeed: 4
@@ -10284,6 +10299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!114 &1749028868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11645,6 +11663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!195 &1833902830
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12068,6 +12089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61523a195485f4b89264805d103503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTF: {fileID: 0}
+  targetTags:
+  - Enemy
 --- !u!114 &2117977655
 MonoBehaviour:
   m_ObjectHideFlags: 0
