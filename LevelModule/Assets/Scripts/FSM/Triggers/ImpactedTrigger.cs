@@ -8,21 +8,7 @@ namespace GameDemo.FSM
     {
         public override bool HandleTrigger(FSMBase fsm)
         {
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                return fsm.GetComponentInChildren<CharacterStatus>().IsHurt && fsm.GetComponent<CharacterStatus>().HaveDp == false;
-            }
-            else
-            {
-                if (true)
-                {
-                    return fsm.GetComponent<CharacterStatus>().IsHurt && fsm.GetComponent<CharacterStatus>().HaveDp == false;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+         return fsm.chStatus.IsHurt && !fsm.chStatus.HaveDp;
         }
 
         public override void Init()

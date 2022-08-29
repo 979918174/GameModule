@@ -28,7 +28,7 @@ namespace GameDemo.FSM
         [Tooltip("Ä¬ÈÏ×´Ì¬ID")]
         public FSMStateID defaultStateID;
 
-        public void Start()
+        public void OnEnable()
         {
             InitComponent();
             ConfigFSM();

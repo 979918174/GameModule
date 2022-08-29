@@ -35,19 +35,9 @@ namespace GameDemo.FSM
 
         public void OnDamageChange(FSMBase fsm) 
         {
-            if (fsm.GetComponent<PlayerManager>())
+            if (fsm.chStatus.passFristAttacked)
             {
-                if (fsm.GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().passFristAttacked)
-                {
-                    fsm.anim.SetFloat("attackedSpeed", -1f);
-                }
-            }
-            else
-            {
-                if (fsm.GetComponent<EnemyStatus>().passFristAttacked)
-                {
-                    fsm.anim.SetFloat("attackedSpeed", -1f);
-                }
+                fsm.anim.SetFloat("attackedSpeed", -1f);
             }
         }
 
@@ -58,17 +48,8 @@ namespace GameDemo.FSM
         public override void ExitState(FSMBase fsm)
         {
             fsm.anim.SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.attacked, false);
-            //伤害事件注销判断方法
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                fsm.GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().IsHurt = false;
-                fsm.GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().T_AnimaEnd_Attacked = false;
-            }
-            else
-            {
-                fsm.GetComponent<CharacterStatus>().IsHurt = false;
-                fsm.GetComponent<CharacterStatus>().T_AnimaEnd_Attacked = false;
-            }
+            fsm.chStatus.IsHurt = false;
+            fsm.chStatus.T_AnimaEnd_Attacked = false;
 
         }
     }

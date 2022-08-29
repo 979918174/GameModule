@@ -21,12 +21,7 @@ namespace GameDemo.Character
      
         private void Start()
         {
-            
-            //controller = GetComponent<CharacterController>();
             rigidbody= GetComponent<Rigidbody>();
-            
-            
-
         }
         //注视方向旋转
         public void LookAtTarget(Vector3 direction)
@@ -34,16 +29,13 @@ namespace GameDemo.Character
             //插值
             if (direction == Vector3.zero) return;
             Quaternion LookDir = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, LookDir, GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, LookDir, GetComponent<PlayerStatus>().rotateSpeed * Time.deltaTime);
         }
         //移动
         public void Movement(Vector3 direction)
         {
             LookAtTarget(direction);
-            rigidbody.velocity = direction.normalized * GetComponent<PlayerManager>().currentCharacter.GetComponent<PlayerStatus>().moveSpeed*SpeedUPRate;
-            //Vector3 forward = transform.forward;
-            //forward.y = -1;
-            //controller.Move(transform.forward * Time.deltaTime * moveSpeed);
+            rigidbody.velocity = direction.normalized * GetComponent<PlayerStatus>().moveSpeed*SpeedUPRate;
         }
         public Vector3 shakeRate = new Vector3(0.1f, 0.1f, 0.1f);
         public float shakeTime = 0.5f;

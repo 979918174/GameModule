@@ -23,7 +23,7 @@ namespace GameDemo.FSM
             ShaderSetting.Instance.M_ChangeState(fsm.chStatus);
             //初始化赋值
             characterInputController = fsm.GetComponent<CharacterInputController>();
-            currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
+            currentCharacter = fsm.GetComponentInParent<PlayerManager>().currentCharacter;
             //修改动画参数
             currentCharacter.GetComponentInChildren<Animator>()
                 .SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.changing, true);

@@ -10,24 +10,13 @@ namespace GameDemo.FSM
     /// </summary>
     public class Anima_AttackedEndTrigger : FSMTrigger
     {
-
         public override bool HandleTrigger(FSMBase fsm)
         {
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                return fsm.GetComponentInChildren<CharacterStatus>().T_AnimaEnd_Attacked;
-            }
-            else
-            {
-                return fsm.GetComponent<CharacterStatus>().T_AnimaEnd_Attacked;
-            }
-            
+          return fsm.chStatus.T_AnimaEnd_Attacked;
         }
-
         public override void Init()
         {
             TriggerID = FSMTriggerID.Anima_AttackedEnd;
         }
     }
-
 }

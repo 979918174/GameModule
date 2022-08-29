@@ -19,21 +19,21 @@ namespace GameDemo.Character
         public GameObject CamaraConfig;
         public int index;
         public FSMBase fsmBase;
-        public CharacterInputController inputController;
+        public bool trigger;
+
         public void Awake()
         {
-            inputController = GetComponent<CharacterInputController>();
             MyCharacters.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-            currentCharacter = MyCharacters[0];
-            fsmBase = GetComponent<FSMBase>();
-            index = 0;
-            for (int i = 1; i < MyCharacters.Count; i++)
+            currentCharacter = MyCharacters[0];      
+            foreach (var character in MyCharacters)
             {
-                MyCharacters[i].SetActive(false);
+                character.SetActive(false);
             }
-            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
             currentCharacter.SetActive(true);
-            inputController.currentPlayer = currentCharacter;
+            fsmBase = currentCharacter.GetComponent<FSMBase>();
+            index = 0;
+            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
+            trigger = true;
         }
 
         //初始化状态机参数
@@ -48,68 +48,67 @@ namespace GameDemo.Character
 
         public void ChangeCharacterUp()
         {
-            Vector3 LastPostion = transform.position;
-            Quaternion LastRotation = transform.rotation;
-            
-            
-            
-            currentCharacter.SetActive(false);
-            if (index==MyCharacters.Count-1)
+            if (trigger)
             {
-                currentCharacter = MyCharacters[0];
-                index = 0;
-                for (int i = 0; i < MyCharacters.Count; i++)
+                trigger = false;
+                Vector3 LastPostion = currentCharacter.transform.position;
+                Quaternion LastRotation = currentCharacter.transform.rotation;
+
+                if (MyCharacters.Count <= 1)
                 {
-                    transform.position = LastPostion+new Vector3(0,0,0);
-                    transform.rotation = LastRotation;
+                    Debug.Log("无法替换");
+                }
+                else
+                {
+                    currentCharacter.SetActive(false);
+                    if (MyCharacters.IndexOf(currentCharacter) < MyCharacters.Count - 1)
+                    {
+                        currentCharacter = MyCharacters[MyCharacters.IndexOf(currentCharacter) + 1];
+                    }
+                    else
+                    {
+                        currentCharacter = MyCharacters[0];
+                    }
+                    currentCharacter.transform.position = LastPostion + new Vector3(0, 0, 0);
+                    currentCharacter.transform.rotation = LastRotation;
+                    CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
+                    currentCharacter.SetActive(true);
+                    currentCharacter.GetComponent<CharacterStatus>().InitConditionPar();
+                    trigger = true;
                 }
             }
-            else
-            {
-                currentCharacter = MyCharacters[index + 1];
-                index += 1;
-                for (int i = 0; i < MyCharacters.Count; i++)
-                {
-                    transform.position = LastPostion+new Vector3(0,0,0);
-                    transform.rotation = LastRotation;
-                }
-            }
-            inputController.currentPlayer = currentCharacter;
-            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
-            currentCharacter.SetActive(true);
-            FSMPar();
-            currentCharacter.GetComponent<CharacterStatus>().InitConditionPar();
         }
         public void ChangeCharacterDown()
         {
-            Vector3 LastPostion = transform.position;
-            Quaternion LastRotation = transform.rotation;
-            currentCharacter.SetActive(false);
-            if (index==0)
+            //currentCharacter.GetComponent<CharacterInputController>().inputActions.Player.ChangeDown.canceled -= currentCharacter.GetComponent<CharacterInputController>().ChangeDownOncanceled;
+            if (trigger)
             {
-                currentCharacter = MyCharacters[MyCharacters.Count - 1];
-                index = MyCharacters.Count - 1;
-                for (int i = 0; i < MyCharacters.Count; i++)
+                trigger = false;
+                Vector3 LastPostion = currentCharacter.transform.position;
+                Quaternion LastRotation = currentCharacter.transform.rotation;
+                if (MyCharacters.Count <= 1)
                 {
-                    transform.position = LastPostion+new Vector3(0,0,0);
-                    transform.rotation = LastRotation;
+                    Debug.Log("无法替换");
+                }
+                else
+                {
+                    currentCharacter.SetActive(false);
+                    if (MyCharacters.IndexOf(currentCharacter) > 0)
+                    {
+                        currentCharacter = MyCharacters[MyCharacters.IndexOf(currentCharacter) - 1];
+                    }
+                    else
+                    {
+                        currentCharacter = MyCharacters[MyCharacters.Count - 1];
+                    }
+                    currentCharacter.transform.position = LastPostion + new Vector3(0, 0, 0);
+                    currentCharacter.transform.rotation = LastRotation;
+                    CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
+                    currentCharacter.SetActive(true);
+                    currentCharacter.GetComponent<CharacterStatus>().InitConditionPar();
+                    trigger = true;
                 }
             }
-            else
-            {
-                currentCharacter = MyCharacters[index - 1];
-                index -= 1;
-                for (int i = 0; i < MyCharacters.Count; i++)
-                {
-                    transform.position = LastPostion+new Vector3(0,0,0);
-                    transform.rotation = LastRotation;
-                }
-            }
-            inputController.currentPlayer = currentCharacter;
-            CamaraConfig.GetComponent<CinemachineVirtualCamera>().m_Follow = currentCharacter.transform;
-            currentCharacter.SetActive(true);
-            FSMPar();
-            currentCharacter.GetComponent<CharacterStatus>().InitConditionPar();
         }
     }
 }

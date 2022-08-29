@@ -17,12 +17,11 @@ namespace GameDemo.Character
         public InputAction_1 inputActions;
         public Vector3 moveDis = Vector3.zero;
         public PlayerManager playerManager;
-        public GameObject currentPlayer;
         public void Awake()
         {
             //查找组件InputSystem
             inputActions = new InputAction_1();
-            playerManager = GetComponent<PlayerManager>();
+            playerManager = GetComponentInParent<PlayerManager>();
         }
 
         public void OnEnable()
@@ -74,15 +73,15 @@ namespace GameDemo.Character
         {
             
         }
-        
-        private void ChangeUPOncanceled(InputAction.CallbackContext obj)
+
+        public void ChangeUPOncanceled(InputAction.CallbackContext obj)
         {
-            playerManager.GetComponent<PlayerManager>().ChangeCharacterUp();
+            playerManager.ChangeCharacterUp();
         }
 
-        private void ChangeDownOncanceled(InputAction.CallbackContext obj)
+        public void ChangeDownOncanceled(InputAction.CallbackContext obj)
         {
-            playerManager.GetComponent<PlayerManager>().ChangeCharacterDown();
+            playerManager.ChangeCharacterDown();
         }
 
         private void ChangeDownOnperformed(InputAction.CallbackContext obj)

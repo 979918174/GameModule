@@ -7,7 +7,6 @@ namespace GameDemo.FSM
 {
     public class MoveState : FSMState
     {
-        private GameObject currentCharacter;
         public override void Init()
         {
             StateID = FSMStateID.Move;
@@ -15,18 +14,15 @@ namespace GameDemo.FSM
 
         public override void EnterState(FSMBase fsm)
         {
-            currentCharacter = fsm.GetComponent<PlayerManager>().currentCharacter;
-
             //修改动画参数
-            currentCharacter.GetComponentInChildren<Animator>().SetFloat(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.speedUPRate,currentCharacter.GetComponentInParent<CharacterMotor>().SpeedUPRate);
-            currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.move,true);
-            
+            fsm.anim.SetFloat(fsm.chStatus.CharacterAnimationParameters.speedUPRate,(fsm as FSMBase_Player).characterMotor.SpeedUPRate);
+            fsm.anim.SetBool(fsm.chStatus.CharacterAnimationParameters.move,true);
         }
 
         public override void ActionState(FSMBase fsm)
         {
             //实时赋值动画参数速度
-            currentCharacter.GetComponentInChildren<Animator>().SetFloat(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.speedUPRate, currentCharacter.GetComponentInParent<CharacterMotor>().SpeedUPRate);
+            fsm.anim.SetFloat(fsm.chStatus.CharacterAnimationParameters.speedUPRate, (fsm as FSMBase_Player).characterMotor.SpeedUPRate);
         }
 
         public override void FixActionState(FSMBase fsm)
@@ -38,8 +34,8 @@ namespace GameDemo.FSM
         {
             fsm.GetComponent<Rigidbody>().velocity = Vector3.zero;
             //修改动画参数
-            currentCharacter.GetComponentInChildren<Animator>().SetBool(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.move, false);
-            currentCharacter.GetComponentInChildren<Animator>().SetFloat(currentCharacter.GetComponent<PlayerStatus>().CharacterAnimationParameters.speedUPRate,currentCharacter.GetComponentInParent<CharacterMotor>().SpeedUPRate);
+            fsm.anim.SetBool(fsm.chStatus.CharacterAnimationParameters.move, false);
+            fsm.anim.SetFloat(fsm.chStatus.CharacterAnimationParameters.speedUPRate, (fsm as FSMBase_Player).characterMotor.SpeedUPRate);
             //fsm.GetComponent<CharacterInputController>().B_InputAttack01Start = false;
             base.ExitState(fsm);
         }

@@ -18,30 +18,12 @@ namespace GameDemo.FSM
 
         public override void EnterState(FSMBase fsm)
         {
-            base.EnterState(fsm);
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                fsm.GetComponentInChildren<Transform>().GetComponentInChildren<Animator>().SetBool(fsm.GetComponentInChildren<CharacterStatus>().CharacterAnimationParameters.breakdown, true);
-            }
-            else
-            {
-                fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.breakdown, true);
-            }
-            
+            fsm.anim.SetBool(fsm.chStatus.CharacterAnimationParameters.breakdown, true);  
         }
 
         public override void ExitState(FSMBase fsm)
         {
-            base.ExitState(fsm);
-            //TODO
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                fsm.GetComponentInChildren<Transform>().GetComponentInChildren<Animator>().SetBool(fsm.GetComponentInChildren<CharacterStatus>().CharacterAnimationParameters.breakdown, false);
-            }
-            else
-            {
-                fsm.GetComponentInChildren<Animator>().SetBool(fsm.GetComponent<CharacterStatus>().CharacterAnimationParameters.breakdown, false);
-            }
+            fsm.anim.SetBool(fsm.chStatus.CharacterAnimationParameters.breakdown, false);
         }
     }
 }
