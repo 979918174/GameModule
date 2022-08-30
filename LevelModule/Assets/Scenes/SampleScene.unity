@@ -8978,9 +8978,9 @@ GameObject:
   - component: {fileID: 2102496280}
   - component: {fileID: 2102496279}
   - component: {fileID: 2102496278}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Groud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -10027,6 +10027,10 @@ PrefabInstance:
     - target: {fileID: 8595459259270556505, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595459259270556505, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8595459259270556505, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
       propertyPath: m_Cameras.Array.data[0]
