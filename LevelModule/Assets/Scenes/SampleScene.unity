@@ -1353,7 +1353,7 @@ MonoBehaviour:
   SP: 10
   DP: 1
   MAXDP: 1
-  type: 0
+  type: 1
   rotateSpeed: 10
   moveSpeed: 3
   attackDistance: 0
@@ -9250,7 +9250,7 @@ MonoBehaviour:
   SP: 10
   DP: 1
   MAXDP: 1
-  type: 1
+  type: 2
   rotateSpeed: 10
   moveSpeed: 3
   attackDistance: 0

@@ -42,6 +42,7 @@ namespace GameDemo.Character
             fsmBase.InitComponent();
             fsmBase.InitDefaultState();
             currentCharacter.GetComponent<CharacterStatus>().T_AnimaEnd_Attack01 = true;
+            currentCharacter.GetComponent<CharacterMotor>().SpeedUPRate = 1;
         }
         //初始化判断参数
         
