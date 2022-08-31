@@ -2042,7 +2042,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1867960544}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 15
     NearClipPlane: 0.2
     FarClipPlane: 1000
     Dutch: 0
@@ -2294,6 +2294,36 @@ Transform:
   - {fileID: 503693365}
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &829600147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829600148}
+  m_Layer: 0
+  m_Name: MonsterSpawnMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829600148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829600147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.291916, y: -10.183935, z: 1.1744771}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1052200451 stripped
 Camera:
@@ -9793,7 +9823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855784744859500618, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_Name
-      value: Enemy_P025
+      value: Enemy_P019
       objectReference: {fileID: 0}
     - target: {fileID: 5855784744859500618, guid: 73c6aa4ae5257834c9c4f6f719e75978, type: 3}
       propertyPath: m_IsActive
@@ -10049,8 +10079,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8595459259270556511, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595459259270556511, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595459259270556511, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
+      propertyPath: orthographic size
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8595459259270556511, guid: e4ccc58d7462eab4dafbd05151a6dc68, type: 3}
       propertyPath: m_CullingMask.m_Bits
