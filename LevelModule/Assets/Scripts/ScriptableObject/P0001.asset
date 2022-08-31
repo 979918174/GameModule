@@ -1,26 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262e0657b5bb7ba48b294fdcb43bbefa, type: 3}
-  m_Name: P0001
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  RoleModel: {fileID: 11400000, guid: 4780514e611cc1746acc9047c67e6ff8, type: 2}
-  NormalSkill: {fileID: 11400000, guid: 5d3aebec6c2bd2a4789c39273db8cd67, type: 2}
-  PokemonAttr: {fileID: 11400000, guid: fc2edad85fa32d242a98720cb5c2c306, type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:67cbc5e84213f5fa9616799dce03651e1a3afe7a7872c0a015bdd2ab527c64d8
+size 922
