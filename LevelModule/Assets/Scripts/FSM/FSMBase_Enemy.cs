@@ -33,27 +33,35 @@ namespace GameDemo.FSM
             idle.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
             idle.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
             idle.AddMap(FSMTriggerID.AI_AttackRange,FSMStateID.Enemy_Attack);
+            idle.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
             _states.Add(idle);
 
             Enemy_FindPlayerState enemy_FindPlayerState = new Enemy_FindPlayerState();
             enemy_FindPlayerState.AddMap(FSMTriggerID.Break, FSMStateID.BreakDown);
             enemy_FindPlayerState.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
             enemy_FindPlayerState.AddMap(FSMTriggerID.AI_AttackRange,FSMStateID.Enemy_Attack);
+            enemy_FindPlayerState.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
             _states.Add(enemy_FindPlayerState);
 
 
             BreakDownState breakDownState = new BreakDownState();
             breakDownState.AddMap(FSMTriggerID.BreakToIdle, FSMStateID.Idle);
+            breakDownState.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
             _states.Add(breakDownState);
 
             ImpactedState impactedState = new ImpactedState();
             impactedState.AddMap(FSMTriggerID.Anima_AttackedEnd, FSMStateID.Idle);
+            impactedState.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
             _states.Add(impactedState);
             
             Enemy_AttackState enemyAttackState = new Enemy_AttackState();
             enemyAttackState.AddMap(FSMTriggerID.Impacted, FSMStateID.Impacted);
+            enemyAttackState.AddMap(FSMTriggerID.NoHealth,FSMStateID.Dead);
             enemyAttackState.AddMap(FSMTriggerID.Anima_Attack01End,FSMStateID.Idle);
             _states.Add(enemyAttackState);
+            
+            DeadState deadState = new DeadState();
+            _states.Add(deadState);
         }
 
         public override void InitDefaultState()

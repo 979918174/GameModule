@@ -17,15 +17,7 @@ namespace GameDemo.FSM
 
         public override bool HandleTrigger(FSMBase fsm)
         {
-            if (fsm.GetComponent<PlayerManager>())
-            {
-                return fsm.chStatus.HP <= 0;
-            }
-            else
-            {
-                return false;
-            }
-            
+            return fsm.chStatus.HP <= 0;
         }
     }
 }

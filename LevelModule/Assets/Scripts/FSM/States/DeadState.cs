@@ -18,7 +18,7 @@ namespace GameDemo.FSM
         public override void EnterState(FSMBase fsm)
         {
             base.EnterState(fsm);
-            if (fsm.GetComponent<PlayerManager>())
+            if (fsm.GetComponent<PlayerStatus>())
             {
                 //ÆÁ±Î²Ù×÷
                 //Íæ¼Ò
@@ -34,9 +34,7 @@ namespace GameDemo.FSM
                     //½ûÓÃ×´Ì¬»ú
                     fsm.enabled = false;
                 }
-                
             }
-            
         }
     }
 }

@@ -13,6 +13,7 @@ public class DamageManage : MonoSingleton<DamageManage>
     public GameObject damageCanva_normal;
     public GameObject damageCanva_sesistance;
     public CinemachineImpulseSource cinemachineImpulseSource;
+    public float timescale;
     public void Awake()
     {
         EventCenter.AddListener<GameObject, Transform, SkillData>(EventType.Event_Damage, ApplyDamage);
@@ -56,6 +57,8 @@ public class DamageManage : MonoSingleton<DamageManage>
         Transform trans = target.Find("hitPoint");
         GameObject FX = GameObjectPool.Instance.CreateObject("fx_com_hit", ResourceManager.Load<GameObject>("fx_com_hit"), trans.position, trans.rotation);
         GameObjectPool.Instance.CollectObject(FX, 2f);
+        //¶ÙÖ¡
+        StartCoroutine(HitTimeScale());
     }
 
     //Æ®×Ö·´À¡
@@ -65,5 +68,12 @@ public class DamageManage : MonoSingleton<DamageManage>
         target.position+new Vector3(UnityEngine.Random.Range(-0.5f,0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f)), 
         Quaternion.identity, target).GetComponent<DamageFloat>();
         damageFloat.ShowUIDamage(damage);
+    }
+
+    IEnumerator HitTimeScale()
+    {
+        Time.timeScale = timescale;
+        yield return new WaitForSeconds(0.05f);
+        Time.timeScale = 1;
     }
 }
